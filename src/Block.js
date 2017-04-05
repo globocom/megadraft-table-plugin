@@ -9,7 +9,7 @@ import React, {Component} from "react";
 import {MegadraftPlugin, MegadraftIcons} from "megadraft";
 import TableManagerModal from "./TableManagerModal";
 
-const {BlockContent, BlockData, BlockInput, CommonBlock} = MegadraftPlugin;
+const {BlockContent, CommonBlock} = MegadraftPlugin;
 
 
 export default class Block extends Component {
