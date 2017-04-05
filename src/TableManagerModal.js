@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from "react";
 
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
-import TableManagerForm from "./TableManagerForm";
 
 export default class TableManagerModal extends Component {
 
@@ -10,10 +9,26 @@ export default class TableManagerModal extends Component {
     onSaveRequest: PropTypes.func
   }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this._onCloseRequest = ::this._onCloseRequest;
     this._onSaveRequest = ::this._onSaveRequest;
+    this.onTitleChange = ::this.onTitleChange;
+    // this.onTitleBlur = ::this.onTitleBlur;
+    this.onHeaderStyleChange = ::this.onHeaderStyleChange;
+    this.onSourceChange = ::this.onSourceChange;
+
+    this.state = {
+      data: {
+        title: "",
+        source: "",
+        headerStyle: ""
+      },
+      errors: {
+        title: [],
+        source: []
+      }
+    };
   }
 
   _onCloseRequest() {
@@ -23,12 +38,52 @@ export default class TableManagerModal extends Component {
   }
 
   _onSaveRequest() {
-    if (this.props.onSaveRequest) {
-      this.props.onSaveRequest();
-    }
+    console.log(this.state);
   }
 
+  _changeDataValue(prop, newValue) {
+    const newData = {};
+    newData[prop] = newValue;
+    const data = Object.assign({}, this.state.data, newData);
+    this.setState({data});
+  }
+
+  _setError(prop, error) {
+    const newError = {};
+    newError[prop] = [];
+    if (error) {
+      newError[prop].push(error);
+    }
+    const errors = Object.assign({}, this.state.errors, newError);
+    this.setState({errors});
+  }
+
+  _cleanError(prop) {
+    this._setError(prop, "");
+  }
+
+  onTitleChange(e) {
+    const value = e.target.value;
+    this._changeDataValue("title", value);
+  }
+
+  onHeaderStyleChange(e) {
+    const value = e.target.value;
+    this._changeDataValue("headerStyle", value);
+  }
+
+  onSourceChange(e) {
+    const value = e.target.value;
+    this._changeDataValue("source", value);
+  }
+
+  // onTitleBlur() {
+    // const { data } = this.state;
+    // data.title ? this._cleanError("title") : this._setError("title", "Campo é requirido");
+  // }
+
   render() {
+    const {data, errors} = this.state;
     return (
       <Modal className="table-manager-modal"
              title="Criar"
@@ -36,7 +91,31 @@ export default class TableManagerModal extends Component {
              onCloseRequest={this._onCloseRequest}
              width="90%">
         <ModalBody>
-          <TableManagerForm />
+          <div className="table-manager-modal__form">
+            <InputComponent title="Título"
+                            name="title"
+                            value={data.title}
+                            errors={errors.title}
+                            onChange={this.onTitleChange}
+                            onBlur={this.onTitleBlur} />
+
+            <RadioComponent title="Destaques"
+                            name="header-style"
+                            options={["top", "bottom", "right", "left"]}
+                            selectedOption={data.headerStyle}
+                            onChange={this.onHeaderStyleChange} />
+
+            <AddRemoveComponent title="Linhas" />
+
+            <AddRemoveComponent title="Colunas" />
+
+            <InputComponent title="Fonte"
+                            name="source"
+                            value={data.source}
+                            errors={errors.source}
+                            onChange={this.onSourceChange}  />
+
+          </div>
 
           <div className="table-manager-modal__editable-table">"preview"</div>
         </ModalBody>
@@ -49,3 +128,62 @@ export default class TableManagerModal extends Component {
   }
 
 }
+
+
+const RadioComponent = (
+  { title, name, options, selectedOption = "", onChange }
+) => {
+  return (
+    <FormItem>
+      <label htmlFor={name}>{title}</label>
+      <div className="radio-group">
+        {options.map((option, index) => {
+          return (<label key={name + index}>
+            <input type="radio"
+              name={name}
+              value={option}
+              checked={selectedOption === option}
+              onChange={onChange} /> {option}
+          </label>
+          );
+        })}
+      </div>
+    </FormItem>
+  );
+};
+
+const InputComponent = (
+  { title, name, errors = [], onChange, onBlur, isRequired = true }
+) => {
+  return (
+    <FormItem>
+      <label htmlFor={name}>{title}</label>
+      <input className="bs-ui-input"
+        type="text"
+        name={name}
+        onChange={onChange}
+        onBlur={onBlur} required={isRequired}/>
+      <div className="errors">
+        {errors.map(error => <span>{error}</span>)}
+      </div>
+    </FormItem>
+  );
+};
+
+const FormItem =({children}) => {
+  return (
+    <div className="form-item">
+      {children}
+    </div>
+  );
+};
+
+const AddRemoveComponent = ({title}) => {
+  return (
+    <FormItem>
+      <label>{title}</label>
+      <button className="btn-adicionar">+ Adicionar</button>
+      <button className="btn-remover">X Remover</button>
+    </FormItem>
+  );
+};
