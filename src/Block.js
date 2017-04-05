@@ -16,8 +16,9 @@ export default class Block extends Component {
   constructor(props) {
     super(props);
 
-    this._handleCaptionChange = ::this._handleCaptionChange;
     this._handleEdit = ::this._handleEdit;
+    this._onModalClose = ::this._onModalClose;
+    this._onSave = ::this._onSave;
 
     this.state = {
       isEditing: true
@@ -33,12 +34,12 @@ export default class Block extends Component {
     this.setState({isEditing: true});
   }
 
-  _handleCaptionChange(event) {
-    this.props.container.updateData({caption: event.target.value});
-  }
-
   _onModalClose() {
     this.setState({isEditing: false});
+  }
+
+  _onSave(data) {
+    this.props.container.updateData({...data});
   }
 
   render(){
@@ -48,15 +49,8 @@ export default class Block extends Component {
           <BlockContent>
             <pre>{this.props.data.caption || "- NO TEXT -"}</pre>
           </BlockContent>
-
-          <BlockData>
-            <BlockInput
-              placeholder="Caption"
-              value={this.props.data.caption}
-              onChange={this._handleCaptionChange} />
-          </BlockData>
         </CommonBlock>
-        <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={::this._onModalClose} />
+        <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={this._onModalClose} onSaveRequest={this._onSave} />
       </div>
     );
   }
