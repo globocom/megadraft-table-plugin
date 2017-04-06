@@ -12,7 +12,7 @@ import TableManagerModal from "./TableManagerModal";
 const {BlockContent, CommonBlock} = MegadraftPlugin;
 
 
-export default class Block extends Component {
+export default class TableBlock extends Component {
   constructor(props) {
     super(props);
 
