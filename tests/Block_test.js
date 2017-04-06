@@ -10,16 +10,12 @@ import chai from "chai";
 import sinon from "sinon";
 
 import Block from "../src/Block";
+import TagManagerModal from "../src/TableManagerModal";
 
 let expect = chai.expect;
 
-describe("Block", function () {
+describe("Table Block", function () {
   beforeEach(function () {
-    this.data = {
-      caption: "media caption"
-    };
-
-    this.setReadOnly = sinon.spy();
     this.updateData = sinon.spy();
     this.remove = sinon.spy();
     this.plugin = sinon.spy();
@@ -27,12 +23,11 @@ describe("Block", function () {
     this.wrapper = TestUtils.renderIntoDocument(
       <Block container={this} blockProps={this} data={this.data} />
     );
-
-    this.caption = TestUtils.scryRenderedDOMComponentsWithTag(this.wrapper, "input")[0];
   });
 
-  it("renders caption from data", function () {
-    expect(this.caption.value).to.be.equal(this.data.caption);
+  it("deve abrir popin quando escolhido", function() {
+    const popin = TestUtils.findRenderedComponentWithType(this.wrapper, TagManagerModal);
+    expect(popin.props.isOpen).to.be.true;
   });
 
   it("updates entity on caption change", function () {
