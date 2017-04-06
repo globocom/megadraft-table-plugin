@@ -1,29 +1,52 @@
-# Megadraft Table Plugin - Megadraft Plugin
+# Table Plugin - Megadraft Plugin
 
-## Instalando as dependencias (npm)
+## Usage
+
+Include the plugin in the `plugins` prop of your `Megadraft` instance.
+
+```js
+import React from "react";
+import ReactDOM from "react-dom";
+import Megadraft from "megadraft";
+
+import plugin from "megadraft-table-plugin";
+
+class Example extends React.Component {
+  render(){
+    return (
+      <Megadraft plugins={[plugin]} />
+    );
+  }
+}
+
+ReactDOM.render(<Example />, document.getElementById("container"));
+```
+
+## Contributing
+
+Install, run, test.
 
 ```
+# Install npm dependencies
 make setup
-```
-
-## Rodando o dev-server
-
-```
+# Gulp dev-server task with webpack + sass running on http://localhost:8080/
 make run
-open http://localhost:8080/demo
-```
-
-## Testando
-
-Para rodar os testes + eslint
-
-```
+# Run mocha tests + eslint
 make test
 ```
 
-Se você está constantemente rodando testes, existe uma alternativa mais rápida
-utilizando watch:
+If you're constantly running tests, there's a faster alternative using mocha's
+watch feature:
 
 ```
 make watch_unit
+```
+
+## Releasing
+
+There's a `prepublish` script entry on `package.json` that runs build tasks
+before publishing the package.
+
+```
+npm publish
 ```
