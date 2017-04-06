@@ -7,7 +7,7 @@
 import {MegadraftIcons} from "megadraft";
 
 import Button from "./Button";
-import Block from "./Block";
+import TableBlock from "./Block";
 import constants from "./constants";
 
 
@@ -15,7 +15,7 @@ export default {
   title: "Megadraft Table Plugin",
   type: constants.PLUGIN_TYPE,
   buttonComponent: Button,
-  blockComponent: Block,
+  blockComponent: TableBlock,
   options: {
     defaultDisplay: "medium",
     displayOptions: [
