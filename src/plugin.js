@@ -10,7 +10,7 @@ import constants from "./constants";
 
 
 export default {
-  title: "Megadraft Table Plugin",
+  title: "Table",
   type: constants.PLUGIN_TYPE,
   buttonComponent: Button,
   blockComponent: TableBlock,
