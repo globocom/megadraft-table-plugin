@@ -13,10 +13,7 @@ export default class TableManagerModal extends Component {
     super(props);
     this._onCloseRequest = ::this._onCloseRequest;
     this._onSaveRequest = ::this._onSaveRequest;
-    this.onTitleChange = ::this.onTitleChange;
-    // this.onTitleBlur = ::this.onTitleBlur;
-    this.onHeaderStyleChange = ::this.onHeaderStyleChange;
-    this.onSourceChange = ::this.onSourceChange;
+    this.onFormItemChange = ::this.onFormItemChange;
 
     this.state = {
       data: {
@@ -62,19 +59,9 @@ export default class TableManagerModal extends Component {
     this._setError(prop, "");
   }
 
-  onTitleChange(e) {
-    const value = e.target.value;
-    this._changeDataValue("title", value);
-  }
-
-  onHeaderStyleChange(e) {
-    const value = e.target.value;
-    this._changeDataValue("headerStyle", value);
-  }
-
-  onSourceChange(e) {
-    const value = e.target.value;
-    this._changeDataValue("source", value);
+  onFormItemChange(e) {
+    const {name, value} = e.target;
+    this._changeDataValue(name, value);
   }
 
   // onTitleBlur() {
@@ -96,14 +83,14 @@ export default class TableManagerModal extends Component {
                             name="title"
                             value={data.title}
                             errors={errors.title}
-                            onChange={this.onTitleChange}
+                            onChange={this.onFormItemChange}
                             onBlur={this.onTitleBlur} />
 
             <RadioComponent title="Destaques"
                             name="header-style"
                             options={["top", "bottom", "right", "left"]}
                             selectedOption={data.headerStyle}
-                            onChange={this.onHeaderStyleChange} />
+                            onChange={this.onFormItemChange} />
 
             <AddRemoveComponent title="Linhas" />
 
@@ -113,7 +100,7 @@ export default class TableManagerModal extends Component {
                             name="source"
                             value={data.source}
                             errors={errors.source}
-                            onChange={this.onSourceChange}  />
+                            onChange={this.onFormItemChange}  />
 
           </div>
 
