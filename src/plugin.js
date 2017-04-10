@@ -4,24 +4,18 @@
  * License: MIT
  */
 
-import {MegadraftIcons} from "megadraft";
-
 import Button from "./Button";
-import Block from "./Block";
+import TableBlock from "./Block";
 import constants from "./constants";
 
 
 export default {
-  title: "Megadraft Table Plugin",
+  title: "Table",
   type: constants.PLUGIN_TYPE,
   buttonComponent: Button,
-  blockComponent: Block,
+  blockComponent: TableBlock,
   options: {
-    defaultDisplay: "medium",
-    displayOptions: [
-      {"key": "small", "icon": MegadraftIcons.MediaSmallIcon, "label": "SMALL"},
-      {"key": "medium", "icon": MegadraftIcons.MediaMediumIcon, "label": "MEDIUM"},
-      {"key": "big", "icon": MegadraftIcons.MediaBigIcon, "label": "BIG"}
-    ]
+    displayOptions: [],
+    defaultDisplay: null
   }
 };
