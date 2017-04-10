@@ -1,4 +1,5 @@
-# Table Plugin - Megadraft Plugin
+# Table Plugin - Megadraft Plugin [![Build Status](https://secure.travis-ci.org/globocom/megadraft-table-plugin.png?branch=master)](https://travis-ci.org/globocom/megadraft-table-plugin) [![npm version](https://img.shields.io/npm/v/megadraft-table-plugin.svg?style=flat)](https://www.npmjs.com/package/megadraft-table-plugin)
+
 
 ## Usage
 
