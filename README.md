@@ -1,4 +1,4 @@
-# Table Plugin - Megadraft Plugin
+# Table Plugin - Megadraft Plugin [![Build Status](https://secure.travis-ci.org/globocom/megadraft-table-plugin.png?branch=master)](https://travis-ci.org/globocom/megadraft-table-plugin)
 
 ## Usage
 
