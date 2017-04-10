@@ -7,7 +7,7 @@ Include the plugin in the `plugins` prop of your `Megadraft` instance.
 ```js
 import React from "react";
 import ReactDOM from "react-dom";
-import MegadraftEditor from "megadraft";
+import {MegadraftEditor} from "megadraft";
 
 import plugin from "megadraft-table-plugin";
 
