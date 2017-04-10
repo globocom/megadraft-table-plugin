@@ -1,9 +1,6 @@
 # Table Plugin - Megadraft Plugin
 [![Build Status](https://secure.travis-ci.org/globocom/megadraft-table-plugin.png?branch=master)](https://travis-ci.org/globocom/megadraft-table-plugin) [![Dependencies](https://david-dm.org/globocom/megadraft-table-plugin/status.svg)](https://david-dm.org/globocom/megadraft-table-plugin) [![Dev Dependencies](https://david-dm.org/globocom/megadraft-table-plugin/dev-status.svg)](https://david-dm.org/globocom/megadraft-table-plugin?type=dev)
 
-https://david-dm.org/globocom/megadraft-table-plugin
-
-https://david-dm.org/globocom/megadraft-table-plugin?type=dev
 ## Usage
 
 Include the plugin in the `plugins` prop of your `Megadraft` instance.
