@@ -36,46 +36,44 @@ describe("Table Block", function () {
   });
 
   describe("when new block is added" , function() {
-    let block;
 
     beforeEach(function() {
       const data = createData();
-      block = mount(<TableBlock container={container} blockProps={container} data={data} />);
+      this.block = mount(<TableBlock container={container} blockProps={container} data={data} />);
+      this.popin = this.block.find(TableManagerModal);
     });
 
     it("editable popin should be open", function() {
-      const popin = block.find(TableManagerModal);
-      expect(popin.prop("isOpen")).to.be.true;
+      expect(this.popin.prop("isOpen")).to.be.true;
     });
 
     it("on close popin should delete block when don't have any data saved", function() {
       const closeButton = document.querySelector(".bs-modal__close");
       TestUtils.Simulate.click(closeButton);
-      expect(block.state("isEditing")).to.be.false;
+      expect(this.block.state("isEditing")).to.be.false;
       expect(container.remove.calledOnce).to.be.true;
     });
 
   });
 
   describe("when is a old block" , function() {
-    let block;
 
     beforeEach(function() {
       const data = createData({isFirstTime: false});
-      block = mount(<TableBlock container={container} blockProps={container} data={data} />);
+      this.block = mount(<TableBlock container={container} blockProps={container} data={data} />);
+      this.popin = this.block.find(TableManagerModal);
     });
 
     it("editable popin should be close", function() {
-      const popin = block.find(TableManagerModal);
-      expect(popin.prop("isOpen")).to.be.false;
+      expect(this.popin.prop("isOpen")).to.be.false;
     });
 
     it("editable popin should open when EditButton was clicked", function() {
-      const editButton = block.find(MegadraftPlugin.BlockAction).first();
+      const editButton = this.block.find(MegadraftPlugin.BlockAction).first();
 
       editButton.simulate("click");
 
-      expect(block.find(TableManagerModal).prop("isOpen")).to.be.true;
+      expect(this.block.find(TableManagerModal).prop("isOpen")).to.be.true;
     });
 
   });
