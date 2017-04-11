@@ -1,5 +1,5 @@
 # WIP - Table Plugin - Megadraft Plugin
-[![Build Status](https://secure.travis-ci.org/globocom/megadraft-table-plugin.png?branch=master)](https://travis-ci.org/globocom/megadraft-table-plugin) [![Dependencies](https://david-dm.org/globocom/megadraft-table-plugin/status.svg)](https://david-dm.org/globocom/megadraft-table-plugin) [![Dev Dependencies](https://david-dm.org/globocom/megadraft-table-plugin/dev-status.svg)](https://david-dm.org/globocom/megadraft-table-plugin?type=dev)
+[![Build Status](https://secure.travis-ci.org/globocom/megadraft-table-plugin.png?branch=master)](https://travis-ci.org/globocom/megadraft-table-plugin) [![Dependencies](https://david-dm.org/globocom/megadraft-table-plugin/status.svg)](https://david-dm.org/globocom/megadraft-table-plugin) [![Dev Dependencies](https://david-dm.org/globocom/megadraft-table-plugin/dev-status.svg)](https://david-dm.org/globocom/megadraft-table-plugin?type=dev) [![Test Coverage](https://codeclimate.com/github/globocom/megadraft-table-plugin/badges/coverage.svg)](https://codeclimate.com/github/globocom/megadraft-table-plugin/coverage)
 
 ## Usage
 
