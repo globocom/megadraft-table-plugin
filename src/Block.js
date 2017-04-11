@@ -21,7 +21,8 @@ export default class TableBlock extends Component {
     this._onSave = ::this._onSave;
 
     this.state = {
-      isEditing: true
+      isEditing: this.props.data.isFirstTime,
+      isFirstTime: this.props.data.isFirstTime
     };
 
     this.actions = [
@@ -31,14 +32,28 @@ export default class TableBlock extends Component {
   }
 
   _handleEdit() {
-    this.setState({isEditing: true});
+    this.setState({
+      isEditing: true,
+      isFirstTime: false
+    });
   }
 
   _onModalClose() {
+    if (!this.state.isEditing) {
+      return;
+    }
     this.setState({isEditing: false});
+    if (this.state.isFirstTime) {
+      this.props.container.remove();
+    }
   }
 
   _onSave(data) {
+    this.setState({
+      isEditing: false,
+      isFirstTime: false
+    });
+
     this.props.container.updateData({...data});
   }
 
@@ -47,7 +62,6 @@ export default class TableBlock extends Component {
       <div>
         <CommonBlock {...this.props} actions={this.actions}>
           <BlockContent>
-            <pre>{this.props.data.caption || "- NO TEXT -"}</pre>
           </BlockContent>
         </CommonBlock>
         <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={this._onModalClose} onSaveRequest={this._onSave} />

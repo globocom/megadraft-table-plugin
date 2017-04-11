@@ -20,6 +20,7 @@ export default class Button extends Component {
   onClick(e) {
     const data = {
       type: constants.PLUGIN_TYPE,
+      isFirstTime: true,
       caption: "Initial plugin text"
     };
 

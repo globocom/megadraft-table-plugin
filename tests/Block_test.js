@@ -6,28 +6,77 @@
 
 import React from "react";
 import TestUtils from "react-addons-test-utils";
+import {unmountComponentAtNode} from "react-dom";
+
+import {mount} from "enzyme";
 import chai from "chai";
 import sinon from "sinon";
 
+import {MegadraftPlugin} from "megadraft";
 import TableBlock from "../src/Block";
-import TagManagerModal from "../src/TableManagerModal";
+import TableManagerModal from "../src/TableManagerModal";
 
-let expect = chai.expect;
+const expect = chai.expect;
 
 describe("Table Block", function () {
-  beforeEach(function () {
-    this.remove = sinon.spy();
-    this.plugin = sinon.spy();
-    this.data = {caption: ""};
 
-    this.wrapper = TestUtils.renderIntoDocument(
-      <TableBlock container={this} blockProps={this} data={this.data} />
-    );
+  const createData = function(data = {}) {
+    return Object.assign({isFirstTime: true}, data);
+  };
+
+  const container = {
+    remove: sinon.spy(),
+    plugin: sinon.spy(),
+    setReadOnly: sinon.spy()
+  };
+
+  afterEach(function() {
+    unmountComponentAtNode(document);
+    document.body.innerHTML = "";
   });
 
-  it("deve abrir popin quando escolhido", function() {
-    const popin = TestUtils.findRenderedComponentWithType(this.wrapper, TagManagerModal);
-    expect(popin.props.isOpen).to.be.true;
+  describe("when new block is added" , function() {
+    let block;
+
+    beforeEach(function() {
+      const data = createData();
+      block = mount(<TableBlock container={container} blockProps={container} data={data} />);
+    });
+
+    it("editable popin should be open", function() {
+      const popin = block.find(TableManagerModal);
+      expect(popin.prop("isOpen")).to.be.true;
+    });
+
+    it("on close popin should delete block when don't have any data saved", function() {
+      const closeButton = document.querySelector(".bs-modal__close");
+      TestUtils.Simulate.click(closeButton);
+      expect(block.state("isEditing")).to.be.false;
+      expect(container.remove.calledOnce).to.be.true;
+    });
+
   });
 
+  describe("when is a old block" , function() {
+    let block;
+
+    beforeEach(function() {
+      const data = createData({isFirstTime: false});
+      block = mount(<TableBlock container={container} blockProps={container} data={data} />);
+    });
+
+    it("editable popin should be close", function() {
+      const popin = block.find(TableManagerModal);
+      expect(popin.prop("isOpen")).to.be.false;
+    });
+
+    it("editable popin should open when EditButton was clicked", function() {
+      const editButton = block.find(MegadraftPlugin.BlockAction).first();
+
+      editButton.simulate("click");
+
+      expect(block.find(TableManagerModal).prop("isOpen")).to.be.true;
+    });
+
+  });
 });

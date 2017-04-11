@@ -19,7 +19,13 @@ export default class TableManagerModal extends Component {
       data: {
         title: "",
         source: "",
-        headerStyle: ""
+        headerStyle: {
+          top: false,
+          bottom: false,
+          right: false,
+          left: false
+        },
+        rows: [[], []]
       },
       errors: {
         title: [],
@@ -29,9 +35,7 @@ export default class TableManagerModal extends Component {
   }
 
   _onCloseRequest() {
-    if (this.props.onCloseRequest) {
-      this.props.onCloseRequest();
-    }
+    this.props.onCloseRequest();
   }
 
   _onSaveRequest() {
