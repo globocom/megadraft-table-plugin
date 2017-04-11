@@ -18,6 +18,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
+    "codeclimate-test-reporter": "^0.4.1",
     "es6-shim": "^0.35.0",
     "eslint": "^2.4.0",
     "eslint-plugin-mocha": "^4.1.0",
@@ -44,6 +45,7 @@
   "scripts": {
     "start": "gulp dev-server",
     "test": "nyc mocha --opts mocha.opts",
+    "coverage": "nyc mocha report --reporter=text-lcov | codeclimate-test-reporter",
     "test:watch": "mocha -w --opts mocha.opts",
     "build:css": "gulp sass",
     "build:lib": "babel src/ -d lib/",

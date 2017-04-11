@@ -8,3 +8,9 @@ cache:
   directories:
     - node_modules
 
+after_success:
+  npm run coverage
+
+addons:
+  code_climate:
+    repo_token: fc5a7f87ad61c070b98dbaea066b9cd15eab8735387db0a2b86a013860c1a46d
