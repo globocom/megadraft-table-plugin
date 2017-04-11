@@ -28,8 +28,7 @@ export default class TableManagerModal extends Component {
         rows: [[], []]
       },
       errors: {
-        title: [],
-        source: []
+        title: []
       }
     };
   }
@@ -39,7 +38,18 @@ export default class TableManagerModal extends Component {
   }
 
   _onSaveRequest() {
-    console.log(this.state);
+    if (this.isValid()) {
+      this.props.onSaveRequest(this.state);
+    }
+  }
+
+  isValid() {
+    let newErrors = {title: []};
+    if (this.state.data.title === "") {
+      newErrors.title = ["Campo requirido"];
+      this.setState({errors: newErrors});
+    }
+    return newErrors.title.length === 0;
   }
 
   _changeDataValue(prop, newValue) {
@@ -49,29 +59,10 @@ export default class TableManagerModal extends Component {
     this.setState({data});
   }
 
-  _setError(prop, error) {
-    const newError = {};
-    newError[prop] = [];
-    if (error) {
-      newError[prop].push(error);
-    }
-    const errors = Object.assign({}, this.state.errors, newError);
-    this.setState({errors});
-  }
-
-  _cleanError(prop) {
-    this._setError(prop, "");
-  }
-
   onFormItemChange(e) {
     const {name, value} = e.target;
     this._changeDataValue(name, value);
   }
-
-  // onTitleBlur() {
-    // const { data } = this.state;
-    // data.title ? this._cleanError("title") : this._setError("title", "Campo é requirido");
-  // }
 
   render() {
     const {data, errors} = this.state;
@@ -88,7 +79,7 @@ export default class TableManagerModal extends Component {
                             value={data.title}
                             errors={errors.title}
                             onChange={this.onFormItemChange}
-                            onBlur={this.onTitleBlur} />
+                            />
 
             <RadioComponent title="Destaques"
                             name="header-style"
@@ -155,7 +146,7 @@ const InputComponent = (
         onChange={onChange}
         onBlur={onBlur} required={isRequired}/>
       <div className="errors">
-        {errors.map(error => <span>{error}</span>)}
+        {errors.map( (error, index) => <span key={index}>{error}</span>)}
       </div>
     </FormItem>
   );
