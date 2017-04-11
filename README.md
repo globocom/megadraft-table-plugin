@@ -8,14 +8,14 @@ Include the plugin in the `plugins` prop of your `Megadraft` instance.
 ```js
 import React from "react";
 import ReactDOM from "react-dom";
-import Megadraft from "megadraft";
+import {MegadraftEditor} from "megadraft";
 
 import plugin from "megadraft-table-plugin";
 
 class Example extends React.Component {
   render(){
     return (
-      <Megadraft plugins={[plugin]} />
+      <MegadraftEditor plugins={[plugin]} />
     );
   }
 }
