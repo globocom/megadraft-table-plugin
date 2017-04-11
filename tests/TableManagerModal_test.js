@@ -67,4 +67,16 @@ describe("TableManagerModal", function () {
 
   });
 
+  describe("Title", function() {
+
+    it("should update state when input changes", function() {
+      expect(this.tableManagerModal.state().data.title).to.be.equals("");
+      const titleInput = document.querySelector(".bs-modal input[name=\"title\"]");
+      titleInput.value = "Blo";
+      TestUtils.Simulate.change(titleInput);
+      expect(this.tableManagerModal.state().data.title).to.be.equals("Blo");
+    });
+
+  });
+
 });

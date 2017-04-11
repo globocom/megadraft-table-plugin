@@ -47,8 +47,8 @@ export default class TableManagerModal extends Component {
     let newErrors = {title: []};
     if (this.state.data.title === "") {
       newErrors.title = ["Campo requirido"];
-      this.setState({errors: newErrors});
     }
+    this.setState({errors: newErrors});
     return newErrors.title.length === 0;
   }
 
