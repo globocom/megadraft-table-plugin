@@ -137,4 +137,19 @@ describe("TableManagerModal", function () {
 
   });
 
+  describe("Add or Remove Rows", function() {
+
+    describe("Add", function() {
+
+      it("should add a new row", function() {
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(0);
+        const btnAddRow = document.querySelector(".bs-modal .add-remove-rows .btn-add");
+        TestUtils.Simulate.click(btnAddRow);
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
+      });
+
+    });
+
+  });
+
 });

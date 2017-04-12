@@ -8,9 +8,9 @@ import React from "react";
 
 import {FormItem} from "./FormComponents";
 
-export function AddRemove({title, onAdd, onRemove}) {
+export function AddRemove({title, className, onAdd, onRemove}) {
   return (
-    <FormItem>
+    <FormItem className={className}>
       <label>{title}</label>
       <button className="btn-add" onClick={onAdd}>+ Adicionar</button>
       <button className="btn-remove" onClick={onRemove}>X Remover</button>

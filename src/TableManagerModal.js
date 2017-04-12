@@ -23,6 +23,7 @@ export default class TableManagerModal extends Component {
     super(props);
     this._onSaveRequest = ::this._onSaveRequest;
     this.onFormItemChange = ::this.onFormItemChange;
+    this.addLine = ::this.addLine;
 
     this.state = {
       data: {
@@ -34,7 +35,7 @@ export default class TableManagerModal extends Component {
           right: false,
           left: false
         },
-        rows: [[], []]
+        rows: []
       },
       errors: {
         title: []
@@ -68,6 +69,12 @@ export default class TableManagerModal extends Component {
     this._changeDataValue(name, value);
   }
 
+  addLine() {
+    const rows = this.state.data.rows.slice();
+    rows.push([]);
+    this._changeDataValue("rows", rows);
+  }
+
   render() {
     const {data, errors} = this.state;
     return (
@@ -88,7 +95,10 @@ export default class TableManagerModal extends Component {
               selectedOptions={data.headerStyle}
               onChange={this.onFormItemChange}/>
 
-            <AddRemove title="Linhas" />
+            <AddRemove
+              className="add-remove-rows"
+              title="Linhas"
+              onAdd={this.addLine}/>
 
             <AddRemove title="Colunas" />
 

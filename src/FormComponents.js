@@ -6,9 +6,9 @@
 
 import React from "react";
 
-export function FormItem({children}) {
+export function FormItem({children, className = ""}) {
   return (
-    <div className="bs-ui-input">
+    <div className={`bs-ui-input ${className}`} >
       {children}
     </div>
   );
