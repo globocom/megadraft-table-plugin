@@ -53,8 +53,7 @@ export default class TableManagerModal extends Component {
   }
 
   _changeDataValue(prop, newValue) {
-    const newData = {};
-    newData[prop] = newValue;
+    const newData = { [prop]: newValue };
     const data = Object.assign({}, this.state.data, newData);
     this.setState({data});
   }
@@ -81,11 +80,9 @@ export default class TableManagerModal extends Component {
                             onChange={this.onFormItemChange}
                             />
 
-            <RadioComponent title="Destaques"
-                            name="header-style"
-                            options={["top", "bottom", "right", "left"]}
-                            selectedOption={data.headerStyle}
-                            onChange={this.onFormItemChange} />
+            <HeaderStyle name="headerStyle"
+              selectedOptions={data.headerStyle}
+              onChange={this.onFormItemChange}/>
 
             <AddRemoveComponent title="Linhas" />
 
@@ -111,27 +108,35 @@ export default class TableManagerModal extends Component {
 
 }
 
+const HeaderStyle = ({name, onChange, selectedOptions}) => {
 
-const RadioComponent = (
-  { title, name, options, selectedOption = "", onChange }
-) => {
+  const _onChange = function(e) {
+    let value = {
+      top: selectedOptions.top,
+      bottom: selectedOptions.bottom,
+      right: selectedOptions.right,
+      left: selectedOptions.left
+    };
+    value[e.target.value] = e.target.checked;
+    onChange({ target: { name, value } });
+  };
+
   return (
     <FormItem>
-      <label htmlFor={name}>{title}</label>
-      <div className="radio-group">
-        {options.map((option, index) => {
-          return (<label key={name + index}>
-            <input type="radio"
-              name={name}
-              value={option}
-              checked={selectedOption === option}
-              onChange={onChange} /> {option}
-          </label>
-          );
-        })}
-      </div>
+      <label>Destaques</label>
+      <label><Checkbox className="header-style" name="header-style" value="top" onChange={_onChange} /> TOP</label>
+      <label><Checkbox className="header-style" name="header-style" value="bottom" onChange={_onChange} /> BOTTOM</label>
+      <label><Checkbox className="header-style" name="header-style" value="right" onChange={_onChange} /> RIGHT</label>
+      <label><Checkbox className="header-style" name="header-style" value="left" onChange={_onChange} /> LEFT</label>
     </FormItem>
   );
+
+};
+
+const Checkbox = (
+  {name, value, isChecked, className, onChange}
+) => {
+  return <input type="checkbox" className={className} name={name} checked={isChecked} value={value} onChange={onChange} />;
 };
 
 const InputComponent = (

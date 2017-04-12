@@ -19,7 +19,13 @@ const expect = chai.expect;
 describe("TableManagerModal", function () {
 
   const validData = {
-    title: "Bloblo"
+    title: "Bloblo",
+    headerStyle: {
+      top: true,
+      bottom: false,
+      right: false,
+      left: false
+    }
   };
 
   beforeEach(function() {
@@ -75,6 +81,36 @@ describe("TableManagerModal", function () {
       titleInput.value = "Blo";
       TestUtils.Simulate.change(titleInput);
       expect(this.tableManagerModal.state().data.title).to.be.equals("Blo");
+    });
+
+  });
+
+  describe("Header Style", function() {
+
+    const testChangeHeadeStyle = function(position) {
+      it(`should update state when header-style-${position} is clicked`, function() {
+        expect(this.tableManagerModal.state().data.headerStyle[position]).to.be.false;
+        const headeStyleCheckbox = document.querySelector(`.bs-modal input[name="header-style"][value="${position}"]`);
+        headeStyleCheckbox.checked = true;
+        TestUtils.Simulate.change(headeStyleCheckbox);
+        expect(this.tableManagerModal.state().data.headerStyle[position]).to.be.true;
+      });
+    };
+
+    testChangeHeadeStyle("top");
+    testChangeHeadeStyle("bottom");
+    testChangeHeadeStyle("right");
+    testChangeHeadeStyle("left");
+
+    it("should maintain the state of others options", function() {
+      this.tableManagerModal.setState({data: validData});
+      const headeStyleCheckbox = document.querySelector(".bs-modal input[name=\"header-style\"][value=\"bottom\"]");
+      headeStyleCheckbox.checked = true;
+      TestUtils.Simulate.change(headeStyleCheckbox);
+      expect(this.tableManagerModal.state().data.headerStyle.top).to.be.true;
+      expect(this.tableManagerModal.state().data.headerStyle.bottom).to.be.true;
+      expect(this.tableManagerModal.state().data.headerStyle.right).to.be.false;
+      expect(this.tableManagerModal.state().data.headerStyle.left).to.be.false;
     });
 
   });
