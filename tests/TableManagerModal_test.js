@@ -58,7 +58,7 @@ describe("TableManagerModal", function () {
 
     it("save callback should be called when is valid", function(done) {
       this.tableManagerModal.setState({data: validData}, () => {
-        const addButton = document.querySelector(".bs-button");
+        const addButton = document.querySelector(".table-manager-modal__add-button");
         TestUtils.Simulate.click(addButton);
         expect(this.onSaveRequest.calledOnce).to.be.true;
         done();
@@ -66,7 +66,7 @@ describe("TableManagerModal", function () {
     });
 
     it("save callback should not be called when is invalid", function() {
-      const addButton = document.querySelector(".bs-button");
+      const addButton = document.querySelector(".table-manager-modal__add-button");
       TestUtils.Simulate.click(addButton);
       expect(this.onSaveRequest.notCalled).to.be.true;
     });

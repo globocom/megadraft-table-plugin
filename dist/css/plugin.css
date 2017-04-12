@@ -22,14 +22,6 @@
           justify-content: flex-end;
 }
 
-.table-manager-modal .form-item label {
-  display: block;
-}
-
-.table-manager-modal .form-item:not(:first-of-type) {
-  margin-top: 1rem;
-}
-
 .table-manager-modal__form {
   padding: 1rem;
   width: 33%;
@@ -40,4 +32,13 @@
 .table-manager-modal__editable-table {
   width: 67%;
   background-color: #ededed;
+}
+
+.table-manager-modal .bs-ui-input {
+  padding-bottom: 10px;
+}
+
+.table-manager-modal .bs-ui-input .bs-ui-checkbox {
+  display: block;
+  padding-bottom: 10px;
 }
