@@ -56,7 +56,7 @@ describe("Table Block", function () {
 
   });
 
-  describe("when is a old block" , function() {
+  describe("when is an old block" , function() {
 
     beforeEach(function() {
       const data = createData({isFirstTime: false});
