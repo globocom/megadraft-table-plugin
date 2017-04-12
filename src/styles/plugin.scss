@@ -8,7 +8,7 @@
  * YOUR STYLES HERE
  */
 
- .table-manager-modal {
+.table-manager-modal {
 
   .bs-modal__body {
     padding: 0 !important;
@@ -18,16 +18,6 @@
   .bs-modal__footer {
     display: flex;
     justify-content: flex-end;
-  }
-
-  .form-item {
-    label {
-      display: block;
-    }
-
-    &:not(:first-of-type) {
-      margin-top: 1rem;
-    }
   }
 
   &__form {
@@ -42,6 +32,12 @@
     background-color: rgb(237, 237, 237);
   }
 
+  .bs-ui-input {
+    padding-bottom: 10px;
 
-
- }
+    .bs-ui-checkbox {
+      display: block;
+      padding-bottom: 10px;
+    }
+  }
+}

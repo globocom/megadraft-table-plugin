@@ -22,11 +22,35 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
 
   return (
     <FormItem>
-      <label>Destaques</label>
-      <label><Checkbox className="header-style" name="header-style" value="top" onChange={_onChange} isChecked={selectedOptions.top}/> TOP</label>
-      <label><Checkbox className="header-style" name="header-style" value="bottom" onChange={_onChange} isChecked={selectedOptions.bottom} /> BOTTOM</label>
-      <label><Checkbox className="header-style" name="header-style" value="right" onChange={_onChange} isChecked={selectedOptions.right} /> RIGHT</label>
-      <label><Checkbox className="header-style" name="header-style" value="left" onChange={_onChange} isChecked={selectedOptions.left} /> LEFT</label>
+      <label className="bs-ui-input__label">Destaque</label>
+      <label className="bs-ui-checkbox">
+        <Checkbox className="header-style"
+          name="header-style"
+          value="top"
+          onChange={_onChange}
+          isChecked={selectedOptions.top}/>TOP
+      </label>
+      <label className="bs-ui-checkbox">
+        <Checkbox className="header-style"
+          name="header-style"
+          value="bottom"
+          onChange={_onChange}
+          isChecked={selectedOptions.bottom} />BOTTOM
+      </label>
+      <label className="bs-ui-checkbox">
+        <Checkbox className="header-style"
+          name="header-style"
+          value="right"
+          onChange={_onChange}
+          isChecked={selectedOptions.right} />RIGHT
+      </label>
+      <label className="bs-ui-checkbox">
+        <Checkbox className="header-style"
+          name="header-style"
+          value="left"
+          onChange={_onChange}
+          isChecked={selectedOptions.left} />LEFT
+      </label>
     </FormItem>
   );
 }
