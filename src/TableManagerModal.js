@@ -2,6 +2,9 @@ import React, {Component, PropTypes} from "react";
 
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 
+import {HeaderStyle} from "./HeaderStyle";
+import {InputComponent, FormItem} from "./FormComponents";
+
 export default class TableManagerModal extends Component {
 
   static propTypes = {
@@ -107,63 +110,6 @@ export default class TableManagerModal extends Component {
   }
 
 }
-
-const HeaderStyle = ({name, onChange, selectedOptions}) => {
-
-  const _onChange = function(e) {
-    let value = {
-      top: selectedOptions.top,
-      bottom: selectedOptions.bottom,
-      right: selectedOptions.right,
-      left: selectedOptions.left
-    };
-    value[e.target.value] = e.target.checked;
-    onChange({ target: { name, value } });
-  };
-
-  return (
-    <FormItem>
-      <label>Destaques</label>
-      <label><Checkbox className="header-style" name="header-style" value="top" onChange={_onChange} isChecked={selectedOptions.top}/> TOP</label>
-      <label><Checkbox className="header-style" name="header-style" value="bottom" onChange={_onChange} isChecked={selectedOptions.bottom} /> BOTTOM</label>
-      <label><Checkbox className="header-style" name="header-style" value="right" onChange={_onChange} isChecked={selectedOptions.right} /> RIGHT</label>
-      <label><Checkbox className="header-style" name="header-style" value="left" onChange={_onChange} isChecked={selectedOptions.left} /> LEFT</label>
-    </FormItem>
-  );
-
-};
-
-const Checkbox = (
-  {name, value, isChecked, className, onChange}
-) => {
-  return <input type="checkbox" className={className} name={name} checked={isChecked} value={value} onChange={onChange} />;
-};
-
-const InputComponent = (
-  { title, name, errors = [], onChange, onBlur, isRequired = true }
-) => {
-  return (
-    <FormItem>
-      <label htmlFor={name}>{title}</label>
-      <input className="bs-ui-input"
-        type="text"
-        name={name}
-        onChange={onChange}
-        onBlur={onBlur} required={isRequired}/>
-      <div className="errors">
-        {errors.map( (error, index) => <span key={index}>{error}</span>)}
-      </div>
-    </FormItem>
-  );
-};
-
-const FormItem =({children}) => {
-  return (
-    <div className="form-item">
-      {children}
-    </div>
-  );
-};
 
 const AddRemoveComponent = ({title}) => {
   return (
