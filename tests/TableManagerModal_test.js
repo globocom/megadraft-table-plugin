@@ -87,6 +87,15 @@ describe("TableManagerModal", function () {
 
   describe("Header Style", function() {
 
+    const getHeaderStyleObj = function() {
+      return {
+        top: false,
+        bottom: false,
+        right: false,
+        left: false
+      };
+    };
+
     const getHeaderCheckboxDOM = function(position) {
       return document.querySelector(`.bs-modal input[name="header-style"][value="${position}"]`);
     };
@@ -102,8 +111,10 @@ describe("TableManagerModal", function () {
 
       it(`should check the checkbox-${position}`, function() {
         const headeStyleCheckbox = getHeaderCheckboxDOM(position);
+        const newheaderStyle = Object.assign(getHeaderStyleObj(), {[position]: true});
+
         expect(headeStyleCheckbox.checked).to.be.false;
-        this.tableManagerModal.setState({data: {headerStyle: {[position]: true}}});
+        this.tableManagerModal.setState({data: {headerStyle: newheaderStyle}});
         expect(headeStyleCheckbox.checked).to.be.true;
       });
     };
