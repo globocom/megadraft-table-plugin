@@ -3,7 +3,7 @@ import React, {Component, PropTypes} from "react";
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 
 import {HeaderStyle} from "./HeaderStyle";
-import {InputComponent, FormItem} from "./FormComponents";
+import {Input, FormItem} from "./FormComponents";
 
 export default class TableManagerModal extends Component {
 
@@ -71,12 +71,11 @@ export default class TableManagerModal extends Component {
              width="90%">
         <ModalBody>
           <div className="table-manager-modal__form">
-            <InputComponent title="Título"
-                            name="title"
-                            value={data.title}
-                            errors={errors.title}
-                            onChange={this.onFormItemChange}
-                            />
+            <Input title="Título"
+              name="title"
+              value={data.title}
+              errors={errors.title}
+              onChange={this.onFormItemChange} />
 
             <HeaderStyle name="headerStyle"
               selectedOptions={data.headerStyle}
@@ -86,11 +85,11 @@ export default class TableManagerModal extends Component {
 
             <AddRemoveComponent title="Colunas" />
 
-            <InputComponent title="Fonte"
-                            name="source"
-                            value={data.source}
-                            errors={errors.source}
-                            onChange={this.onFormItemChange}  />
+            <Input title="Fonte"
+              name="source"
+              value={data.source}
+              errors={errors.source}
+              onChange={this.onFormItemChange} />
 
           </div>
 

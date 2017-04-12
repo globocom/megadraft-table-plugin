@@ -12,7 +12,7 @@ export function Checkbox({name, value, isChecked, className, onChange}) {
   return (<input type="checkbox" className={className} name={name} checked={isChecked} value={value} onChange={onChange} />);
 }
 
-export function InputComponent({title, name, errors = [], onChange, onBlur, isRequired = true}) {
+export function Input({title, name, errors = [], onChange, onBlur, isRequired = true}) {
   return (
     <FormItem>
       <label htmlFor={name}>{title}</label>
