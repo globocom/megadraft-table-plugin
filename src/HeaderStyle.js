@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2017, Globo.com <https://github.com/globocom/megadraft-table-plugin>
+ *
+ * License: MIT
+ */
+
 import React from "react";
 import {Checkbox, FormItem} from "./FormComponents";
 

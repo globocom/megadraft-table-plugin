@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2017, Globo.com <https://github.com/globocom/megadraft-table-plugin>
+ *
+ * License: MIT
+ */
+
 import React, {Component, PropTypes} from "react";
 
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";

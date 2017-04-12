@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Globo.com <https://github.com/globocom/megadraft-table-plugin>
+ * Copyright (c) 2017, Globo.com <https://github.com/globocom/megadraft-table-plugin>
  *
  * License: MIT
  */
