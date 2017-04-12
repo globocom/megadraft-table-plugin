@@ -124,10 +124,10 @@ const HeaderStyle = ({name, onChange, selectedOptions}) => {
   return (
     <FormItem>
       <label>Destaques</label>
-      <label><Checkbox className="header-style" name="header-style" value="top" onChange={_onChange} /> TOP</label>
-      <label><Checkbox className="header-style" name="header-style" value="bottom" onChange={_onChange} /> BOTTOM</label>
-      <label><Checkbox className="header-style" name="header-style" value="right" onChange={_onChange} /> RIGHT</label>
-      <label><Checkbox className="header-style" name="header-style" value="left" onChange={_onChange} /> LEFT</label>
+      <label><Checkbox className="header-style" name="header-style" value="top" onChange={_onChange} isChecked={selectedOptions.top}/> TOP</label>
+      <label><Checkbox className="header-style" name="header-style" value="bottom" onChange={_onChange} isChecked={selectedOptions.bottom} /> BOTTOM</label>
+      <label><Checkbox className="header-style" name="header-style" value="right" onChange={_onChange} isChecked={selectedOptions.right} /> RIGHT</label>
+      <label><Checkbox className="header-style" name="header-style" value="left" onChange={_onChange} isChecked={selectedOptions.left} /> LEFT</label>
     </FormItem>
   );
 
