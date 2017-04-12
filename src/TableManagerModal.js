@@ -9,7 +9,8 @@ import React, {Component, PropTypes} from "react";
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 
 import {HeaderStyle} from "./HeaderStyle";
-import {Input, FormItem} from "./FormComponents";
+import {Input} from "./FormComponents";
+import {AddRemove} from "./AddRemove";
 
 export default class TableManagerModal extends Component {
 
@@ -87,14 +88,13 @@ export default class TableManagerModal extends Component {
               selectedOptions={data.headerStyle}
               onChange={this.onFormItemChange}/>
 
-            <AddRemoveComponent title="Linhas" />
+            <AddRemove title="Linhas" />
 
-            <AddRemoveComponent title="Colunas" />
+            <AddRemove title="Colunas" />
 
             <Input title="Fonte"
               name="source"
               value={data.source}
-              errors={errors.source}
               onChange={this.onFormItemChange} />
 
           </div>
@@ -111,12 +111,3 @@ export default class TableManagerModal extends Component {
 
 }
 
-const AddRemoveComponent = ({title}) => {
-  return (
-    <FormItem>
-      <label>{title}</label>
-      <button className="btn-adicionar">+ Adicionar</button>
-      <button className="btn-remover">X Remover</button>
-    </FormItem>
-  );
-};
