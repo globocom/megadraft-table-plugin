@@ -14,7 +14,6 @@ export default class TableManagerModal extends Component {
 
   constructor(props) {
     super(props);
-    this._onCloseRequest = ::this._onCloseRequest;
     this._onSaveRequest = ::this._onSaveRequest;
     this.onFormItemChange = ::this.onFormItemChange;
 
@@ -34,10 +33,6 @@ export default class TableManagerModal extends Component {
         title: []
       }
     };
-  }
-
-  _onCloseRequest() {
-    this.props.onCloseRequest();
   }
 
   _onSaveRequest() {
@@ -72,7 +67,7 @@ export default class TableManagerModal extends Component {
       <Modal className="table-manager-modal"
              title="Criar"
              isOpen={this.props.isOpen}
-             onCloseRequest={this._onCloseRequest}
+             onCloseRequest={this.props.onCloseRequest}
              width="90%">
         <ModalBody>
           <div className="table-manager-modal__form">
