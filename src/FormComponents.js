@@ -6,30 +6,37 @@
 
 import React from "react";
 
-export function FormItem({children}) {
+export function FormItem({children, className = ""}) {
   return (
-    <div className="form-item">
+    <div className={`bs-ui-input ${className}`} >
       {children}
     </div>
   );
 }
 
 export function Checkbox({name, value, isChecked, className, onChange}) {
-  return (<input type="checkbox" className={className} name={name} checked={isChecked} value={value} onChange={onChange} />);
+  return (
+    <input type="checkbox"
+      className={className}
+      name={name}
+      checked={isChecked}
+      value={value}
+      onChange={onChange} />
+  );
 }
 
 export function Input({title, name, errors = [], onChange, onBlur, isRequired = true}) {
   return (
     <FormItem>
-      <label htmlFor={name}>{title}</label>
-      <input className="bs-ui-input"
+      <label className="bs-ui-input__label" htmlFor={name}>{title}</label>
+      <input className="bs-ui-input__field"
         type="text"
         name={name}
         onChange={onChange}
         onBlur={onBlur} required={isRequired}/>
-      <div className="errors">
+      <p className="bs-ui-input__field-error">
         {errors.map( (error, index) => <span key={index}>{error}</span>)}
-      </div>
+      </p>
     </FormItem>
   );
 }

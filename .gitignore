@@ -36,3 +36,6 @@ node_modules
 # Build files
 .DS_Store
 .idea/
+
+# Vim
+*.swp

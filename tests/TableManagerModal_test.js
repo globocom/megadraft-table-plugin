@@ -58,7 +58,7 @@ describe("TableManagerModal", function () {
 
     it("save callback should be called when is valid", function(done) {
       this.tableManagerModal.setState({data: validData}, () => {
-        const addButton = document.querySelector(".bs-button");
+        const addButton = document.querySelector(".table-manager-modal__add-button");
         TestUtils.Simulate.click(addButton);
         expect(this.onSaveRequest.calledOnce).to.be.true;
         done();
@@ -66,7 +66,7 @@ describe("TableManagerModal", function () {
     });
 
     it("save callback should not be called when is invalid", function() {
-      const addButton = document.querySelector(".bs-button");
+      const addButton = document.querySelector(".table-manager-modal__add-button");
       TestUtils.Simulate.click(addButton);
       expect(this.onSaveRequest.notCalled).to.be.true;
     });
@@ -133,6 +133,21 @@ describe("TableManagerModal", function () {
       expect(this.tableManagerModal.state().data.headerStyle.bottom).to.be.true;
       expect(this.tableManagerModal.state().data.headerStyle.right).to.be.false;
       expect(this.tableManagerModal.state().data.headerStyle.left).to.be.false;
+    });
+
+  });
+
+  describe("Add or Remove Rows", function() {
+
+    describe("Add", function() {
+
+      it("should add a new row", function() {
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(0);
+        const btnAddRow = document.querySelector(".bs-modal .add-remove-rows .btn-add");
+        TestUtils.Simulate.click(btnAddRow);
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
+      });
+
     });
 
   });

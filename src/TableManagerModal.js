@@ -9,7 +9,8 @@ import React, {Component, PropTypes} from "react";
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 
 import {HeaderStyle} from "./HeaderStyle";
-import {Input, FormItem} from "./FormComponents";
+import {Input} from "./FormComponents";
+import {AddRemove} from "./AddRemove";
 
 export default class TableManagerModal extends Component {
 
@@ -22,6 +23,7 @@ export default class TableManagerModal extends Component {
     super(props);
     this._onSaveRequest = ::this._onSaveRequest;
     this.onFormItemChange = ::this.onFormItemChange;
+    this.addLine = ::this.addLine;
 
     this.state = {
       data: {
@@ -33,7 +35,7 @@ export default class TableManagerModal extends Component {
           right: false,
           left: false
         },
-        rows: [[], []]
+        rows: []
       },
       errors: {
         title: []
@@ -67,6 +69,12 @@ export default class TableManagerModal extends Component {
     this._changeDataValue(name, value);
   }
 
+  addLine() {
+    const rows = this.state.data.rows.slice();
+    rows.push([]);
+    this._changeDataValue("rows", rows);
+  }
+
   render() {
     const {data, errors} = this.state;
     return (
@@ -87,14 +95,16 @@ export default class TableManagerModal extends Component {
               selectedOptions={data.headerStyle}
               onChange={this.onFormItemChange}/>
 
-            <AddRemoveComponent title="Linhas" />
+            <AddRemove
+              className="add-remove-rows"
+              title="Linhas"
+              onAdd={this.addLine}/>
 
-            <AddRemoveComponent title="Colunas" />
+            <AddRemove title="Colunas" />
 
             <Input title="Fonte"
               name="source"
               value={data.source}
-              errors={errors.source}
               onChange={this.onFormItemChange} />
 
           </div>
@@ -102,7 +112,7 @@ export default class TableManagerModal extends Component {
           <div className="table-manager-modal__editable-table">"preview"</div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
-          <button className="bs-button bs-ui-button bs-button--blue"
+          <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--blue"
                   onClick={this._onSaveRequest}>Adicionar</button>
         </ModalFooter>
       </Modal>
@@ -111,12 +121,3 @@ export default class TableManagerModal extends Component {
 
 }
 
-const AddRemoveComponent = ({title}) => {
-  return (
-    <FormItem>
-      <label>{title}</label>
-      <button className="btn-adicionar">+ Adicionar</button>
-      <button className="btn-remover">X Remover</button>
-    </FormItem>
-  );
-};
