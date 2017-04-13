@@ -1,17 +1,5 @@
-const createHeaderStyle = (options = {}) => {
-  return {
-    top: options.top || false,
-    bottom: options.bottom || false,
-    right: options.right || false,
-    left: options.left || false
-  };
-};
+import {TableConfig} from "../src/TableConfig";
 
-export const EmptyTableConfig = {
-  title: "",
-  headerStyle: createHeaderStyle(),
-  source: "",
-  rows: []
-};
+export const EmptyTableConfig = new TableConfig();
 
-export const ValidTableConfig = Object.assign({}, EmptyTableConfig, {title: "Bloblo", headerStyle: createHeaderStyle({top: true})});
+export const ValidTableConfig = new TableConfig({title: "Bloblo", headerStyle: {top: true}});

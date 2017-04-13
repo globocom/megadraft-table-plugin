@@ -11,6 +11,7 @@ import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 import {HeaderStyle} from "./HeaderStyle";
 import {Input} from "./FormComponents";
 import {AddRemove} from "./AddRemove";
+import {TableConfig} from "./TableConfig";
 
 export default class TableManagerModal extends Component {
 
@@ -25,19 +26,8 @@ export default class TableManagerModal extends Component {
     this.onFormItemChange = ::this.onFormItemChange;
     this.addRow = ::this.addRow;
     this.removeRow = ::this.removeRow;
-// data = {
-//   title: "",
-//   source: "",
-//   headerStyle: {
-//     top: false,
-//     bottom: false,
-//     right: false,
-//     left: false
-//    },
-//    rows: []
-// }
     this.state = {
-      data: this.props.data,
+      data: new TableConfig(this.props.data),
       selectedCell: [],
       errors: {
         title: []
@@ -47,7 +37,7 @@ export default class TableManagerModal extends Component {
 
   _onSaveRequest() {
     if (this.isValid()) {
-      this.props.onSaveRequest(this.state);
+      this.props.onSaveRequest(this.state.data);
     }
   }
 
