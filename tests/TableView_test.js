@@ -20,6 +20,7 @@ const expect = chai.expect;
 describe("TableView", function() {
     const rowsWithOneCell = [["00"]];
     const rowsWithTwoCells = [["00"],["10"]];
+    const rowsWithTwoCellsId =[["c00"]]
     const firstColumnName = "c0";
 
     const createTable = function(rows){
@@ -54,5 +55,11 @@ describe("TableView", function() {
         expect(tableView.instance().state.rows[i][firstColumnName]).to.be.equal(rowsWithTwoCells[i][0]);
       }
       expect(tableView.instance().state.columns).to.have.lengthOf(rowsWithTwoCells[0].length);
+    });
+
+    it("should have correct ids for two rows", function() {
+      let tableView = createTable(rowsWithTwoCells).instance();
+      expect(tableView.buildRowId(firstColumnName, 0, 0)).to.be.equal(tableView.state.rows[0].id);
+      expect(tableView.buildRowId(firstColumnName, 1, 0)).to.be.equal(tableView.state.rows[1].id);
     });
 })

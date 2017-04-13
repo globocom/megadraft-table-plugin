@@ -29,11 +29,17 @@ export default class TableView extends Component {
     for(let i=0 ; i< rows.length; i++) {
       let row = {};
       for(let j=0; j < rows[i].length; j++) {
-        row[columns[j].property] = rows[i][j];
+        let propertyName = columns[j].property;
+        row[propertyName] = rows[i][j];
+        row["id"] = this.buildRowId(propertyName, i, j);
       }
       newRows.push(row);
     }
     return newRows;
+  }
+
+  buildRowId(propertyName, i, j) {
+    return propertyName + i + "-"+ j;
   }
 
   render() {
