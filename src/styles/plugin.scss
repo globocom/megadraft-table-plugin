@@ -21,10 +21,11 @@
   }
 
   &__form {
-    padding: 1rem;
-    width: 286px;
-    border-right: solid 1px rgb(204, 204, 204);
     background-color: rgb(251, 251, 251);
+    border-right: solid 1px rgb(204, 204, 204);
+    box-sizing: border-box;
+    padding: 1rem 1.5rem;
+    width: 286px;
   }
 
   &__editable-table {

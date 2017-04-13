@@ -5,10 +5,18 @@
  */
 
 import React from "react";
+import classNames from "classnames";
 
-export function FormItem({children, isRequired = false, className = ""}) {
+export function FormItem({children, isRequired = false, hasErrors = false, className = ""}) {
+  const inputClassNames = classNames({
+    "bs-ui-input": true,
+    "bs-ui-input--required": isRequired,
+    "bs-ui-input--error": hasErrors,
+    className: true
+  });
+
   return (
-    <div className={"bs-ui-input" + (isRequired ? " bs-ui-input--required" : "") + ` ${className}`}>
+    <div className={inputClassNames}>
       {children}
     </div>
   );
@@ -27,7 +35,7 @@ export function Checkbox({name, value, isChecked, className, onChange}) {
 
 export function Input({title, name, errors = [], onChange, onBlur, isRequired = true}) {
   return (
-    <FormItem isRequired={isRequired}>
+    <FormItem isRequired={isRequired} hasErrors={errors.length !== 0}>
       <label className="bs-ui-input__label" htmlFor={name}>{title}</label>
       <input className="bs-ui-input__field"
         type="text"
