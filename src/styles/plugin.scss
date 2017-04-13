@@ -40,5 +40,14 @@
       display: block;
       padding-bottom: 10px;
     }
+
+    .bs-ui-button {
+      padding: 0;
+      margin-bottom: 10px;
+
+      &.btn-remove {
+        float: right;
+      }
+    }
   }
 }
