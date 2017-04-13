@@ -11,6 +11,7 @@ import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 import {HeaderStyle} from "./HeaderStyle";
 import {Input} from "./FormComponents";
 import {AddRemove} from "./AddRemove";
+import {TableConfig} from "./TableConfig";
 
 export default class TableManagerModal extends Component {
 
@@ -23,20 +24,10 @@ export default class TableManagerModal extends Component {
     super(props);
     this._onSaveRequest = ::this._onSaveRequest;
     this.onFormItemChange = ::this.onFormItemChange;
-    this.addLine = ::this.addLine;
-// data = {
-//   title: "",
-//   source: "",
-//   headerStyle: {
-//     top: false,
-//     bottom: false,
-//     right: false,
-//     left: false
-//    },
-//    rows: []
-// }
+    this.addRow = ::this.addRow;
+    this.removeRow = ::this.removeRow;
     this.state = {
-      data: this.props.data,
+      data: new TableConfig(this.props.data),
       selectedCell: [],
       errors: {
         title: []
@@ -46,7 +37,7 @@ export default class TableManagerModal extends Component {
 
   _onSaveRequest() {
     if (this.isValid()) {
-      this.props.onSaveRequest(this.state);
+      this.props.onSaveRequest(this.state.data);
     }
   }
 
@@ -78,7 +69,7 @@ export default class TableManagerModal extends Component {
     }
   }
 
-  addLine() {
+  addRow() {
     let rowNum;
     if (this.state.selectedCell.length == 2) {
       rowNum = this.state.selectedCell[1] + 1;
@@ -90,6 +81,18 @@ export default class TableManagerModal extends Component {
       this._createNewRow(),
       ...this.state.data.rows.slice(rowNum)
     ];
+    this._changeDataValue("rows", rows);
+  }
+
+  removeRow() {
+    let rowNum;
+    if (this.state.selectedCell.length == 2) {
+      rowNum = this.state.selectedCell[1];
+    } else {
+      rowNum = this.state.data.rows.length - 1;
+    }
+    const rows = [...this.state.data.rows];
+    rows.splice(rowNum, 1);
     this._changeDataValue("rows", rows);
   }
 
@@ -116,7 +119,8 @@ export default class TableManagerModal extends Component {
             <AddRemove
               className="add-remove-rows"
               title="Linhas"
-              onAdd={this.addLine}/>
+              onAdd={this.addRow}
+              onRemove={this.removeRow} />
 
             <AddRemove title="Colunas" />
 

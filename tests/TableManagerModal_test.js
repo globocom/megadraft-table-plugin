@@ -47,16 +47,18 @@ describe("TableManagerModal", function () {
 
   describe("click add button", function() {
 
-    it("save callback should be called when is valid", function(done) {
+    it("save callback should be called when TableConfig is valid", function(done) {
       this.tableManagerModal.setState({data: ValidTableConfig}, () => {
         const addButton = document.querySelector(".table-manager-modal__add-button");
         TestUtils.Simulate.click(addButton);
         expect(this.onSaveRequest.calledOnce).to.be.true;
+        expect(this.onSaveRequest.getCall(0).args[0]).to.be.deep.equals(ValidTableConfig);
+        // expect().to.be.true;
         done();
       });
     });
 
-    it("save callback should not be called when is invalid", function() {
+    it("save callback should not be called when TableConfig is invalid", function() {
       const addButton = document.querySelector(".table-manager-modal__add-button");
       TestUtils.Simulate.click(addButton);
       expect(this.onSaveRequest.notCalled).to.be.true;
@@ -167,6 +169,42 @@ describe("TableManagerModal", function () {
         this.tableManagerModal.setState({data});
         TestUtils.Simulate.click(this.btnAddRow);
         expect(this.tableManagerModal.state().data.rows[1]).to.deep.equals(["", ""]);
+      });
+
+    });
+
+    describe("Remove", function() {
+
+      beforeEach(function() {
+        this.btnRemoveRow = document.querySelector(".bs-modal .add-remove-rows .btn-remove");
+      });
+
+      it("should keeps without rows when does not have any row", function() {
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(0);
+        TestUtils.Simulate.click(this.btnRemoveRow);
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(0);
+      });
+
+      it("should remove the last row when does not have any selected cell", function() {
+        const rows = [["A1", "B1"], ["A2", "B2"]];
+        const data = Object.assign({}, ValidTableConfig, {rows});
+        this.tableManagerModal.setState({data, selectedCell: []});
+
+        TestUtils.Simulate.click(this.btnRemoveRow);
+
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
+        expect(this.tableManagerModal.state().data.rows[0]).to.deep.equals(["A1", "B1"]);
+      });
+
+      it("should remove the selected row when does have a selectedCell", function() {
+        const rows = [["A1", "B1"], ["A2", "B2"]];
+        const data = Object.assign({}, ValidTableConfig, {rows});
+        this.tableManagerModal.setState({data, selectedCell: [0, 0]});
+
+        TestUtils.Simulate.click(this.btnRemoveRow);
+
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
+        expect(this.tableManagerModal.state().data.rows[0]).to.deep.equals(["A2", "B2"]);
       });
 
     });
