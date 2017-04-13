@@ -11,9 +11,9 @@ import {FormItem} from "./FormComponents";
 export function AddRemove({title, className, onAdd, onRemove}) {
   return (
     <FormItem className={className}>
-      <label>{title}</label>
-      <button className="btn-add" onClick={onAdd}>+ Adicionar</button>
-      <button className="btn-remove" onClick={onRemove}>X Remover</button>
+      <label className="bs-ui-input__label">{title}</label>
+      <button className="bs-ui-button btn-add" onClick={onAdd}>+ Adicionar</button>
+      <button className="bs-ui-button btn-remove" onClick={onRemove}>X Remover</button>
     </FormItem>
   );
 }
