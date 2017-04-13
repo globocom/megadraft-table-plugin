@@ -8,14 +8,12 @@ import React from "react";
 import classNames from "classnames";
 
 export function FormItem({children, isRequired = false, hasErrors = false, className = ""}) {
-  const inputClassNames = classNames(
-    "bs-ui-input",
-    className,
-    {
-      "bs-ui-input--required": isRequired,
-      "bs-ui-input--error": hasErrors
-    }
-  );
+  const inputClassNames = classNames({
+    "bs-ui-input": true,
+    "bs-ui-input--required": isRequired,
+    "bs-ui-input--error": hasErrors,
+    className: true
+  });
 
   return (
     <div className={inputClassNames}>
