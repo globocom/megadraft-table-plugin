@@ -1,17 +1,17 @@
-import React, {Component, PropTypes} from "react";
+import React, {Component} from "react";
 
-import * as Table from 'reactabular-table';
+import * as Table from "reactabular-table";
 
 export default class TableView extends Component {
 
   constructor(props) {
-      super(props);
-      let columns = this.buildColumns(props.rows);
-      let rows = this.buildRows(props.rows, columns);
-      this.state = {
-          columns: columns,
-          rows: rows
-      };
+    super(props);
+    let columns = this.buildColumns(props.rows);
+    let rows = this.buildRows(props.rows, columns);
+    this.state = {
+      columns: columns,
+      rows: rows
+    };
 
   }
 
@@ -50,7 +50,7 @@ export default class TableView extends Component {
   }
 
   render() {
-      return (
+    return (
         <Table.Provider columns={this.state.columns} >
           <Table.Body rows={this.state.rows} rowKey="id" />
         </Table.Provider>
