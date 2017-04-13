@@ -11,9 +11,8 @@ export function FormItem({children, isRequired = false, hasErrors = false, class
   const inputClassNames = classNames({
     "bs-ui-input": true,
     "bs-ui-input--required": isRequired,
-    "bs-ui-input--error": hasErrors,
-    className: true
-  });
+    "bs-ui-input--error": hasErrors
+  }, className);
 
   return (
     <div className={inputClassNames}>
