@@ -5,7 +5,8 @@
   "main": "dist/megadraft-table-plugin.js",
   "style": "dist/css/plugin.css",
   "dependencies": {
-    "backstage-modal": "^0.2.6"
+    "backstage-modal": "^0.2.6",
+    "reactabular-table": "^8.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
