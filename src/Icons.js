@@ -19,7 +19,7 @@ export function PluginIcon({className = ""}) {
 
 export function HighlightIcon({className = ""}) {
   return (
-    <svg className={className} width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <svg className={className} width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
       <path d="M20.0526316,8 L3.94736842,8 C3.42631579,8 3,8.73125 3,9.625 L3,19.375 C3,20.26875 3.42631579,21 3.94736842,21 L20.0526316,21 C20.5736842,21 21,20.26875 21,19.375 L21,9.625 C21,8.73125 20.5736842,8 20.0526316,8 L20.0526316,8 Z M3,3 L3,6 L21,6 L21,3 L3,3 L3,3 Z" id="Shape" fill="#999999"></path>
     </svg>
   );
