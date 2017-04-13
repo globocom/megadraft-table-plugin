@@ -6,9 +6,9 @@
 
 import React from "react";
 
-export function FormItem({children}) {
+export function FormItem({children, isRequired = false}) {
   return (
-    <div className="bs-ui-input">
+    <div className={"bs-ui-input" + (isRequired ? " bs-ui-input--required" : "")}>
       {children}
     </div>
   );
@@ -27,7 +27,7 @@ export function Checkbox({name, value, isChecked, className, onChange}) {
 
 export function Input({title, name, errors = [], onChange, onBlur, isRequired = true}) {
   return (
-    <FormItem>
+    <FormItem isRequired={isRequired}>
       <label className="bs-ui-input__label" htmlFor={name}>{title}</label>
       <input className="bs-ui-input__field"
         type="text"
