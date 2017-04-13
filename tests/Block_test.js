@@ -89,5 +89,9 @@ describe("Table Block", function () {
       expect(container.updateData.calledOnce).to.be.true;
     });
 
+    it("should close popin", function() {
+      expect(this.block.find(TableManagerModal).prop("isOpen")).to.be.false;
+    });
+
   });
 });
