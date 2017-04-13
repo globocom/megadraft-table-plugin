@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from "react";
 
-// import * as Table from 'reactabular-table';
+import * as Table from 'reactabular-table';
 
 export default class TableView extends Component {
 
@@ -50,7 +50,10 @@ export default class TableView extends Component {
   }
 
   render() {
-      return (<h1></h1>
+      return (
+        <Table.Provider columns={this.state.columns} >
+          <Table.Body rows={this.state.rows} rowKey="id" />
+        </Table.Provider>
           );
   }
 }

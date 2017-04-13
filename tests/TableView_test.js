@@ -89,4 +89,19 @@ describe("TableView", function() {
       let tableView = createTable(rowsWithOneCell);
       expect(tableView.state.rows.length).to.be.equal(rowsWithOneCell[0].length);
     });
+
+    describe("render", function() {
+
+      it("should render a Provider Component with columns", function() {
+        let tableView = createTable(rowsWithTwoCells);
+        let provider = TestUtils.findRenderedComponentWithType(tableView, Table.Provider);
+        expect(provider.props.columns).to.be.equal(tableView.state.columns);
+      });
+
+      it("should render a TableBody Component with rows", function() {
+        let tableView = createTable(rowsWithTwoCells);
+        let provider = TestUtils.findRenderedComponentWithType(tableView, Table.Body);
+        expect(provider.props.rows).to.be.equal(tableView.state.rows);
+      });
+    });
 })
