@@ -24,14 +24,16 @@
 
 .table-manager-modal__form {
   padding: 1rem;
-  width: 33%;
+  width: 286px;
   border-right: solid 1px #cccccc;
   background-color: #fbfbfb;
 }
 
 .table-manager-modal__editable-table {
-  width: 67%;
   background-color: #ededed;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .table-manager-modal .bs-ui-input {

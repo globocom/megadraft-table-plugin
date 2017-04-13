@@ -7,7 +7,7 @@ export default class TableView extends Component {
   constructor(props) {
       super(props);
       let columns = this.buildColumns(props.rows);
-      let rows = this.buildRows(props.rows, columns)
+      let rows = this.buildRows(props.rows, columns);
       this.state = {
           columns: columns,
           rows: rows
@@ -16,9 +16,9 @@ export default class TableView extends Component {
   }
 
   buildColumns(rows) {
-    let columns = []
-    for(let i=0; i < rows[0].length; i++) {
-      let propertyName = "c" + i;
+    let columns = [];
+    for(let rowIndex=0; rowIndex < rows[0].length; rowIndex++) {
+      let propertyName = "c" + rowIndex;
       columns.push({property: propertyName});
     }
     return columns;
@@ -26,20 +26,23 @@ export default class TableView extends Component {
 
   buildRows(rows, columns) {
     let newRows = [];
-    for(let i=0 ; i< rows.length; i++) {
+    for(let rowIndex=0 ; rowIndex< rows.length; rowIndex++) {
       let row = {};
-      for(let j=0; j < rows[i].length; j++) {
-        let propertyName = columns[j].property;
-        row[propertyName] = rows[i][j];
-        row["id"] = this.buildRowId(propertyName, i, j);
+      for(let columnIndex=0; columnIndex < rows[rowIndex].length; columnIndex++) {
+        let propertyName = columns[columnIndex].property;
+        row[propertyName] = rows[rowIndex][columnIndex];
+        row["id"] = this.buildRowId(propertyName, rowIndex, columnIndex);
       }
-      newRows.push(row);
+      if(Object.keys(row).length !== 0) {
+        newRows.push(row);
+      }
+
     }
     return newRows;
   }
 
-  buildRowId(propertyName, i, j) {
-    return propertyName + i + "-"+ j;
+  buildRowId(propertyName, rowIndex, columnIndex) {
+    return propertyName + rowIndex + "-"+ columnIndex;
   }
 
   buildPropertyName(columnIndex) {

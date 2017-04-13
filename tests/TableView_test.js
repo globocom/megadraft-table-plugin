@@ -32,13 +32,19 @@ describe("TableView", function() {
     const expectCellsValueOnRightPosition = function(tableView, rows) {
       let columns = tableView.state.columns;
       let propertyName;
-      for(let i=0; i<rows.length ;i++) {
-        for(let j=0; j<rows[i].length; j++) {
-          propertyName = columns[j].property;
-          expect(tableView.state.rows[i][propertyName]).to.be.equal(rows[i][j]);
+      for(let rowIndex=0; rowIndex<rows.length ;rowIndex++) {
+        for(let columnIndex=0; columnIndex<rows[rowIndex].length; columnIndex++) {
+          propertyName = columns[columnIndex].property;
+          expect(tableView.state.rows[rowIndex][propertyName]).to.be.equal(rows[rowIndex][columnIndex]);
         }
       }
     }
+
+    it("should have one cell on initial state", function() {
+      let tableView = createTable([[]]);
+      expect(tableView.state.rows).to.have.lengthOf(0);
+      expect(tableView.state.columns).to.have.lengthOf(0);
+    });
 
     it("should have one column", function() {
       let tableView = createTable(rowsWithOneCell);
@@ -53,6 +59,11 @@ describe("TableView", function() {
     it("should have one cell value", function() {
       let tableView = createTable(rowsWithOneCell);
       expectCellsValueOnRightPosition(tableView, rowsWithOneCell);
+    });
+
+    it("should have the correct property name", function() {
+      let tableView = createTable(twoRowsWithTwoColumns);
+      expect(tableView.buildPropertyName(0)).to.be.equal(tableView.state.columns[0].property);
     });
 
     it("should have column property value with same name as row key", function() {
@@ -77,11 +88,6 @@ describe("TableView", function() {
     it("should have two rows and two columns", function() {
       let tableView = createTable(twoRowsWithTwoColumns);
       expectCellsValueOnRightPosition(tableView, twoRowsWithTwoColumns);
-    });
-
-    it("should have the correct property name", function() {
-      let tableView = createTable(twoRowsWithTwoColumns);
-      expect(tableView.buildPropertyName(0)).to.be.equal(tableView.state.columns[0].property);
     });
 
 })
