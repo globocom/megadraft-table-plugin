@@ -6,7 +6,7 @@
 
 import React, {Component} from "react";
 
-import Icon from "./icon.js";
+import {PluginIcon} from "./Icons.js";
 import constants from "./constants";
 import {insertDataBlock} from "megadraft";
 
@@ -46,7 +46,7 @@ export default class Button extends Component {
     return (
       <div>
         <button className={this.props.className} type="button" onClick={this.onClick} title={this.props.title}>
-          <Icon className="sidemenu__button__icon" />
+          <PluginIcon className="sidemenu__button__icon" />
         </button>
         <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={this.onModalClose} onSaveRequest={this.onSave} data={{}} />
       </div>

@@ -34,11 +34,46 @@
   }
 
   .bs-ui-input {
-    padding-bottom: 10px;
+    padding-bottom: 16px;
 
     .bs-ui-checkbox {
-      display: block;
-      padding-bottom: 10px;
+      display: inline-block;
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+      
+      input:before {
+        top: 0;
+      }
+
+      input:after {
+        top: 3px;
+      }
+    }
+
+    .bs-ui-button {
+      padding: 0;
+      margin-bottom: 10px;
+
+      &.btn-remove {
+        float: right;
+      }
+    }
+  }
+
+  .header-style {
+    &--bottom {
+      transform: rotate(180deg);
+    }
+
+    &--right {
+      transform: rotate(90deg);
+    }
+
+    &--left {
+      transform: rotate(270deg);
     }
   }
 }

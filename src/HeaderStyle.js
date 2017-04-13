@@ -6,6 +6,7 @@
 
 import React from "react";
 import {Checkbox, FormItem} from "./FormComponents";
+import {HighlightIcon} from "./Icons";
 
 export function HeaderStyle({name, onChange, selectedOptions}) {
 
@@ -28,28 +29,32 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
           name="header-style"
           value="top"
           onChange={_onChange}
-          isChecked={selectedOptions.top}/>TOP
+          isChecked={selectedOptions.top}/>
+        <HighlightIcon className="header-style--top" />
       </label>
       <label className="bs-ui-checkbox">
         <Checkbox className="header-style"
           name="header-style"
           value="bottom"
           onChange={_onChange}
-          isChecked={selectedOptions.bottom} />BOTTOM
+          isChecked={selectedOptions.bottom} />
+        <HighlightIcon className="header-style--bottom" />
       </label>
       <label className="bs-ui-checkbox">
         <Checkbox className="header-style"
           name="header-style"
           value="right"
           onChange={_onChange}
-          isChecked={selectedOptions.right} />RIGHT
+          isChecked={selectedOptions.right} />
+        <HighlightIcon className="header-style--right" />
       </label>
       <label className="bs-ui-checkbox">
         <Checkbox className="header-style"
           name="header-style"
           value="left"
           onChange={_onChange}
-          isChecked={selectedOptions.left} />LEFT
+          isChecked={selectedOptions.left} />
+        <HighlightIcon className="header-style--left" />
       </label>
     </FormItem>
   );
