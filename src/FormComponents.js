@@ -6,9 +6,9 @@
 
 import React from "react";
 
-export function FormItem({children, isRequired = false}) {
+export function FormItem({children, isRequired = false, className = ""}) {
   return (
-    <div className={"bs-ui-input" + (isRequired ? " bs-ui-input--required" : "")}>
+    <div className={"bs-ui-input" + (isRequired ? " bs-ui-input--required" : "") + ` ${className}`}>
       {children}
     </div>
   );

@@ -25,7 +25,8 @@ describe("TableManagerModal", function () {
       bottom: false,
       right: false,
       left: false
-    }
+    },
+    selectedCell: []
   };
 
   beforeEach(function() {
@@ -133,6 +134,51 @@ describe("TableManagerModal", function () {
       expect(this.tableManagerModal.state().data.headerStyle.bottom).to.be.true;
       expect(this.tableManagerModal.state().data.headerStyle.right).to.be.false;
       expect(this.tableManagerModal.state().data.headerStyle.left).to.be.false;
+    });
+
+  });
+
+  describe("Add or Remove Rows", function() {
+
+    describe("Add", function() {
+
+      beforeEach(function() {
+        this.btnAddRow = document.querySelector(".bs-modal .add-remove-rows .btn-add");
+      });
+
+      it("should add a new row", function() {
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(0);
+        TestUtils.Simulate.click(this.btnAddRow);
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
+      });
+
+      it("should add a new row after selected row cell", function() {
+        const rows = [["A1", "B1"],["A2", "B2"]];
+        const selectedCell = [1, 0];
+        const data = Object.assign({}, validData, {rows, selectedCell});
+        this.tableManagerModal.setState({data});
+        TestUtils.Simulate.click(this.btnAddRow);
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(3);
+        expect(this.tableManagerModal.state().data.rows[1]).to.not.deep.equals(rows[0]);
+        expect(this.tableManagerModal.state().data.rows[1]).to.not.deep.equals(rows[1]);
+      });
+
+      it("should create a new row with the same quantity of columns when does have rows created previously", function() {
+        const rows = [["A1", "B1"]];
+        const data = Object.assign({}, validData, {rows});
+        this.tableManagerModal.setState({data});
+        TestUtils.Simulate.click(this.btnAddRow);
+        expect(this.tableManagerModal.state().data.rows[1]).to.deep.equals(["", ""]);
+      });
+
+      it("should create a new row with any column when does not have rows created previously", function() {
+        const rows = [["A1", "B1"]];
+        const data = Object.assign({}, validData, {rows});
+        this.tableManagerModal.setState({data});
+        TestUtils.Simulate.click(this.btnAddRow);
+        expect(this.tableManagerModal.state().data.rows[1]).to.deep.equals(["", ""]);
+      });
+
     });
 
   });
