@@ -9,6 +9,7 @@ import React, {Component} from "react";
 import Icon from "./icon.js";
 import constants from "./constants";
 import {insertDataBlock} from "megadraft";
+import {TableConfig} from "./TableConfig";
 
 
 export default class Button extends Component {
@@ -21,7 +22,7 @@ export default class Button extends Component {
     const data = {
       type: constants.PLUGIN_TYPE,
       isFirstTime: true,
-      caption: "Initial plugin text"
+      ...new TableConfig()
     };
 
     this.props.onChange(insertDataBlock(this.props.editorState, data));
