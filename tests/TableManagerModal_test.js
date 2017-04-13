@@ -47,16 +47,18 @@ describe("TableManagerModal", function () {
 
   describe("click add button", function() {
 
-    it("save callback should be called when is valid", function(done) {
+    it("save callback should be called when TableConfig is valid", function(done) {
       this.tableManagerModal.setState({data: ValidTableConfig}, () => {
         const addButton = document.querySelector(".table-manager-modal__add-button");
         TestUtils.Simulate.click(addButton);
         expect(this.onSaveRequest.calledOnce).to.be.true;
+        expect(this.onSaveRequest.getCall(0).args[0]).to.be.deep.equals(ValidTableConfig);
+        // expect().to.be.true;
         done();
       });
     });
 
-    it("save callback should not be called when is invalid", function() {
+    it("save callback should not be called when TableConfig is invalid", function() {
       const addButton = document.querySelector(".table-manager-modal__add-button");
       TestUtils.Simulate.click(addButton);
       expect(this.onSaveRequest.notCalled).to.be.true;
