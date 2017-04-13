@@ -40,25 +40,20 @@ describe("TableView", function() {
       }
     }
 
-    it("should have one cell on initial state", function() {
-      let tableView = createTable([[]]);
-      expect(tableView.state.rows).to.have.lengthOf(0);
-      expect(tableView.state.columns).to.have.lengthOf(0);
-    });
-
-    it("should have one column", function() {
-      let tableView = createTable(rowsWithOneCell);
-      expect(tableView.state.columns.length).to.be.equal(rowsWithOneCell[0].length);
-    });
-
-    it("should have one row", function() {
-      let tableView = createTable(rowsWithOneCell);
-      expect(tableView.state.rows.length).to.be.equal(rowsWithOneCell[0].length);
-    });
-
     it("should have one cell value", function() {
       let tableView = createTable(rowsWithOneCell);
       expectCellsValueOnRightPosition(tableView, rowsWithOneCell);
+    });
+
+    it("should have two rows with one column", function() {
+      let tableView = createTable(rowsWithTwoCells);
+      expectCellsValueOnRightPosition(tableView, rowsWithTwoCells);
+      expect(tableView.state.columns).to.have.lengthOf(rowsWithTwoCells[0].length);
+    });
+
+    it("should have two rows and two columns", function() {
+      let tableView = createTable(twoRowsWithTwoColumns);
+      expectCellsValueOnRightPosition(tableView, twoRowsWithTwoColumns);
     });
 
     it("should have the correct property name", function() {
@@ -73,21 +68,25 @@ describe("TableView", function() {
       expect(tableView.state.columns[0].property).to.be.equal(propertyName);
     });
 
-    it("should have two rows with one column", function() {
-      let tableView = createTable(rowsWithTwoCells);
-      expectCellsValueOnRightPosition(tableView, rowsWithTwoCells);
-      expect(tableView.state.columns).to.have.lengthOf(rowsWithTwoCells[0].length);
-    });
-
     it("should have correct ids for two rows", function() {
       let tableView = createTable(rowsWithTwoCells);
       expect(tableView.buildRowId(firstColumnName, 0, 0)).to.be.equal(tableView.state.rows[0].id);
       expect(tableView.buildRowId(firstColumnName, 1, 0)).to.be.equal(tableView.state.rows[1].id);
     });
 
-    it("should have two rows and two columns", function() {
-      let tableView = createTable(twoRowsWithTwoColumns);
-      expectCellsValueOnRightPosition(tableView, twoRowsWithTwoColumns);
+     it("should have one cell on initial state", function() {
+      let tableView = createTable([[]]);
+      expect(tableView.state.rows).to.have.lengthOf(0);
+      expect(tableView.state.columns).to.have.lengthOf(0);
     });
 
+    it("should have one column", function() {
+      let tableView = createTable(rowsWithOneCell);
+      expect(tableView.state.columns.length).to.be.equal(rowsWithOneCell[0].length);
+    });
+
+    it("should have one row", function() {
+      let tableView = createTable(rowsWithOneCell);
+      expect(tableView.state.rows.length).to.be.equal(rowsWithOneCell[0].length);
+    });
 })
