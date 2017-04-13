@@ -55,7 +55,7 @@
   .font-42--long {
     line-height: 3.5rem; }
 
-.font-34, .font-34--long, h1, .bs-styleguide-home__title {
+.font-34, .font-34--long {
   font-family: "Open Sans", sans-serif;
   font-size: 2.125rem;
   letter-spacing: -0.09375rem;
@@ -64,7 +64,7 @@
   .font-34--long {
     line-height: 3rem; }
 
-.font-26, .font-26--long, h2 {
+.font-26, .font-26--long {
   font-family: "Open Sans", sans-serif;
   font-size: 1.625rem;
   letter-spacing: -0.0625rem;
@@ -73,7 +73,7 @@
   .font-26--long {
     line-height: 2rem; }
 
-.font-20, .font-20--long, h3 {
+.font-20, .font-20--long {
   font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;
   letter-spacing: -0.04688rem;
@@ -91,7 +91,7 @@
   .font-18--long {
     line-height: 1.75rem; }
 
-.font-16, .font-16--long, h4 {
+.font-16, .font-16--long {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   letter-spacing: -0.03125rem;
@@ -100,7 +100,7 @@
   .font-16--long {
     line-height: 1.5rem; }
 
-.font-14, .font-14--long, h5, strong, .bs-ui-input__label, .bs-styleguide__body {
+.font-14, .font-14--long, .bs-ui-input__label {
   font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   letter-spacing: -0.01562rem;
@@ -109,7 +109,7 @@
   .font-14--long {
     line-height: 1.25rem; }
 
-.font-12, .font-12--long, h6 {
+.font-12, .font-12--long {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0rem;
@@ -134,51 +134,6 @@ html {
 *::after,
 *::before {
   box-sizing: inherit; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a {
-  margin: 0;
-  padding: 0; }
-
-h1 {
-  font-weight: bold;
-  color: #000; }
-
-h2 {
-  font-weight: bold;
-  color: #000; }
-
-h3 {
-  font-weight: bold;
-  color: #000; }
-
-h4 {
-  font-weight: bold;
-  color: #000; }
-
-h5 {
-  font-weight: bold;
-  color: #000; }
-
-h6 {
-  font-weight: bold;
-  color: #000; }
-
-a {
-  color: #0769de; }
-  a:hover {
-    color: #044cb3; }
-  a:focus {
-    color: #3192e7; }
-
-strong {
-  font-weight: bold; }
 
 /*
   line height definitions above should to be
@@ -237,7 +192,7 @@ strong {
   .font-42--long {
     line-height: 3.5rem; }
 
-.font-34, .font-34--long, h1, .bs-styleguide-home__title {
+.font-34, .font-34--long {
   font-family: "Open Sans", sans-serif;
   font-size: 2.125rem;
   letter-spacing: -0.09375rem;
@@ -246,7 +201,7 @@ strong {
   .font-34--long {
     line-height: 3rem; }
 
-.font-26, .font-26--long, h2 {
+.font-26, .font-26--long {
   font-family: "Open Sans", sans-serif;
   font-size: 1.625rem;
   letter-spacing: -0.0625rem;
@@ -255,7 +210,7 @@ strong {
   .font-26--long {
     line-height: 2rem; }
 
-.font-20, .font-20--long, h3 {
+.font-20, .font-20--long {
   font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;
   letter-spacing: -0.04688rem;
@@ -273,7 +228,7 @@ strong {
   .font-18--long {
     line-height: 1.75rem; }
 
-.font-16, .font-16--long, h4 {
+.font-16, .font-16--long {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   letter-spacing: -0.03125rem;
@@ -282,7 +237,7 @@ strong {
   .font-16--long {
     line-height: 1.5rem; }
 
-.font-14, .font-14--long, h5, strong, .bs-ui-input__label, .bs-styleguide__body {
+.font-14, .font-14--long, .bs-ui-input__label {
   font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   letter-spacing: -0.01562rem;
@@ -291,7 +246,7 @@ strong {
   .font-14--long {
     line-height: 1.25rem; }
 
-.font-12, .font-12--long, h6 {
+.font-12, .font-12--long {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0rem;
@@ -375,36 +330,63 @@ strong {
     color: #181818; }
   .bs-ui-button:active {
     color: #666666; }
-  .bs-ui-button.bs-ui-button--black {
+  .bs-ui-button.bs-ui-button--background-black {
     background-color: #333333;
     box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3);
     color: #FFF; }
-    .bs-ui-button.bs-ui-button--black:hover {
+    .bs-ui-button.bs-ui-button--background-black:hover {
       background-color: #181818; }
-    .bs-ui-button.bs-ui-button--black:active {
+    .bs-ui-button.bs-ui-button--background-black:active {
       background-color: #666666; }
+    .bs-ui-button.bs-ui-button--background-black.disabled, .bs-ui-button.bs-ui-button--background-black.disabled:hover {
+      background-color: #DDD;
+      box-shadow: none; }
+  .bs-ui-button.bs-ui-button--background-red {
+    background-color: #e83f26;
+    box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3);
+    color: #FFF; }
+    .bs-ui-button.bs-ui-button--background-red:hover {
+      background-color: #bc2e1b; }
+    .bs-ui-button.bs-ui-button--background-red:active {
+      background-color: #ee6a50; }
+    .bs-ui-button.bs-ui-button--background-red.disabled, .bs-ui-button.bs-ui-button--background-red.disabled:hover {
+      background-color: #DDD;
+      box-shadow: none; }
+  .bs-ui-button.bs-ui-button--background-blue {
+    background-color: #0769de;
+    box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3);
+    color: #FFF; }
+    .bs-ui-button.bs-ui-button--background-blue:hover {
+      background-color: #2445b1; }
+    .bs-ui-button.bs-ui-button--background-blue:active {
+      background-color: #3192e7; }
+    .bs-ui-button.bs-ui-button--background-blue.disabled, .bs-ui-button.bs-ui-button--background-blue.disabled:hover {
+      background-color: #DDD;
+      box-shadow: none; }
+  .bs-ui-button.bs-ui-button--black {
+    color: #333333; }
+    .bs-ui-button.bs-ui-button--black:hover {
+      color: #181818; }
+    .bs-ui-button.bs-ui-button--black:active {
+      color: #666666; }
     .bs-ui-button.bs-ui-button--black.disabled, .bs-ui-button.bs-ui-button--black.disabled:hover {
       background-color: #DDD;
       box-shadow: none; }
   .bs-ui-button.bs-ui-button--red {
-    background-color: #e83f26;
-    box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3);
-    color: #FFF; }
+    color: #e83f26; }
     .bs-ui-button.bs-ui-button--red:hover {
-      background-color: #bc2e1b; }
+      color: #bc2e1b; }
     .bs-ui-button.bs-ui-button--red:active {
-      background-color: #ee6a50; }
+      color: #ee6a50; }
     .bs-ui-button.bs-ui-button--red.disabled, .bs-ui-button.bs-ui-button--red.disabled:hover {
       background-color: #DDD;
       box-shadow: none; }
   .bs-ui-button.bs-ui-button--blue {
-    background-color: #0769de;
-    box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3);
-    color: #FFF; }
+    color: #0769de; }
     .bs-ui-button.bs-ui-button--blue:hover {
-      background-color: #2445b1; }
+      color: #2445b1; }
     .bs-ui-button.bs-ui-button--blue:active {
-      background-color: #3192e7; }
+      color: #4a8fe6; }
     .bs-ui-button.bs-ui-button--blue.disabled, .bs-ui-button.bs-ui-button--blue.disabled:hover {
       background-color: #DDD;
       box-shadow: none; }
@@ -472,7 +454,7 @@ strong {
   .font-42--long {
     line-height: 3.5rem; }
 
-.font-34, .font-34--long, h1, .bs-styleguide-home__title {
+.font-34, .font-34--long {
   font-family: "Open Sans", sans-serif;
   font-size: 2.125rem;
   letter-spacing: -0.09375rem;
@@ -481,7 +463,7 @@ strong {
   .font-34--long {
     line-height: 3rem; }
 
-.font-26, .font-26--long, h2 {
+.font-26, .font-26--long {
   font-family: "Open Sans", sans-serif;
   font-size: 1.625rem;
   letter-spacing: -0.0625rem;
@@ -490,7 +472,7 @@ strong {
   .font-26--long {
     line-height: 2rem; }
 
-.font-20, .font-20--long, h3 {
+.font-20, .font-20--long {
   font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;
   letter-spacing: -0.04688rem;
@@ -508,7 +490,7 @@ strong {
   .font-18--long {
     line-height: 1.75rem; }
 
-.font-16, .font-16--long, h4 {
+.font-16, .font-16--long {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   letter-spacing: -0.03125rem;
@@ -517,7 +499,7 @@ strong {
   .font-16--long {
     line-height: 1.5rem; }
 
-.font-14, .font-14--long, h5, strong, .bs-ui-input__label, .bs-styleguide__body {
+.font-14, .font-14--long, .bs-ui-input__label {
   font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   letter-spacing: -0.01562rem;
@@ -526,7 +508,7 @@ strong {
   .font-14--long {
     line-height: 1.25rem; }
 
-.font-12, .font-12--long, h6 {
+.font-12, .font-12--long {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0rem;
@@ -662,372 +644,3 @@ strong {
     border-color: #0769de;
     border-width: 7px; }
 
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  this each will create all classes
-  .font-<size>, .font-<size>--bold,
-  .font-<size>--long-bold, .font-<size>--long,
-  based on _variables.scss@$font-sizes.
-
-  IE: .font-10, .font-10--bold, .font-10--long,
-      .font-10--long-bold, .font-12,
-      .font-12--bold, font-12--long,
-      .font-12--long-bold, .font-14,
-      .font-14--bold, font-14--long,
-      .font-14--long-bold, etc
-
-*/
-.font-68, .font-68--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 4.25rem;
-  letter-spacing: -0.25rem;
-  line-height: 4.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-68--long {
-    line-height: 5rem; }
-
-.font-56, .font-56--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 3.5rem;
-  letter-spacing: -0.1875rem;
-  line-height: 3.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-56--long {
-    line-height: 4rem; }
-
-.font-42, .font-42--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.625rem;
-  letter-spacing: -0.125rem;
-  line-height: 3rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-42--long {
-    line-height: 3.5rem; }
-
-.font-34, .font-34--long, h1, .bs-styleguide-home__title {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.125rem;
-  letter-spacing: -0.09375rem;
-  line-height: 2.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-34--long {
-    line-height: 3rem; }
-
-.font-26, .font-26--long, h2 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.625rem;
-  letter-spacing: -0.0625rem;
-  line-height: 1.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-26--long {
-    line-height: 2rem; }
-
-.font-20, .font-20--long, h3 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.25rem;
-  letter-spacing: -0.04688rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-20--long {
-    line-height: 1.75rem; }
-
-.font-18, .font-18--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.125rem;
-  letter-spacing: 0.037rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-18--long {
-    line-height: 1.75rem; }
-
-.font-16, .font-16--long, h4 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
-  letter-spacing: -0.03125rem;
-  line-height: 1.25rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-16--long {
-    line-height: 1.5rem; }
-
-.font-14, .font-14--long, h5, strong, .bs-ui-input__label, .bs-styleguide__body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: -0.01562rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-14--long {
-    line-height: 1.25rem; }
-
-.font-12, .font-12--long, h6 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-12--long {
-    line-height: 0; }
-
-.font-10, .font-10--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.625rem;
-  letter-spacing: 0.01562rem;
-  line-height: 0.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-10--long {
-    line-height: 0; }
-
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  this each will create all classes
-  .font-<size>, .font-<size>--bold,
-  .font-<size>--long-bold, .font-<size>--long,
-  based on _variables.scss@$font-sizes.
-
-  IE: .font-10, .font-10--bold, .font-10--long,
-      .font-10--long-bold, .font-12,
-      .font-12--bold, font-12--long,
-      .font-12--long-bold, .font-14,
-      .font-14--bold, font-14--long,
-      .font-14--long-bold, etc
-
-*/
-.font-68, .font-68--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 4.25rem;
-  letter-spacing: -0.25rem;
-  line-height: 4.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-68--long {
-    line-height: 5rem; }
-
-.font-56, .font-56--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 3.5rem;
-  letter-spacing: -0.1875rem;
-  line-height: 3.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-56--long {
-    line-height: 4rem; }
-
-.font-42, .font-42--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.625rem;
-  letter-spacing: -0.125rem;
-  line-height: 3rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-42--long {
-    line-height: 3.5rem; }
-
-.font-34, .font-34--long, h1, .bs-styleguide-home__title {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.125rem;
-  letter-spacing: -0.09375rem;
-  line-height: 2.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-34--long {
-    line-height: 3rem; }
-
-.font-26, .font-26--long, h2 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.625rem;
-  letter-spacing: -0.0625rem;
-  line-height: 1.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-26--long {
-    line-height: 2rem; }
-
-.font-20, .font-20--long, h3 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.25rem;
-  letter-spacing: -0.04688rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-20--long {
-    line-height: 1.75rem; }
-
-.font-18, .font-18--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.125rem;
-  letter-spacing: 0.037rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-18--long {
-    line-height: 1.75rem; }
-
-.font-16, .font-16--long, h4 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
-  letter-spacing: -0.03125rem;
-  line-height: 1.25rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-16--long {
-    line-height: 1.5rem; }
-
-.font-14, .font-14--long, h5, strong, .bs-ui-input__label, .bs-styleguide__body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: -0.01562rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-14--long {
-    line-height: 1.25rem; }
-
-.font-12, .font-12--long, h6 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-12--long {
-    line-height: 0; }
-
-.font-10, .font-10--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.625rem;
-  letter-spacing: 0.01562rem;
-  line-height: 0.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-10--long {
-    line-height: 0; }
-
-.bs-styleguide-home__title {
-  margin-bottom: 1.5rem; }
-
-.bs-styleguide__body {
-  padding-left: 300px;
-  padding-top: 70px; }
-
-.bs-styleguide-page__title {
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #ccc; }
-
-.bs-styleguide-page__subtitle {
-  margin-bottom: 1rem; }
-
-.bs-styleguide-page__body {
-  margin: 4rem 4rem;
-  margin: 40px; }
-
-.bs-styleguide-page__section {
-  margin-top: 4rem; }
-
-.bs-styleguide-page__lead {
-  margin-bottom: 1.5rem; }
-
-.bs-ui-drawer {
-  box-sizing: border-box;
-  border-right: 1px solid #ddd;
-  background-color: white;
-  position: fixed;
-  width: 300px;
-  left: 0;
-  top: 71px;
-  margin: 0;
-  height: 100%;
-  padding-bottom: 60px;
-  background-color: #fff;
-  z-index: 999;
-  overflow-y: auto; }
-
-.bs-ui-menu {
-  list-style: none;
-  text-decoration: none;
-  color: #333;
-  margin-top: 1.5rem;
-  margin-left: 1rem;
-  padding: 0; }
-  .bs-ui-menu__title {
-    font-weight: bold; }
-  .bs-ui-menu__item {
-    margin-top: 1.5rem;
-    margin-left: 1rem; }
-  .bs-ui-menu__item a {
-    text-decoration: none;
-    color: #333; }
-
-.code-sample {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  overflow: hidden;
-  margin: 2.5rem 0; }
-  .code-sample__head {
-    padding: 1rem 1.5rem;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #eee; }
-  .code-sample__button {
-    color: #999;
-    padding: 0 0.5rem;
-    text-decoration: none;
-    text-transform: uppercase; }
-    .code-sample__button--active {
-      color: #0769de;
-      transition: color ease-in-out .20s; }
-  .code-sample__content {
-    padding: 1rem 1.5rem;
-    background-color: #fff; }
-  .code-sample__snippet {
-    border-bottom: 1px solid #eee;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .8s ease-in-out; }
-    .code-sample__snippet--active {
-      max-height: 1000px; }
-  .code-sample__description {
-    padding-bottom: 1rem; }
-  .code-sample pre[class*="language-"] {
-    margin: 0; }
-
-.bs-header-bar {
-  background-color: #FFFFFF;
-  height: 70px;
-  color: black;
-  padding: 0 30px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 499; }
-  .bs-header-bar__brand {
-    padding-top: 20px;
-    height: 70px; }
-
-html, body {
-  margin: 0;
-  padding: 0; }
-
-body {
-  background: #f6f6f6;
-  color: #666; }
