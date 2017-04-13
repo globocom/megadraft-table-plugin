@@ -23,22 +23,61 @@
 }
 
 .table-manager-modal__form {
-  padding: 1rem;
-  width: 33%;
-  border-right: solid 1px #cccccc;
   background-color: #fbfbfb;
+  border-right: solid 1px #cccccc;
+  box-sizing: border-box;
+  padding: 1rem 1.5rem;
+  width: 286px;
 }
 
 .table-manager-modal__editable-table {
-  width: 67%;
   background-color: #ededed;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .table-manager-modal .bs-ui-input {
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 }
 
 .table-manager-modal .bs-ui-input .bs-ui-checkbox {
-  display: block;
-  padding-bottom: 10px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.table-manager-modal .bs-ui-input .bs-ui-checkbox:last-child {
+  margin-right: 0;
+}
+
+.table-manager-modal .bs-ui-input .bs-ui-checkbox input:before {
+  top: 0;
+}
+
+.table-manager-modal .bs-ui-input .bs-ui-checkbox input:after {
+  top: 3px;
+}
+
+.table-manager-modal .bs-ui-input .bs-ui-button {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.table-manager-modal .bs-ui-input .bs-ui-button.btn-remove {
+  float: right;
+}
+
+.table-manager-modal .header-style--bottom {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.table-manager-modal .header-style--right {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.table-manager-modal .header-style--left {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
 }

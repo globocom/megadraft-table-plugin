@@ -6,7 +6,7 @@
 
 import React, {Component} from "react";
 
-import Icon from "./icon.js";
+import {PluginIcon} from "./Icons.js";
 import constants from "./constants";
 import {insertDataBlock} from "megadraft";
 import {TableConfig} from "./TableConfig";
@@ -31,7 +31,7 @@ export default class Button extends Component {
   render() {
     return (
       <button className={this.props.className} type="button" onClick={this.onClick} title={this.props.title}>
-        <Icon className="sidemenu__button__icon" />
+        <PluginIcon className="sidemenu__button__icon" />
       </button>
     );
   }
