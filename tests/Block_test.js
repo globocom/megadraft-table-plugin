@@ -21,10 +21,6 @@ const expect = chai.expect;
 
 describe("Table Block", function () {
 
-  const createData = function(data = {}) {
-    return Object.assign({isFirstTime: true}, ValidTableConfig, data);
-  };
-
   const container = {
     remove: sinon.spy(),
     plugin: sinon.spy(),
@@ -33,7 +29,7 @@ describe("Table Block", function () {
   };
 
   beforeEach(function() {
-    const data = createData();
+    const data = Object.assign({}, ValidTableConfig);
     this.block = mount(<TableBlock container={container} blockProps={container} data={data} />);
     this.popin = this.block.find(TableManagerModal);
   });
@@ -45,42 +41,25 @@ describe("Table Block", function () {
     document.body.innerHTML = "";
   });
 
-  describe("when new block is added" , function() {
 
-    it("on close popin should delete block when don't have any data saved", function() {
-      const closeButton = document.querySelector(".bs-modal__close");
-      TestUtils.Simulate.click(closeButton);
-      expect(this.block.state("isEditing")).to.be.false;
-      expect(container.remove.calledOnce).to.be.true;
-    });
-
+  it("editable popin should be close", function() {
+    expect(this.popin.prop("isOpen")).to.be.false;
   });
 
-  describe("when is an old block" , function() {
+  it("editable popin should open when EditButton was clicked", function() {
+    const editButton = this.block.find(MegadraftPlugin.BlockAction).first();
 
-    beforeEach(function() {
-      const data = createData({isFirstTime: false});
-      this.block = mount(<TableBlock container={container} blockProps={container} data={data} />);
-      this.popin = this.block.find(TableManagerModal);
-    });
+    editButton.simulate("click");
 
-    it("editable popin should be close", function() {
-      expect(this.popin.prop("isOpen")).to.be.false;
-    });
-
-    it("editable popin should open when EditButton was clicked", function() {
-      const editButton = this.block.find(MegadraftPlugin.BlockAction).first();
-
-      editButton.simulate("click");
-
-      expect(this.block.find(TableManagerModal).prop("isOpen")).to.be.true;
-    });
-
+    expect(this.block.find(TableManagerModal).prop("isOpen")).to.be.true;
   });
+
 
   describe("on save", function() {
 
     beforeEach(function() {
+      this.block.setState({isEditing:true});
+      expect(this.block.find(TableManagerModal).prop("isOpen")).to.be.true;
       const addButton = document.querySelector(".table-manager-modal__add-button");
       TestUtils.Simulate.click(addButton);
     });

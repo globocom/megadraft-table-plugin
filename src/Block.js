@@ -21,8 +21,7 @@ export default class TableBlock extends Component {
     this._onSave = ::this._onSave;
 
     this.state = {
-      isEditing: this.props.data.isFirstTime,
-      isFirstTime: this.props.data.isFirstTime
+      isEditing: false
     };
 
     this.actions = [
@@ -32,28 +31,17 @@ export default class TableBlock extends Component {
   }
 
   _handleEdit() {
-    this.setState({
-      isEditing: true,
-      isFirstTime: false
-    });
+    this.setState({isEditing: true});
   }
 
   _onModalClose() {
-    if (!this.state.isEditing) {
-      return;
-    }
-    this.setState({isEditing: false});
-    if (this.state.isFirstTime) {
-      this.props.container.remove();
+    if (this.state.isEditing) {
+      this.setState({isEditing: false});
     }
   }
 
   _onSave(data) {
-    this.setState({
-      isEditing: false,
-      isFirstTime: false
-    });
-
+    this.setState({isEditing: false});
     this.props.container.updateData({...data});
   }
 

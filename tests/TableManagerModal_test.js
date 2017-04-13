@@ -53,7 +53,6 @@ describe("TableManagerModal", function () {
         TestUtils.Simulate.click(addButton);
         expect(this.onSaveRequest.calledOnce).to.be.true;
         expect(this.onSaveRequest.getCall(0).args[0]).to.be.deep.equals(ValidTableConfig);
-        // expect().to.be.true;
         done();
       });
     });
