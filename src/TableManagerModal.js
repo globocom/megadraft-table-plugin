@@ -23,7 +23,8 @@ export default class TableManagerModal extends Component {
     super(props);
     this._onSaveRequest = ::this._onSaveRequest;
     this.onFormItemChange = ::this.onFormItemChange;
-    this.addLine = ::this.addLine;
+    this.addRow = ::this.addRow;
+    this.removeRow = ::this.removeRow;
 // data = {
 //   title: "",
 //   source: "",
@@ -78,7 +79,7 @@ export default class TableManagerModal extends Component {
     }
   }
 
-  addLine() {
+  addRow() {
     let rowNum;
     if (this.state.selectedCell.length == 2) {
       rowNum = this.state.selectedCell[1] + 1;
@@ -90,6 +91,18 @@ export default class TableManagerModal extends Component {
       this._createNewRow(),
       ...this.state.data.rows.slice(rowNum)
     ];
+    this._changeDataValue("rows", rows);
+  }
+
+  removeRow() {
+    let rowNum;
+    if (this.state.selectedCell.length == 2) {
+      rowNum = this.state.selectedCell[1];
+    } else {
+      rowNum = this.state.data.rows.length - 1;
+    }
+    const rows = [...this.state.data.rows];
+    rows.splice(rowNum, 1);
     this._changeDataValue("rows", rows);
   }
 
@@ -116,7 +129,8 @@ export default class TableManagerModal extends Component {
             <AddRemove
               className="add-remove-rows"
               title="Linhas"
-              onAdd={this.addLine}/>
+              onAdd={this.addRow}
+              onRemove={this.removeRow} />
 
             <AddRemove title="Colunas" />
 
