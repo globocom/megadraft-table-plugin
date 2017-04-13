@@ -5,6 +5,7 @@
  */
 
 import constants from "../src/constants";
+import {TableConfig} from "../src/TableConfig";
 
 export default {
   entityMap: {
@@ -26,7 +27,11 @@ export default {
       text: "",
       data: {
         type: constants.PLUGIN_TYPE,
-        caption: "Plugin caption"
+        ...new TableConfig({
+          title: "Tabela XPTO",
+          source: "Fonte da minha tabela",
+          rows: [["A1", "B1"], ["A2", "B2"]]
+        })
       },
       entityRanges: []
     }
