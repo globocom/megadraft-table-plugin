@@ -29,6 +29,17 @@ describe("TableView", function() {
         return mount(<TableView rows={rows}/>).instance();
     }
 
+    const expectCellsValueOnRightPosition = function(tableView, rows) {
+      let columns = tableView.state.columns;
+      let propertyName;
+      for(let i=0; i<rows.length ;i++) {
+        for(let j=0; j<rows[i].length; j++) {
+          propertyName = columns[j].property;
+          expect(tableView.state.rows[i][propertyName]).to.be.equal(rows[i][j]);
+        }
+      }
+    }
+
     it("should have one column", function() {
       let tableView = createTable(rowsWithOneCell);
       expect(tableView.state.columns.length).to.be.equal(rowsWithOneCell[0].length);
@@ -41,7 +52,7 @@ describe("TableView", function() {
 
     it("should have one cell value", function() {
       let tableView = createTable(rowsWithOneCell);
-      expect(tableView.state.rows[0][firstColumnName]).to.be.equal(rowsWithOneCell[0][0]);
+      expectCellsValueOnRightPosition(tableView, rowsWithOneCell);
     });
 
     it("should have column property value with same name as row key", function() {
@@ -53,9 +64,7 @@ describe("TableView", function() {
 
     it("should have two rows with one column", function() {
       let tableView = createTable(rowsWithTwoCells);
-      for(let i=0; i<rowsWithTwoCells.length ;i++) {
-        expect(tableView.state.rows[i][firstColumnName]).to.be.equal(rowsWithTwoCells[i][0]);
-      }
+      expectCellsValueOnRightPosition(tableView, rowsWithTwoCells);
       expect(tableView.state.columns).to.have.lengthOf(rowsWithTwoCells[0].length);
     });
 
@@ -67,11 +76,12 @@ describe("TableView", function() {
 
     it("should have two rows and two columns", function() {
       let tableView = createTable(twoRowsWithTwoColumns);
-      for(let i=0; i<twoRowsWithTwoColumns.length; i++) {
-        for(let j=0; j<twoRowsWithTwoColumns[i].length; j++) {
-          expect(tableView.state.rows[i][twoColumnsNames[j]]).to.be.equal(twoRowsWithTwoColumns[i][j]);
-        }
-      }
+      expectCellsValueOnRightPosition(tableView, twoRowsWithTwoColumns);
+    });
+
+    it("should have the correct property name", function() {
+      let tableView = createTable(twoRowsWithTwoColumns);
+      expect(tableView.buildPropertyName(0)).to.be.equal(tableView.state.columns[0].property);
     });
 
 })

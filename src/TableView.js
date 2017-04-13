@@ -42,6 +42,10 @@ export default class TableView extends Component {
     return propertyName + i + "-"+ j;
   }
 
+  buildPropertyName(columnIndex) {
+    return "c" + columnIndex;
+  }
+
   render() {
       return (<h1></h1>
           );
