@@ -25,7 +25,8 @@ describe("TableManagerModal", function () {
       bottom: false,
       right: false,
       left: false
-    }
+    },
+    selectedCell: []
   };
 
   beforeEach(function() {
@@ -141,11 +142,41 @@ describe("TableManagerModal", function () {
 
     describe("Add", function() {
 
+      beforeEach(function() {
+        this.btnAddRow = document.querySelector(".bs-modal .add-remove-rows .btn-add");
+      });
+
       it("should add a new row", function() {
         expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(0);
-        const btnAddRow = document.querySelector(".bs-modal .add-remove-rows .btn-add");
-        TestUtils.Simulate.click(btnAddRow);
+        TestUtils.Simulate.click(this.btnAddRow);
         expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
+      });
+
+      it("should add a new row after selected row cell", function() {
+        const rows = [["A1", "B1"],["A2", "B2"]];
+        const selectedCell = [1, 0];
+        const data = Object.assign({}, validData, {rows, selectedCell});
+        this.tableManagerModal.setState({data});
+        TestUtils.Simulate.click(this.btnAddRow);
+        expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(3);
+        expect(this.tableManagerModal.state().data.rows[1]).to.not.deep.equals(rows[0]);
+        expect(this.tableManagerModal.state().data.rows[1]).to.not.deep.equals(rows[1]);
+      });
+
+      it("should create a new row with the same quantity of columns when does have rows created previously", function() {
+        const rows = [["A1", "B1"]];
+        const data = Object.assign({}, validData, {rows});
+        this.tableManagerModal.setState({data});
+        TestUtils.Simulate.click(this.btnAddRow);
+        expect(this.tableManagerModal.state().data.rows[1]).to.deep.equals(["", ""]);
+      });
+
+      it("should create a new row with any column when does not have rows created previously", function() {
+        const rows = [["A1", "B1"]];
+        const data = Object.assign({}, validData, {rows});
+        this.tableManagerModal.setState({data});
+        TestUtils.Simulate.click(this.btnAddRow);
+        expect(this.tableManagerModal.state().data.rows[1]).to.deep.equals(["", ""]);
       });
 
     });
