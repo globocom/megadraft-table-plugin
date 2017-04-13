@@ -64,7 +64,7 @@ export default class TableBlock extends Component {
           <BlockContent>
           </BlockContent>
         </CommonBlock>
-        <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={this._onModalClose} onSaveRequest={this._onSave} />
+        <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={this._onModalClose} onSaveRequest={this._onSave} data={this.props.data} />
       </div>
     );
   }

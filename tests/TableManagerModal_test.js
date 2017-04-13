@@ -13,25 +13,15 @@ import chai from "chai";
 import sinon from "sinon";
 
 import TableManagerModal from "../src/TableManagerModal";
+import {EmptyTableConfig, ValidTableConfig} from "./fixtures";
 
 const expect = chai.expect;
 
 describe("TableManagerModal", function () {
 
-  const validData = {
-    title: "Bloblo",
-    headerStyle: {
-      top: true,
-      bottom: false,
-      right: false,
-      left: false
-    },
-    selectedCell: []
-  };
-
   beforeEach(function() {
     this.onSaveRequest = sinon.spy();
-    this.tableManagerModal = mount(<TableManagerModal isOpen={true} onSaveRequest={(data) => {this.onSaveRequest(data);}}/>);
+    this.tableManagerModal = mount(<TableManagerModal isOpen={true} onSaveRequest={(data) => {this.onSaveRequest(data);}} data={EmptyTableConfig}/>);
   });
 
   afterEach(function() {
@@ -43,7 +33,7 @@ describe("TableManagerModal", function () {
   describe("isValid", function() {
 
     it("should be true when title is present", function(done) {
-      this.tableManagerModal.setState({data: validData}, () => {
+      this.tableManagerModal.setState({data: ValidTableConfig}, () => {
         expect(this.tableManagerModal.instance().isValid()).to.be.true;
         done();
       });
@@ -58,7 +48,7 @@ describe("TableManagerModal", function () {
   describe("click add button", function() {
 
     it("save callback should be called when is valid", function(done) {
-      this.tableManagerModal.setState({data: validData}, () => {
+      this.tableManagerModal.setState({data: ValidTableConfig}, () => {
         const addButton = document.querySelector(".table-manager-modal__add-button");
         TestUtils.Simulate.click(addButton);
         expect(this.onSaveRequest.calledOnce).to.be.true;
@@ -126,7 +116,7 @@ describe("TableManagerModal", function () {
     testChangeHeaderStyle("left");
 
     it("should maintain the state of others options", function() {
-      this.tableManagerModal.setState({data: validData});
+      this.tableManagerModal.setState({data: ValidTableConfig});
       const headeStyleCheckbox = getHeaderCheckboxDOM("bottom");
       headeStyleCheckbox.checked = true;
       TestUtils.Simulate.change(headeStyleCheckbox);
@@ -155,8 +145,8 @@ describe("TableManagerModal", function () {
       it("should add a new row after selected row cell", function() {
         const rows = [["A1", "B1"],["A2", "B2"]];
         const selectedCell = [1, 0];
-        const data = Object.assign({}, validData, {rows, selectedCell});
-        this.tableManagerModal.setState({data});
+        const data = Object.assign({}, ValidTableConfig, {rows});
+        this.tableManagerModal.setState({data, selectedCell});
         TestUtils.Simulate.click(this.btnAddRow);
         expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(3);
         expect(this.tableManagerModal.state().data.rows[1]).to.not.deep.equals(rows[0]);
@@ -165,7 +155,7 @@ describe("TableManagerModal", function () {
 
       it("should create a new row with the same quantity of columns when does have rows created previously", function() {
         const rows = [["A1", "B1"]];
-        const data = Object.assign({}, validData, {rows});
+        const data = Object.assign({}, ValidTableConfig, {rows});
         this.tableManagerModal.setState({data});
         TestUtils.Simulate.click(this.btnAddRow);
         expect(this.tableManagerModal.state().data.rows[1]).to.deep.equals(["", ""]);
@@ -173,7 +163,7 @@ describe("TableManagerModal", function () {
 
       it("should create a new row with any column when does not have rows created previously", function() {
         const rows = [["A1", "B1"]];
-        const data = Object.assign({}, validData, {rows});
+        const data = Object.assign({}, ValidTableConfig, {rows});
         this.tableManagerModal.setState({data});
         TestUtils.Simulate.click(this.btnAddRow);
         expect(this.tableManagerModal.state().data.rows[1]).to.deep.equals(["", ""]);

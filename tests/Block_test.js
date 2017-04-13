@@ -15,37 +15,37 @@ import sinon from "sinon";
 import {MegadraftPlugin} from "megadraft";
 import TableBlock from "../src/Block";
 import TableManagerModal from "../src/TableManagerModal";
+import {ValidTableConfig} from "./fixtures";
 
 const expect = chai.expect;
 
 describe("Table Block", function () {
 
   const createData = function(data = {}) {
-    return Object.assign({isFirstTime: true}, data);
+    return Object.assign({isFirstTime: true}, ValidTableConfig, data);
   };
 
   const container = {
     remove: sinon.spy(),
     plugin: sinon.spy(),
-    setReadOnly: sinon.spy()
+    setReadOnly: sinon.spy(),
+    updateData: sinon.spy()
   };
 
+  beforeEach(function() {
+    const data = createData();
+    this.block = mount(<TableBlock container={container} blockProps={container} data={data} />);
+    this.popin = this.block.find(TableManagerModal);
+  });
+
   afterEach(function() {
+    container.updateData.reset();
+
     unmountComponentAtNode(document);
     document.body.innerHTML = "";
   });
 
   describe("when new block is added" , function() {
-
-    beforeEach(function() {
-      const data = createData();
-      this.block = mount(<TableBlock container={container} blockProps={container} data={data} />);
-      this.popin = this.block.find(TableManagerModal);
-    });
-
-    it("editable popin should be open", function() {
-      expect(this.popin.prop("isOpen")).to.be.true;
-    });
 
     it("on close popin should delete block when don't have any data saved", function() {
       const closeButton = document.querySelector(".bs-modal__close");
@@ -74,6 +74,23 @@ describe("Table Block", function () {
       editButton.simulate("click");
 
       expect(this.block.find(TableManagerModal).prop("isOpen")).to.be.true;
+    });
+
+  });
+
+  describe("on save", function() {
+
+    beforeEach(function() {
+      const addButton = document.querySelector(".table-manager-modal__add-button");
+      TestUtils.Simulate.click(addButton);
+    });
+
+    it("should call updateData", function() {
+      expect(container.updateData.calledOnce).to.be.true;
+    });
+
+    it("should close popin", function() {
+      expect(this.block.find(TableManagerModal).prop("isOpen")).to.be.false;
     });
 
   });

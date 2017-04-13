@@ -24,20 +24,20 @@ export default class TableManagerModal extends Component {
     this._onSaveRequest = ::this._onSaveRequest;
     this.onFormItemChange = ::this.onFormItemChange;
     this.addLine = ::this.addLine;
-
+// data = {
+//   title: "",
+//   source: "",
+//   headerStyle: {
+//     top: false,
+//     bottom: false,
+//     right: false,
+//     left: false
+//    },
+//    rows: []
+// }
     this.state = {
-      data: {
-        title: "",
-        source: "",
-        headerStyle: {
-          top: false,
-          bottom: false,
-          right: false,
-          left: false
-        },
-        rows: [],
-        selectedCell: []
-      },
+      data: this.props.data,
+      selectedCell: [],
       errors: {
         title: []
       }
@@ -80,8 +80,8 @@ export default class TableManagerModal extends Component {
 
   addLine() {
     let rowNum;
-    if (this.state.data.selectedCell.length == 2) {
-      rowNum = this.state.data.selectedCell[1] + 1;
+    if (this.state.selectedCell.length == 2) {
+      rowNum = this.state.selectedCell[1] + 1;
     } else {
       rowNum = this.state.data.rows.length + 1;
     }
