@@ -7,11 +7,11 @@ const createHeaderStyle = (options = {}) => {
   };
 };
 
-export const TableConfig = function() {
+export const TableConfig = function(values = {}) {
   return {
-    title: "",
-    headerStyle: createHeaderStyle(),
-    source: "",
-    rows: []
+    title: values.title || "",
+    headerStyle: createHeaderStyle(values.headerStyle),
+    source: values.source || "",
+    rows: values.rows || []
   };
 };

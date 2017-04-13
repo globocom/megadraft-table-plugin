@@ -25,17 +25,6 @@ export default class TableManagerModal extends Component {
     this.onFormItemChange = ::this.onFormItemChange;
     this.addRow = ::this.addRow;
     this.removeRow = ::this.removeRow;
-// data = {
-//   title: "",
-//   source: "",
-//   headerStyle: {
-//     top: false,
-//     bottom: false,
-//     right: false,
-//     left: false
-//    },
-//    rows: []
-// }
     this.state = {
       data: this.props.data,
       selectedCell: [],
