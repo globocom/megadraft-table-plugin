@@ -32,13 +32,14 @@ export function Checkbox({name, value, isChecked, className, onChange}) {
   );
 }
 
-export function Input({title, name, errors = [], onChange, onBlur, isRequired = true}) {
+export function Input({title, name, value, errors = [], onChange, onBlur, isRequired = true}) {
   return (
     <FormItem isRequired={isRequired} hasErrors={errors.length !== 0}>
       <label className="bs-ui-input__label" htmlFor={name}>{title}</label>
       <input className="bs-ui-input__field"
         type="text"
         name={name}
+        value={value}
         onChange={onChange}
         onBlur={onBlur} required={isRequired}/>
       <p className="bs-ui-input__field-error">

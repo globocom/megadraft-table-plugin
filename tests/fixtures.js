@@ -1,5 +1,5 @@
 import {TableConfig} from "../src/TableConfig";
 
-export const EmptyTableConfig = new TableConfig();
+export const EmptyTableConfig = Object.freeze(new TableConfig());
 
-export const ValidTableConfig = new TableConfig({title: "Bloblo", headerStyle: {top: true}});
+export const ValidTableConfig = Object.freeze(new TableConfig({title: "Bloblo", headerStyle: {top: true}}));
