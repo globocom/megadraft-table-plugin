@@ -174,7 +174,8 @@ export default class TableManagerModal extends Component {
             <Input title="Fonte"
               name="source"
               value={data.source}
-              onChange={this.onFormItemChange} />
+              onChange={this.onFormItemChange}
+              isRequired={false} />
 
           </div>
 
