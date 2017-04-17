@@ -236,8 +236,42 @@ describe("TableManagerModal", function () {
         expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
       });
 
+      it("should not do anything when does not have any row", function() {
+        const rows = [];
+        const data = Object.assign({}, ValidTableConfig, {rows});
+        this.tableManagerModal.setState({data});
+
+        TestUtils.Simulate.click(this.btnAddColumn);
+        expect(this.tableManagerModal.state().data.rows).to.deep.equals([]);
+      });
+
     });
 
+    describe("Remove", function() {
+
+      beforeEach(function() {
+        this.btnRemoveColumn = document.querySelector(".bs-modal .add-remove-columns .btn-remove");
+      });
+
+      it("should keeps without columns when does not have rows", function() {
+        expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([]);
+
+        TestUtils.Simulate.click(this.btnRemoveColumn);
+
+        expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([]);
+      });
+
+      it ("should remove the last column when does not have any selected cell", function() {
+        const rows = [["A1", "B1"], ["A2", "B2"]];
+        const data = Object.assign({}, ValidTableConfig, {rows});
+        this.tableManagerModal.setState({data, selectedCell: []});
+
+        TestUtils.Simulate.click(this.btnRemoveColumn);
+
+        expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([["A1"], ["A2"]]);
+      });
+
+    });
   });
 
 });
