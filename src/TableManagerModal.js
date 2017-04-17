@@ -27,6 +27,7 @@ export default class TableManagerModal extends Component {
     this.addRow = ::this.addRow;
     this.removeRow = ::this.removeRow;
     this.addColumn = ::this.addColumn;
+    this.removeColumn = ::this.removeColumn;
     this.state = {
       data: new TableConfig(this.props.data),
       selectedCell: [],
@@ -119,6 +120,13 @@ export default class TableManagerModal extends Component {
     this._changeDataValue("rows", rows);
   }
 
+  removeColumn() {
+    const rows = this.state.data.rows.map(row => {
+      return [...row.slice(0, row.length - 1)];
+    });
+    this._changeDataValue("rows", rows);
+  }
+
   render() {
     const {data, errors} = this.state;
     return (
@@ -147,7 +155,8 @@ export default class TableManagerModal extends Component {
 
             <AddRemove title="Colunas"
               className="add-remove-columns"
-              onAdd={this.addColumn} />
+              onAdd={this.addColumn}
+              onRemove={this.removeColumn} />
 
             <Input title="Fonte"
               name="source"
