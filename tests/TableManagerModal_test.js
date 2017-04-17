@@ -236,6 +236,15 @@ describe("TableManagerModal", function () {
         expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
       });
 
+      it("should not do anything when does not have any row", function() {
+        const rows = [];
+        const data = Object.assign({}, ValidTableConfig, {rows});
+        this.tableManagerModal.setState({data});
+
+        TestUtils.Simulate.click(this.btnAddColumn);
+        expect(this.tableManagerModal.state().data.rows).to.deep.equals([]);
+      });
+
     });
 
   });

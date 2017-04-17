@@ -103,6 +103,10 @@ export default class TableManagerModal extends Component {
   }
 
   addColumn() {
+    if (this.state.data.rows.length < 1) {
+      return;
+    }
+
     let columnNum;
     if (this.state.selectedCell.length == 2) {
       columnNum = this.state.selectedCell[0] + 1;
