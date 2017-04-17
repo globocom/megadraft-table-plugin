@@ -284,4 +284,13 @@ describe("TableManagerModal", function () {
     });
   });
 
+  describe("Source", function() {
+    it("should update state when input changes", function() {
+      expect(this.tableManagerModal.state().data.title).to.be.equals("");
+      const sourceInput = document.querySelector(".bs-modal input[name=\"source\"]");
+      sourceInput.value = "Blo";
+      TestUtils.Simulate.change(sourceInput);
+      expect(this.tableManagerModal.state().data.source).to.be.equals("Blo");
+    });
+  });
 });
