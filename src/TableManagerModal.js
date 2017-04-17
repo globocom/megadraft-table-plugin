@@ -13,6 +13,10 @@ import {Input} from "./FormComponents";
 import {AddRemove} from "./AddRemove";
 import {TableConfig} from "./TableConfig";
 
+
+const MIN_COLUMNS  = 1;
+const MIN_ROWS = 1;
+
 export default class TableManagerModal extends Component {
 
   static propTypes = {
@@ -92,6 +96,10 @@ export default class TableManagerModal extends Component {
   }
 
   removeRow() {
+    if (this.state.data.rows.length === MIN_ROWS) {
+      return;
+    }
+
     let rowNum;
     if (this.state.selectedCell.length == 2) {
       rowNum = this.state.selectedCell[1];
@@ -104,7 +112,7 @@ export default class TableManagerModal extends Component {
   }
 
   addColumn() {
-    if (this.state.data.rows.length < 1) {
+    if (this.state.data.rows.length < MIN_ROWS) {
       return;
     }
 
@@ -121,8 +129,21 @@ export default class TableManagerModal extends Component {
   }
 
   removeColumn() {
+    if (this.state.data.rows[0].length === MIN_COLUMNS) {
+      return;
+    }
+
+    let columnNum;
+
+    if (this.state.selectedCell.length == 2) {
+      columnNum = this.state.selectedCell[0];
+    } else {
+      columnNum = this.state.data.rows[0].length - 1;
+    }
     const rows = this.state.data.rows.map(row => {
-      return [...row.slice(0, row.length - 1)];
+      const newRow = [...row];
+      newRow.splice(columnNum, 1);
+      return newRow;
     });
     this._changeDataValue("rows", rows);
   }
@@ -161,7 +182,8 @@ export default class TableManagerModal extends Component {
             <Input title="Fonte"
               name="source"
               value={data.source}
-              onChange={this.onFormItemChange} />
+              onChange={this.onFormItemChange}
+              isRequired={false} />
 
           </div>
 

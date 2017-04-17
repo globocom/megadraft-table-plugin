@@ -12,6 +12,6 @@ export const TableConfig = function(values = {}) {
     title: values.title || "",
     headerStyle: createHeaderStyle(values.headerStyle),
     source: values.source || "",
-    rows: values.rows || []
+    rows: values.rows || [[""]]
   };
 };
