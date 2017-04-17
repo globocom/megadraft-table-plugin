@@ -103,7 +103,15 @@ export default class TableManagerModal extends Component {
   }
 
   addColumn() {
-    const rows = this.state.data.rows.map(row => [...row, ""]);
+    let columnNum;
+    if (this.state.selectedCell.length == 2) {
+      columnNum = this.state.selectedCell[0] + 1;
+    } else {
+      columnNum = this.state.data.rows[0].length;
+    }
+    const rows = this.state.data.rows.map(row => {
+      return [...row.slice(0, columnNum), "", ...row.slice(columnNum)];
+    });
     this._changeDataValue("rows", rows);
   }
 

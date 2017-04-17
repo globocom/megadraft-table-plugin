@@ -228,6 +228,14 @@ describe("TableManagerModal", function () {
         expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
       });
 
+      it("should add a new column after selected cell", function() {
+        const expected = [["A1", "", "B1"], ["A2", "", "B2"]];
+        this.tableManagerModal.setState({selectedCell: [0, 1]});
+
+        TestUtils.Simulate.click(this.btnAddColumn);
+        expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
+      });
+
     });
 
   });
