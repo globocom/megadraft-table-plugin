@@ -26,6 +26,7 @@ export default class TableManagerModal extends Component {
     this.onFormItemChange = ::this.onFormItemChange;
     this.addRow = ::this.addRow;
     this.removeRow = ::this.removeRow;
+    this.addColumn = ::this.addColumn;
     this.state = {
       data: new TableConfig(this.props.data),
       selectedCell: [],
@@ -33,6 +34,11 @@ export default class TableManagerModal extends Component {
         title: []
       }
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const data = new TableConfig({...nextProps.data});
+    this.setState({data});
   }
 
   _onSaveRequest() {
@@ -96,6 +102,19 @@ export default class TableManagerModal extends Component {
     this._changeDataValue("rows", rows);
   }
 
+  addColumn() {
+    let columnNum;
+    if (this.state.selectedCell.length == 2) {
+      columnNum = this.state.selectedCell[0] + 1;
+    } else {
+      columnNum = this.state.data.rows[0].length;
+    }
+    const rows = this.state.data.rows.map(row => {
+      return [...row.slice(0, columnNum), "", ...row.slice(columnNum)];
+    });
+    this._changeDataValue("rows", rows);
+  }
+
   render() {
     const {data, errors} = this.state;
     return (
@@ -122,7 +141,9 @@ export default class TableManagerModal extends Component {
               onAdd={this.addRow}
               onRemove={this.removeRow} />
 
-            <AddRemove title="Colunas" />
+            <AddRemove title="Colunas"
+              className="add-remove-columns"
+              onAdd={this.addColumn} />
 
             <Input title="Fonte"
               name="source"
@@ -134,7 +155,7 @@ export default class TableManagerModal extends Component {
           <div className="table-manager-modal__editable-table">"preview"</div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
-          <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--blue"
+          <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue"
                   onClick={this._onSaveRequest}>Adicionar</button>
         </ModalFooter>
       </Modal>

@@ -53,7 +53,6 @@ describe("TableManagerModal", function () {
         TestUtils.Simulate.click(addButton);
         expect(this.onSaveRequest.calledOnce).to.be.true;
         expect(this.onSaveRequest.getCall(0).args[0]).to.be.deep.equals(ValidTableConfig);
-        // expect().to.be.true;
         done();
       });
     });
@@ -205,6 +204,36 @@ describe("TableManagerModal", function () {
 
         expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
         expect(this.tableManagerModal.state().data.rows[0]).to.deep.equals(["A2", "B2"]);
+      });
+
+    });
+
+  });
+
+  describe("Add or Remove Columns", function() {
+
+    describe("Add", function() {
+
+      beforeEach(function() {
+        this.btnAddColumn = document.querySelector(".bs-modal .add-remove-columns .btn-add");
+        const rows = [["A1", "B1"], ["A2", "B2"]];
+        const data = Object.assign({}, ValidTableConfig, {rows});
+        this.tableManagerModal.setState({data, selectedCell: []});
+      });
+
+      it("should add a new column", function() {
+        const expected = [["A1", "B1", ""], ["A2", "B2", ""]];
+
+        TestUtils.Simulate.click(this.btnAddColumn);
+        expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
+      });
+
+      it("should add a new column after selected cell", function() {
+        const expected = [["A1", "", "B1"], ["A2", "", "B2"]];
+        this.tableManagerModal.setState({selectedCell: [0, 1]});
+
+        TestUtils.Simulate.click(this.btnAddColumn);
+        expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
       });
 
     });
