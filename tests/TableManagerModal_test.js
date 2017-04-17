@@ -210,4 +210,26 @@ describe("TableManagerModal", function () {
 
   });
 
+  describe("Add or Remove Columns", function() {
+
+    describe("Add", function() {
+
+      beforeEach(function() {
+        this.btnAddColumn = document.querySelector(".bs-modal .add-remove-columns .btn-add");
+        const rows = [["A1", "B1"], ["A2", "B2"]];
+        const data = Object.assign({}, ValidTableConfig, {rows});
+        this.tableManagerModal.setState({data, selectedCell: []});
+      });
+
+      it("should add a new column", function() {
+        const expected = [["A1", "B1", ""], ["A2", "B2", ""]];
+
+        TestUtils.Simulate.click(this.btnAddColumn);
+        expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
+      });
+
+    });
+
+  });
+
 });
