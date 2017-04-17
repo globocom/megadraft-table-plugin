@@ -261,7 +261,7 @@ describe("TableManagerModal", function () {
         expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([]);
       });
 
-      it ("should remove the last column when does not have any selected cell", function() {
+      it("should remove the last column when does not have any selected cell", function() {
         const rows = [["A1", "B1"], ["A2", "B2"]];
         const data = Object.assign({}, ValidTableConfig, {rows});
         this.tableManagerModal.setState({data, selectedCell: []});
@@ -269,6 +269,16 @@ describe("TableManagerModal", function () {
         TestUtils.Simulate.click(this.btnRemoveColumn);
 
         expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([["A1"], ["A2"]]);
+      });
+
+      it("should remove the selected column when does have a selected cell", function() {
+        const rows = [["A1", "B1"], ["A2", "B2"]];
+        const data = Object.assign({}, ValidTableConfig, {rows});
+        this.tableManagerModal.setState({data, selectedCell: [0, 1]});
+
+        TestUtils.Simulate.click(this.btnRemoveColumn);
+
+        expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([["B1"], ["B2"]]);
       });
 
     });
