@@ -6,6 +6,7 @@
   "style": "dist/css/plugin.css",
   "dependencies": {
     "backstage-modal": "^0.2.6",
+    "react-edit": "^6.2.0",
     "reactabular-table": "^8.8.0"
   },
   "devDependencies": {
@@ -39,7 +40,6 @@
     "react": "15.2.1",
     "react-addons-test-utils": "15.2.1",
     "react-dom": "15.2.1",
-    "reactabular-table": "8.8.0",
     "rimraf": "^2.5.2",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
