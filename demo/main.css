@@ -38,6 +38,13 @@
       -ms-flex-positive: 1;
           flex-grow: 1; }
 
+.table-manager-modal__table-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
 .table-manager-modal .bs-ui-input {
   padding-bottom: 16px; }
   .table-manager-modal .bs-ui-input .bs-ui-checkbox {
@@ -54,6 +61,14 @@
     margin-bottom: 10px; }
     .table-manager-modal .bs-ui-input .bs-ui-button.btn-remove {
       float: right; }
+
+.table-manager-modal .table-cell {
+  min-width: 150px;
+  min-height: 1.5em;
+  background-color: #fff;
+  cursor: text;
+  display: inline-block;
+  margin: 2px; }
 
 .table-manager-modal .header-style--bottom {
   -webkit-transform: rotate(180deg);

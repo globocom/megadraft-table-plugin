@@ -33,6 +33,14 @@
     flex-grow: 1;
   }
 
+  &__table-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
   .bs-ui-input {
     padding-bottom: 16px;
 
@@ -43,7 +51,7 @@
       &:last-child {
         margin-right: 0;
       }
-      
+
       input:before {
         top: 0;
       }
@@ -62,6 +70,16 @@
       }
     }
   }
+
+  .table-cell {
+    min-width: 150px;
+    min-height: 1.5em;
+    background-color: #fff;
+    cursor: text;
+    display: inline-block;
+    margin: 2px;
+  }
+
 
   .header-style {
     &--bottom {

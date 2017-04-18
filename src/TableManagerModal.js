@@ -195,7 +195,9 @@ export default class TableManagerModal extends Component {
           </div>
 
           <div className="table-manager-modal__editable-table">
-            <TableView rows={this.state.data.rows} onEditCell={::this.onEditTableCell} />
+            <div className="table-manager-modal__table-wrapper">
+              <TableView rows={this.state.data.rows} onEditCell={::this.onEditTableCell} />
+            </div>
           </div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
