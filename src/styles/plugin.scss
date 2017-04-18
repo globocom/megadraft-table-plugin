@@ -58,7 +58,7 @@
       margin-bottom: 10px;
 
       &.btn-remove {
-        float: right;
+        margin-left: 50px;
       }
     }
   }
@@ -74,6 +74,22 @@
 
     &--left {
       transform: rotate(270deg);
+    }
+  }
+
+  .add-remove-rows, .add-remove-columns {
+    .btn-add svg, .btn-remove svg {
+      height: 16px;
+      vertical-align: top;
+      width: 16px;
+    }
+
+    .btn-remove svg path {
+      fill: #e83f26;
+    }
+
+    .btn-add svg path {
+      fill: #0769de;
     }
   }
 }
