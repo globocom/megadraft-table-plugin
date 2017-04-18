@@ -282,7 +282,7 @@ html {
     .bs-ui-input__field:hover {
       border-color: #999; }
     .bs-ui-input__field:focus {
-      border-color: #0769de; }
+      border-color: #0669De; }
   .bs-ui-input--error .bs-ui-input__field {
     border-color: #e83f26;
     color: #e83f26; }
@@ -303,6 +303,7 @@ html {
     padding: 0;
     color: #e83f26; }
   .bs-ui-input__label {
+    color: #666;
     display: block;
     margin-bottom: 10px; }
 
@@ -531,25 +532,22 @@ html {
   .bs-ui-switch label {
     color: #666;
     font-family: "Open Sans", sans-serif;
-    font-size: 14px;
-    letter-spacing: -0.2px; }
+    font-size: 0.875rem;
+    letter-spacing: -0.01562rem; }
   .bs-ui-switch input[type=checkbox] {
     display: none; }
   .bs-ui-switch:hover .bs-ui-switch__lever {
     background-color: #666; }
-  .bs-ui-switch--blue .bs-ui-switch__lever {
-    background-color: #0669de; }
-  .bs-ui-switch--blue:hover .bs-ui-switch__lever {
+  .bs-ui-switch:hover input[type=checkbox]:checked + .bs-ui-switch__lever {
     background-color: #044cb3; }
   .bs-ui-switch__lever {
     content: "";
     display: inline-block;
     position: relative;
     width: 44px;
-    height: 24px;
+    height: 1.5rem;
     background-color: #999;
     border-radius: 24px;
-    margin-right: 10px;
     transition: background 0.15s cubic-bezier(0, 0, 0.2, 1);
     vertical-align: middle;
     margin: 0 6px;
@@ -560,13 +558,15 @@ html {
       display: inline-block;
       width: 20px;
       height: 20px;
-      background-color: #FFF;
+      background-color: #fff;
       border-radius: 20px;
       left: 2px;
       top: 2px;
       transition: left 0.15s cubic-bezier(0, 0, 0.2, 1); }
   .bs-ui-switch input[type=checkbox]:checked + .bs-ui-switch__lever:after {
     left: 22px; }
+  .bs-ui-switch input[type=checkbox]:checked + .bs-ui-switch__lever {
+    background-color: #0669De; }
   .bs-ui-switch--small .bs-ui-switch__lever {
     height: 16px;
     width: 28px; }
@@ -584,6 +584,7 @@ html {
     visibility: hidden; }
   .bs-ui-checkbox input:before {
     visibility: visible;
+    cursor: pointer;
     position: absolute;
     content: ' ';
     width: 24px;
@@ -601,8 +602,8 @@ html {
     background-color: #044cb3;
     border-color: #044cb3; }
   .bs-ui-checkbox input[type=checkbox]:checked:before {
-    background-color: #0769de;
-    border-color: #0769de; }
+    background-color: #0669De;
+    border-color: #0669De; }
   .bs-ui-checkbox input[type=checkbox]:checked:after {
     visibility: visible;
     content: ' ';
@@ -616,6 +617,17 @@ html {
     border-bottom: 3px solid #fff;
     transform: rotateZ(37deg);
     z-index: 10; }
+  .bs-ui-checkbox--small {
+    padding-left: 2px; }
+    .bs-ui-checkbox--small input:before {
+      height: 16px;
+      width: 16px;
+      top: 2px; }
+    .bs-ui-checkbox--small input[type=checkbox]:checked:after {
+      top: 4px;
+      left: 5px;
+      width: 6px;
+      height: 11px; }
 
 .bs-ui-radio {
   position: relative;
@@ -625,6 +637,7 @@ html {
     visibility: hidden; }
   .bs-ui-radio input:before {
     visibility: visible;
+    cursor: pointer;
     position: absolute;
     content: ' ';
     width: 24px;
@@ -641,6 +654,14 @@ html {
   .bs-ui-radio:hover input[type=radio]:checked:before {
     border-color: #044cb3; }
   .bs-ui-radio input[type=radio]:checked:before {
-    border-color: #0769de;
+    border-color: #0669De;
     border-width: 7px; }
+  .bs-ui-radio--small {
+    padding-left: 2px; }
+    .bs-ui-radio--small input:before {
+      width: 16px;
+      height: 16px;
+      top: 2px; }
+    .bs-ui-radio--small input[type=radio]:checked:before {
+      border-width: 5px; }
 

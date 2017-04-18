@@ -42,13 +42,13 @@
   padding-bottom: 16px; }
   .table-manager-modal .bs-ui-input .bs-ui-checkbox {
     display: inline-block;
-    margin-right: 8px; }
+    margin-right: 18px; }
     .table-manager-modal .bs-ui-input .bs-ui-checkbox:last-child {
       margin-right: 0; }
     .table-manager-modal .bs-ui-input .bs-ui-checkbox input:before {
-      top: 0; }
+      top: 4px; }
     .table-manager-modal .bs-ui-input .bs-ui-checkbox input:after {
-      top: 3px; }
+      top: 6px; }
   .table-manager-modal .bs-ui-input .bs-ui-button {
     padding: 0;
     margin-bottom: 10px; }

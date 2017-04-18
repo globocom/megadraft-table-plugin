@@ -38,18 +38,18 @@
 
     .bs-ui-checkbox {
       display: inline-block;
-      margin-right: 8px;
+      margin-right: 18px;
 
       &:last-child {
         margin-right: 0;
       }
       
       input:before {
-        top: 0;
+        top: 4px;
       }
 
       input:after {
-        top: 3px;
+        top: 6px;
       }
     }
 

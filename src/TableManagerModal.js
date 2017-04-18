@@ -190,7 +190,7 @@ export default class TableManagerModal extends Component {
           <div className="table-manager-modal__editable-table">"preview"</div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
-          <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue"
+          <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue bs-ui-button--small"
                   onClick={this._onSaveRequest}>Adicionar</button>
         </ModalFooter>
       </Modal>

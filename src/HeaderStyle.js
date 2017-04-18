@@ -24,7 +24,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
   return (
     <FormItem>
       <label className="bs-ui-input__label">Destaque</label>
-      <label className="bs-ui-checkbox">
+      <label className="bs-ui-checkbox bs-ui-checkbox--small">
         <Checkbox className="header-style"
           name="header-style"
           value="top"
@@ -32,7 +32,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
           isChecked={selectedOptions.top}/>
         <HighlightIcon className="header-style--top" />
       </label>
-      <label className="bs-ui-checkbox">
+      <label className="bs-ui-checkbox bs-ui-checkbox--small">
         <Checkbox className="header-style"
           name="header-style"
           value="bottom"
@@ -40,7 +40,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
           isChecked={selectedOptions.bottom} />
         <HighlightIcon className="header-style--bottom" />
       </label>
-      <label className="bs-ui-checkbox">
+      <label className="bs-ui-checkbox bs-ui-checkbox--small">
         <Checkbox className="header-style"
           name="header-style"
           value="right"
@@ -48,7 +48,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
           isChecked={selectedOptions.right} />
         <HighlightIcon className="header-style--right" />
       </label>
-      <label className="bs-ui-checkbox">
+      <label className="bs-ui-checkbox bs-ui-checkbox--small">
         <Checkbox className="header-style"
           name="header-style"
           value="left"
