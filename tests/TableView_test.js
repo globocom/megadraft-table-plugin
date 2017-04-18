@@ -10,6 +10,7 @@ import * as Table from "reactabular-table";
 
 import {mount} from "enzyme";
 import chai from "chai";
+import sinon from "sinon";
 
 import TableView from "../src/TableView";
 
@@ -22,8 +23,12 @@ describe("TableView", function() {
   const twoRowsWithTwoColumns = [["00", "01"], ["10", "11"]];
   const firstColumnName = "c0";
 
-  const createTable = function(rows){
-    return mount(<TableView rows={rows}/>).instance();
+  const createTable = function(rows, onEditCellSpy){
+    return mount(<TableView rows={rows} onEditCellSpy/>).instance();
+  };
+
+  const createTableWrapper = function(rows, onEditCellSpy){
+    return mount(<TableView rows={rows} onEditCell={onEditCellSpy} />);
   };
 
   const expectCellsValueOnRightPosition = function(tableView, rows) {
@@ -100,6 +105,32 @@ describe("TableView", function() {
       let provider = TestUtils.findRenderedComponentWithType(tableView, Table.Body);
       expect(provider.props.rows).to.be.equal(tableView.state.rows);
     });
+  });
+
+
+  describe("Editing", function() {
+
+
+    it("should call onEditCell when a cell is editing", function() {
+
+      const onEditCellSpy = sinon.spy();
+      const firstLineSecondColumn = "10";
+      const newValue = "11";
+      const tableViewWrapper = createTableWrapper(rowsWithTwoCells, onEditCellSpy);
+
+      const tdEls = tableViewWrapper.find(".table-cell");
+      const cellEl = tdEls.filterWhere((item) => { return item.text() === firstLineSecondColumn;}).first();
+
+      cellEl.simulate("click");
+
+      const input = cellEl.find("input");
+      input.value = newValue;
+
+      input.simulate("blur");
+
+      expect(onEditCellSpy.called).to.be.true;
+    });
+
   });
 
 });

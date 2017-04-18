@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 
 import * as Table from "reactabular-table";
-import { cloneDeep, findIndex } from 'lodash';
-import * as edit from 'react-edit';
+import { cloneDeep, findIndex } from "lodash";
+import * as edit from "react-edit";
 
 
 export default class TableView extends Component {
@@ -15,7 +15,6 @@ export default class TableView extends Component {
       columns: columns,
       rows: rows
     };
-
   }
 
   buildColumns(rows) {
@@ -33,9 +32,14 @@ export default class TableView extends Component {
       onValue: ({ value, rowData, property }) => {
         const index = findIndex(this.state.rows, { id: rowData.id });
         const rows = cloneDeep(this.state.rows);
+        const columnIndex = findIndex(this.state.columns, {property});
 
         rows[index][property] = value;
         rows[index].editing = false;
+
+        if (this.props.onEditCell) {
+          this.props.onEditCell(index, columnIndex, value);
+        }
 
         this.setState({ rows });
       }
@@ -43,7 +47,7 @@ export default class TableView extends Component {
 
     for(let rowIndex=0; rowIndex < rows[0].length; rowIndex++) {
       let propertyName = "c" + rowIndex;
-      columns.push({property: propertyName, style: { width: 50 }, cell: {transforms: [editable(edit.input())]}});
+      columns.push({property: propertyName, style: { width: 50 }, cell: {transforms: [editable(edit.input())], props: {className: "table-cell"}}});
     }
     return columns;
   }
