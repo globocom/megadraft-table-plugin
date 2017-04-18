@@ -43,7 +43,7 @@ export default class TableView extends Component {
 
     for(let rowIndex=0; rowIndex < rows[0].length; rowIndex++) {
       let propertyName = "c" + rowIndex;
-      columns.push({property: propertyName, cell: {transforms: [editable(edit.input())]}});
+      columns.push({property: propertyName, style: { width: 50 }, cell: {transforms: [editable(edit.input())]}});
     }
     return columns;
   }
