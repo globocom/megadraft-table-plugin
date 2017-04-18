@@ -149,6 +149,12 @@ export default class TableManagerModal extends Component {
     this._changeDataValue("rows", rows);
   }
 
+
+  onEditTableCell(rowIndex, columnIndex, value ) {
+    this.state.data.rows[rowIndex][columnIndex] = value;
+    this._changeDataValue("rows", this.state.data.rows);
+  }
+
   render() {
     const {data, errors} = this.state;
     return (
@@ -189,7 +195,7 @@ export default class TableManagerModal extends Component {
           </div>
 
           <div className="table-manager-modal__editable-table">
-            <TableView rows={this.state.data.rows} />
+            <TableView rows={this.state.data.rows} onEditCell={::this.onEditTableCell} />
           </div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">

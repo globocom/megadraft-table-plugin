@@ -297,4 +297,16 @@ describe("TableManagerModal", function () {
       expect(this.tableManagerModal.state().data.source).to.be.equals("Blo");
     });
   });
+
+  describe("TableView integration",function() {
+
+    it("should use update cell value when a onEditTableCell is called", function() {
+
+        const tableManager = this.tableManagerModal.instance();
+        const newValue = "B78";
+        tableManager.onEditTableCell(0,0, newValue);
+        expect(this.tableManagerModal.state().data.rows[0][0]).to.equal(newValue);
+    });
+
+  });
 });
