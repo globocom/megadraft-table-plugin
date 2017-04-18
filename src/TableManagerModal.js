@@ -9,6 +9,7 @@ import React, {Component, PropTypes} from "react";
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 
 import {HeaderStyle} from "./HeaderStyle";
+import TableView from "./TableView";
 import {Input} from "./FormComponents";
 import {AddRemove} from "./AddRemove";
 import {TableConfig} from "./TableConfig";
@@ -187,7 +188,9 @@ export default class TableManagerModal extends Component {
 
           </div>
 
-          <div className="table-manager-modal__editable-table">"preview"</div>
+          <div className="table-manager-modal__editable-table">
+            <TableView rows={this.state.data.rows} />
+          </div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
           <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue"
