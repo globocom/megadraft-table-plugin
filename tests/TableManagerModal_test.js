@@ -13,6 +13,7 @@ import chai from "chai";
 import sinon from "sinon";
 
 import TableManagerModal from "../src/TableManagerModal";
+import {TableConfig} from "../src/TableConfig";
 import {EmptyTableConfig, ValidTableConfig} from "./fixtures";
 
 const expect = chai.expect;
@@ -106,7 +107,7 @@ describe("TableManagerModal", function () {
         const newheaderStyle = Object.assign(getHeaderStyleObj(), {[position]: true});
 
         expect(headeStyleCheckbox.checked).to.be.false;
-        this.tableManagerModal.setState({data: {headerStyle: newheaderStyle}});
+        this.tableManagerModal.setState({data: new TableConfig({headerStyle: newheaderStyle})});
         expect(headeStyleCheckbox.checked).to.be.true;
       });
     };
