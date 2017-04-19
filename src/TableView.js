@@ -17,6 +17,12 @@ export default class TableView extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    const columns = this.buildColumns(nextProps.rows);
+    const rows = this.buildRows(nextProps.rows, columns);
+    this.setState({columns: columns, rows: rows});
+  }
+
   buildColumns(rows) {
     let columns = [];
     const editable = edit.edit({
