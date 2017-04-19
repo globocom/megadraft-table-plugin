@@ -36,7 +36,7 @@
   }
 
   &__table-wrapper {
-    margin: auto 50px;
+    margin: 28px 0 0 28px;
     position: absolute;
     top: 0;
     left: 0;
@@ -55,10 +55,37 @@
 
   }
 
-
   table {
     display: inline-block;
     vertical-align: middle;
+    border-collapse: collapse;
+  }
+
+  .table-row:first-child .table-cell {
+    border-top: 1px solid rgb(204, 204,204);
+  }
+
+  .table-cell {
+    min-width: 173px;
+    min-height: 1.5em;
+    background-color: #fff;
+    cursor: text;
+    display: inline-block;
+    border-right: 1px solid rgb(204, 204,204);
+    border-bottom: 1px solid rgb(204, 204,204);
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.75rem;
+    letter-spacing: -0.01562rem;
+    font-size: 1rem;
+    text-align: start;
+
+    & input {
+      border: 0px;
+      font: inherit;
+      line-height: inherit;
+      width: inherit;
+      padding-left: -1rem;
+    }
   }
 
   .bs-ui-input {
@@ -89,15 +116,6 @@
         float: right;
       }
     }
-  }
-
-  .table-cell {
-    min-width: 150px;
-    min-height: 1.5em;
-    background-color: #fff;
-    cursor: text;
-    display: inline-block;
-    margin: 2px;
   }
 
 

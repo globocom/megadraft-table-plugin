@@ -41,7 +41,7 @@
   overflow: auto; }
 
 .table-manager-modal__table-wrapper {
-  margin: auto 50px;
+  margin: 28px 0 0 28px;
   position: absolute;
   top: 0;
   left: 0;
@@ -59,7 +59,31 @@
 
 .table-manager-modal table {
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+  border-collapse: collapse; }
+
+.table-manager-modal .table-row:first-child .table-cell {
+  border-top: 1px solid #cccccc; }
+
+.table-manager-modal .table-cell {
+  min-width: 173px;
+  min-height: 1.5em;
+  background-color: #fff;
+  cursor: text;
+  display: inline-block;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.75rem;
+  letter-spacing: -0.01562rem;
+  font-size: 1rem;
+  text-align: start; }
+  .table-manager-modal .table-cell input {
+    border: 0px;
+    font: inherit;
+    line-height: inherit;
+    width: inherit;
+    padding-left: -1rem; }
 
 .table-manager-modal .bs-ui-input {
   padding-bottom: 16px; }
@@ -77,14 +101,6 @@
     margin-bottom: 10px; }
     .table-manager-modal .bs-ui-input .bs-ui-button.btn-remove {
       float: right; }
-
-.table-manager-modal .table-cell {
-  min-width: 150px;
-  min-height: 1.5em;
-  background-color: #fff;
-  cursor: text;
-  display: inline-block;
-  margin: 2px; }
 
 .table-manager-modal .header-style--bottom {
   -webkit-transform: rotate(180deg);
