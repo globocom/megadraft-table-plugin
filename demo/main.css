@@ -36,14 +36,30 @@
   background-color: #ededed;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
-          flex-grow: 1; }
+          flex-grow: 1;
+  position: relative;
+  overflow: auto; }
 
 .table-manager-modal__table-wrapper {
+  margin: auto 50px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); }
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  white-space: nowrap; }
+  .table-manager-modal__table-wrapper:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+    /* Adjusts for spacing */ }
+
+.table-manager-modal table {
+  display: inline-block;
+  vertical-align: middle; }
 
 .table-manager-modal .bs-ui-input {
   padding-bottom: 16px; }
