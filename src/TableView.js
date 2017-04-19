@@ -86,7 +86,7 @@ export default class TableView extends Component {
   render() {
     return (
         <Table.Provider columns={this.state.columns} >
-          <Table.Body rows={this.state.rows} rowKey="id" />
+          <Table.Body rows={this.state.rows} rowKey="id" onRow={() => { return {className: "table-row"};}} />
         </Table.Provider>
           );
   }
