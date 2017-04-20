@@ -12,7 +12,7 @@ import {HeaderStyle} from "./HeaderStyle";
 import {Input} from "./FormComponents";
 import {AddRemove} from "./AddRemove";
 import {TableConfig} from "./TableConfig";
-import {addRow} from "./TableManagerHelper";
+import {addRow, removeRow} from "./TableManagerHelper";
 
 
 const MIN_COLUMNS  = 1;
@@ -81,25 +81,19 @@ export default class TableManagerModal extends Component {
     }
   }
 
+  _getRowPostion() {
+    return this.state.selectedCell.length == 2 ? this.state.selectedCell[1] : null;
+  }
+
   addRow() {
-    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[1] + 1 : null;
+    const position = this._getRowPostion();
     const rows = addRow(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
 
   removeRow() {
-    if (this.state.data.rows.length === MIN_ROWS) {
-      return;
-    }
-
-    let rowNum;
-    if (this.state.selectedCell.length == 2) {
-      rowNum = this.state.selectedCell[1];
-    } else {
-      rowNum = this.state.data.rows.length - 1;
-    }
-    const rows = [...this.state.data.rows];
-    rows.splice(rowNum, 1);
+    const position = this._getRowPostion();
+    const rows = removeRow(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
 
