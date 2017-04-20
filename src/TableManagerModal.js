@@ -106,6 +106,12 @@ export default class TableManagerModal extends Component {
               errors={errors.title}
               onChange={this.onFormItemChange} />
 
+            <Input title="Fonte"
+              name="source"
+              value={data.source}
+              onChange={this.onFormItemChange}
+              isRequired={false} />
+
             <HeaderStyle name="headerStyle"
               selectedOptions={data.headerStyle}
               onChange={this.onFormItemChange}/>
@@ -121,11 +127,6 @@ export default class TableManagerModal extends Component {
               onAdd={this.addColumn}
               onRemove={this.removeColumn} />
 
-            <Input title="Fonte"
-              name="source"
-              value={data.source}
-              onChange={this.onFormItemChange}
-              isRequired={false} />
 
           </div>
 
