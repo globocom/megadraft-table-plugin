@@ -10,9 +10,8 @@ import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 
 import {HeaderStyle} from "./HeaderStyle";
 import {Input} from "./FormComponents";
-import {AddRemove} from "./AddRemove";
 import {TableConfig, validate} from "./TableConfig";
-import {addRow, removeRow, addColumn, removeColumn} from "./TableManagerHelper";
+import {TableManagerActions} from "./TableManagerActions";
 
 
 export default class TableManagerModal extends Component {
@@ -26,10 +25,7 @@ export default class TableManagerModal extends Component {
     super(props);
     this._onSaveRequest = ::this._onSaveRequest;
     this.onFormItemChange = ::this.onFormItemChange;
-    this.addRow = ::this.addRow;
-    this.removeRow = ::this.removeRow;
-    this.addColumn = ::this.addColumn;
-    this.removeColumn = ::this.removeColumn;
+    this.onChangeRows = ::this.onChangeRows;
     this.state = {
       data: new TableConfig(this.props.data),
       selectedCell: [],
@@ -66,27 +62,7 @@ export default class TableManagerModal extends Component {
     this._changeDataValue(name, value);
   }
 
-  addRow() {
-    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[1] : null;
-    const rows = addRow(this.state.data.rows, position);
-    this._changeDataValue("rows", rows);
-  }
-
-  removeRow() {
-    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[1] : null;
-    const rows = removeRow(this.state.data.rows, position);
-    this._changeDataValue("rows", rows);
-  }
-
-  addColumn() {
-    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[0] : null;
-    const rows = addColumn(this.state.data.rows, position);
-    this._changeDataValue("rows", rows);
-  }
-
-  removeColumn() {
-    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[0] : null;
-    const rows = removeColumn(this.state.data.rows, position);
+  onChangeRows(rows) {
     this._changeDataValue("rows", rows);
   }
 
@@ -100,6 +76,8 @@ export default class TableManagerModal extends Component {
              width="90%">
         <ModalBody>
           <div className="table-manager-modal__form">
+
+            {/* Metadado */}
             <Input title="Título"
               name="title"
               value={data.title}
@@ -116,17 +94,16 @@ export default class TableManagerModal extends Component {
               selectedOptions={data.headerStyle}
               onChange={this.onFormItemChange}/>
 
-            <AddRemove
-              className="add-remove-rows"
-              title="Linhas"
-              onAdd={this.addRow}
-              onRemove={this.removeRow} />
+            {/* Metadado */}
 
-            <AddRemove title="Colunas"
-              className="add-remove-columns"
-              onAdd={this.addColumn}
-              onRemove={this.removeColumn} />
+            {/* <Acoes onChangeRows selectedCell rows /> */}
 
+            <TableManagerActions
+              onChangeRows={this.onChangeRows}
+              selectedCell={this.state.selectedCell}
+              rows={data.rows} />
+
+            {/**/}
 
           </div>
 
