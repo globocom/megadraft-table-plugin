@@ -15,3 +15,11 @@ export const TableConfig = function(values = {}) {
     rows: values.rows || [[""]]
   };
 };
+
+export function validate(tableConfig) {
+  const errors = {};
+  if (tableConfig.title === "") {
+    errors["title"] = ["Campo requirido"];
+  }
+  return errors;
+}

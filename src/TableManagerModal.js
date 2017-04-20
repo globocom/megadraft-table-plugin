@@ -11,7 +11,7 @@ import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 import {HeaderStyle} from "./HeaderStyle";
 import {Input} from "./FormComponents";
 import {AddRemove} from "./AddRemove";
-import {TableConfig} from "./TableConfig";
+import {TableConfig, validate} from "./TableConfig";
 import {addRow, removeRow, addColumn, removeColumn} from "./TableManagerHelper";
 
 
@@ -33,9 +33,7 @@ export default class TableManagerModal extends Component {
     this.state = {
       data: new TableConfig(this.props.data),
       selectedCell: [],
-      errors: {
-        title: []
-      }
+      errors: {}
     };
   }
 
@@ -51,12 +49,9 @@ export default class TableManagerModal extends Component {
   }
 
   isValid() {
-    let newErrors = {title: []};
-    if (this.state.data.title === "") {
-      newErrors.title = ["Campo requirido"];
-    }
+    const newErrors = validate(this.state.data);
     this.setState({errors: newErrors});
-    return newErrors.title.length === 0;
+    return JSON.stringify(newErrors) === JSON.stringify({});
   }
 
   _changeDataValue(prop, newValue) {
@@ -70,33 +65,20 @@ export default class TableManagerModal extends Component {
     this._changeDataValue(name, value);
   }
 
-  _createNewRow() {
-    if (this.state.data.rows.length > 0) {
-      return Array.apply(null, new Array(this.state.data.rows[0].length)).map(x => "");
-    } else {
-      return [];
-    }
-  }
-
-  _getRowPostion() {
-    return this.state.selectedCell.length == 2 ? this.state.selectedCell[1] : null;
-  }
-
   addRow() {
-    const position = this._getRowPostion();
+    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[1] : null;
     const rows = addRow(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
 
   removeRow() {
-    const position = this._getRowPostion();
+    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[1] : null;
     const rows = removeRow(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
 
   addColumn() {
     const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[0] : null;
-
     const rows = addColumn(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
@@ -104,7 +86,6 @@ export default class TableManagerModal extends Component {
   removeColumn() {
     const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[0] : null;
     const rows = removeColumn(this.state.data.rows, position);
-
     this._changeDataValue("rows", rows);
   }
 
