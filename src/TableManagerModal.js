@@ -12,11 +12,8 @@ import {HeaderStyle} from "./HeaderStyle";
 import {Input} from "./FormComponents";
 import {AddRemove} from "./AddRemove";
 import {TableConfig} from "./TableConfig";
-import {addRow, removeRow, addColumn} from "./TableManagerHelper";
+import {addRow, removeRow, addColumn, removeColumn} from "./TableManagerHelper";
 
-
-const MIN_COLUMNS  = 1;
-const MIN_ROWS = 1;
 
 export default class TableManagerModal extends Component {
 
@@ -105,22 +102,9 @@ export default class TableManagerModal extends Component {
   }
 
   removeColumn() {
-    if (this.state.data.rows[0].length === MIN_COLUMNS) {
-      return;
-    }
+    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[0] : null;
+    const rows = removeColumn(this.state.data.rows, position);
 
-    let columnNum;
-
-    if (this.state.selectedCell.length == 2) {
-      columnNum = this.state.selectedCell[0];
-    } else {
-      columnNum = this.state.data.rows[0].length - 1;
-    }
-    const rows = this.state.data.rows.map(row => {
-      const newRow = [...row];
-      newRow.splice(columnNum, 1);
-      return newRow;
-    });
     this._changeDataValue("rows", rows);
   }
 

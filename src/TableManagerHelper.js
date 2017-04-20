@@ -1,5 +1,6 @@
 
 const MIN_ROWS = 1;
+const MIN_COLUMNS = 1;
 
 function createNewRow(quantityOfColumns) {
   return Array.apply(null, new Array(quantityOfColumns)).map(x => "");
@@ -28,6 +29,18 @@ export function addColumn(rows, position = null) {
   const newRows = rows.map(row => {
     const newPosition = position !== null ? position + 1 : row.length;
     return [...row.slice(0, newPosition), "", ...row.slice(newPosition)];
+  });
+  return newRows;
+}
+
+export function removeColumn(rows, position = null) {
+  const newRows = rows.map(row => {
+    const newRow = [...row];
+    if(row.length > MIN_COLUMNS) {
+      const newPosition = position !== null ? position : row.length - 1;
+      newRow.splice(newPosition, 1);
+    }
+    return newRow;
   });
   return newRows;
 }
