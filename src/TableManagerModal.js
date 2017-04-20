@@ -12,6 +12,7 @@ import {HeaderStyle} from "./HeaderStyle";
 import {Input} from "./FormComponents";
 import {AddRemove} from "./AddRemove";
 import {TableConfig} from "./TableConfig";
+import {addRow} from "./TableManagerHelper";
 
 
 const MIN_COLUMNS  = 1;
@@ -81,17 +82,8 @@ export default class TableManagerModal extends Component {
   }
 
   addRow() {
-    let rowNum;
-    if (this.state.selectedCell.length == 2) {
-      rowNum = this.state.selectedCell[1] + 1;
-    } else {
-      rowNum = this.state.data.rows.length + 1;
-    }
-    const rows = [
-      ...this.state.data.rows.slice(0, rowNum),
-      this._createNewRow(),
-      ...this.state.data.rows.slice(rowNum)
-    ];
+    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[1] + 1 : null;
+    const rows = addRow(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
 
