@@ -39,7 +39,8 @@ export default class TableManagerModal extends Component {
 
   componentWillReceiveProps(nextProps) {
     const data = new TableConfig({...nextProps.data});
-    this.setState({data});
+    const errors = {};
+    this.setState({data, errors});
   }
 
   _onSaveRequest() {
