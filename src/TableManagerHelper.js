@@ -23,3 +23,11 @@ export function removeRow(rows, position = null) {
   }
   return newRows;
 }
+
+export function addColumn(rows, position = null) {
+  const newRows = rows.map(row => {
+    const newPosition = position !== null ? position + 1 : row.length;
+    return [...row.slice(0, newPosition), "", ...row.slice(newPosition)];
+  });
+  return newRows;
+}

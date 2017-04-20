@@ -6,7 +6,7 @@
 
 import chai from "chai";
 
-import {addRow, removeRow} from "../src/TableManagerHelper";
+import {addRow, removeRow, addColumn} from "../src/TableManagerHelper";
 
 const expect = chai.expect;
 
@@ -65,4 +65,27 @@ describe("TableManagerHelper", function() {
     });
 
   });
+
+  describe("AddColumn", function() {
+
+    it("should return a new array of rows", function() {
+      const initialRows = [["A1", "B1"], ["A2", "B2"]];
+      expect(addColumn(initialRows)).to.be.not.deep.equals(initialRows);
+    });
+
+    it("should add a new column at the last position if the position is not passed", function() {
+      const initialRows = [["A1", "B1"], ["A2", "B2"]];
+      const expectedRows = [["A1", "B1", ""], ["A2", "B2", ""]];
+
+      expect(addColumn(initialRows)).to.deep.equals(expectedRows);
+    });
+
+    it("should add a new column after the position passed", function() {
+      const initialRows = [["A1", "B1"], ["A2", "B2"]];
+      const expectedRows = [["A1", "", "B1"], ["A2", "", "B2"]];
+
+      expect(addColumn(initialRows, 0)).to.deep.equals(expectedRows);
+    });
+  });
+
 });
