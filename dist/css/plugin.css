@@ -43,7 +43,7 @@
 
 .table-manager-modal .bs-ui-input .bs-ui-checkbox {
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 18px;
 }
 
 .table-manager-modal .bs-ui-input .bs-ui-checkbox:last-child {
@@ -51,11 +51,11 @@
 }
 
 .table-manager-modal .bs-ui-input .bs-ui-checkbox input:before {
-  top: 0;
+  top: 4px;
 }
 
 .table-manager-modal .bs-ui-input .bs-ui-checkbox input:after {
-  top: 3px;
+  top: 6px;
 }
 
 .table-manager-modal .bs-ui-input .bs-ui-button {
@@ -64,7 +64,7 @@
 }
 
 .table-manager-modal .bs-ui-input .bs-ui-button.btn-remove {
-  float: right;
+  margin-left: 50px;
 }
 
 .table-manager-modal .header-style--bottom {
@@ -80,4 +80,18 @@
 .table-manager-modal .header-style--left {
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
+}
+
+.table-manager-modal .add-remove-rows .btn-add svg, .table-manager-modal .add-remove-rows .btn-remove svg, .table-manager-modal .add-remove-columns .btn-add svg, .table-manager-modal .add-remove-columns .btn-remove svg {
+  height: 16px;
+  vertical-align: top;
+  width: 16px;
+}
+
+.table-manager-modal .add-remove-rows .btn-remove svg path, .table-manager-modal .add-remove-columns .btn-remove svg path {
+  fill: #e83f26;
+}
+
+.table-manager-modal .add-remove-rows .btn-add svg path, .table-manager-modal .add-remove-columns .btn-add svg path {
+  fill: #0769de;
 }

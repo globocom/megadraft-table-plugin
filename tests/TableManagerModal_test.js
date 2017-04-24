@@ -241,15 +241,6 @@ describe("TableManagerModal", function () {
         expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
       });
 
-      it("should add a new column when does have only one row and column", function() {
-        const rows = [[""]];
-        const data = Object.assign({}, ValidTableConfig, {rows});
-        this.tableManagerModal.setState({data});
-
-        TestUtils.Simulate.click(this.btnAddColumn);
-        expect(this.tableManagerModal.state().data.rows).to.deep.equals([["", ""]]);
-      });
-
     });
 
     describe("Remove", function() {

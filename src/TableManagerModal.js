@@ -12,11 +12,9 @@ import {HeaderStyle} from "./HeaderStyle";
 import TableView from "./TableView";
 import {Input} from "./FormComponents";
 import {AddRemove} from "./AddRemove";
-import {TableConfig} from "./TableConfig";
+import {TableConfig, validate} from "./TableConfig";
+import {addRow, removeRow, addColumn, removeColumn} from "./TableManagerHelper";
 
-
-const MIN_COLUMNS  = 1;
-const MIN_ROWS = 1;
 
 export default class TableManagerModal extends Component {
 
@@ -36,15 +34,14 @@ export default class TableManagerModal extends Component {
     this.state = {
       data: new TableConfig(this.props.data),
       selectedCell: [],
-      errors: {
-        title: []
-      }
+      errors: {}
     };
   }
 
   componentWillReceiveProps(nextProps) {
     const data = new TableConfig({...nextProps.data});
-    this.setState({data});
+    const errors = {};
+    this.setState({data, errors});
   }
 
   _onSaveRequest() {
@@ -54,12 +51,9 @@ export default class TableManagerModal extends Component {
   }
 
   isValid() {
-    let newErrors = {title: []};
-    if (this.state.data.title === "") {
-      newErrors.title = ["Campo requirido"];
-    }
+    const newErrors = validate(this.state.data);
     this.setState({errors: newErrors});
-    return newErrors.title.length === 0;
+    return JSON.stringify(newErrors) === JSON.stringify({});
   }
 
   _changeDataValue(prop, newValue) {
@@ -73,79 +67,27 @@ export default class TableManagerModal extends Component {
     this._changeDataValue(name, value);
   }
 
-  _createNewRow() {
-    if (this.state.data.rows.length > 0) {
-      return Array.apply(null, new Array(this.state.data.rows[0].length)).map(x => "");
-    } else {
-      return [];
-    }
-  }
-
   addRow() {
-    let rowNum;
-    if (this.state.selectedCell.length == 2) {
-      rowNum = this.state.selectedCell[1] + 1;
-    } else {
-      rowNum = this.state.data.rows.length + 1;
-    }
-    const rows = [
-      ...this.state.data.rows.slice(0, rowNum),
-      this._createNewRow(),
-      ...this.state.data.rows.slice(rowNum)
-    ];
+    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[1] : null;
+    const rows = addRow(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
 
   removeRow() {
-    if (this.state.data.rows.length === MIN_ROWS) {
-      return;
-    }
-
-    let rowNum;
-    if (this.state.selectedCell.length == 2) {
-      rowNum = this.state.selectedCell[1];
-    } else {
-      rowNum = this.state.data.rows.length - 1;
-    }
-    const rows = [...this.state.data.rows];
-    rows.splice(rowNum, 1);
+    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[1] : null;
+    const rows = removeRow(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
 
   addColumn() {
-    if (this.state.data.rows.length < MIN_ROWS) {
-      return;
-    }
-
-    let columnNum;
-    if (this.state.selectedCell.length == 2) {
-      columnNum = this.state.selectedCell[0] + 1;
-    } else {
-      columnNum = this.state.data.rows[0].length;
-    }
-    const rows = this.state.data.rows.map(row => {
-      return [...row.slice(0, columnNum), "", ...row.slice(columnNum)];
-    });
+    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[0] : null;
+    const rows = addColumn(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
 
   removeColumn() {
-    if (this.state.data.rows[0].length === MIN_COLUMNS) {
-      return;
-    }
-
-    let columnNum;
-
-    if (this.state.selectedCell.length == 2) {
-      columnNum = this.state.selectedCell[0];
-    } else {
-      columnNum = this.state.data.rows[0].length - 1;
-    }
-    const rows = this.state.data.rows.map(row => {
-      const newRow = [...row];
-      newRow.splice(columnNum, 1);
-      return newRow;
-    });
+    const position = this.state.selectedCell.length == 2 ? this.state.selectedCell[0] : null;
+    const rows = removeColumn(this.state.data.rows, position);
     this._changeDataValue("rows", rows);
   }
 
@@ -171,6 +113,12 @@ export default class TableManagerModal extends Component {
               errors={errors.title}
               onChange={this.onFormItemChange} />
 
+            <Input title="Fonte"
+              name="source"
+              value={data.source}
+              onChange={this.onFormItemChange}
+              isRequired={false} />
+
             <HeaderStyle name="headerStyle"
               selectedOptions={data.headerStyle}
               onChange={this.onFormItemChange}/>
@@ -186,11 +134,6 @@ export default class TableManagerModal extends Component {
               onAdd={this.addColumn}
               onRemove={this.removeColumn} />
 
-            <Input title="Fonte"
-              name="source"
-              value={data.source}
-              onChange={this.onFormItemChange}
-              isRequired={false} />
 
           </div>
 
@@ -201,7 +144,7 @@ export default class TableManagerModal extends Component {
           </div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
-          <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue"
+          <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue bs-ui-button--small"
                   onClick={this._onSaveRequest}>Adicionar</button>
         </ModalFooter>
       </Modal>

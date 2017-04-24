@@ -10,6 +10,8 @@ import {HighlightIcon} from "./Icons";
 
 export function HeaderStyle({name, onChange, selectedOptions}) {
 
+  const options = ["top", "bottom", "right", "left"];
+
   const _onChange = function(e) {
     let value = {
       top: selectedOptions.top,
@@ -24,38 +26,16 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
   return (
     <FormItem>
       <label className="bs-ui-input__label">Destaque</label>
-      <label className="bs-ui-checkbox">
-        <Checkbox className="header-style"
-          name="header-style"
-          value="top"
-          onChange={_onChange}
-          isChecked={selectedOptions.top}/>
-        <HighlightIcon className="header-style--top" />
-      </label>
-      <label className="bs-ui-checkbox">
-        <Checkbox className="header-style"
-          name="header-style"
-          value="bottom"
-          onChange={_onChange}
-          isChecked={selectedOptions.bottom} />
-        <HighlightIcon className="header-style--bottom" />
-      </label>
-      <label className="bs-ui-checkbox">
-        <Checkbox className="header-style"
-          name="header-style"
-          value="right"
-          onChange={_onChange}
-          isChecked={selectedOptions.right} />
-        <HighlightIcon className="header-style--right" />
-      </label>
-      <label className="bs-ui-checkbox">
-        <Checkbox className="header-style"
-          name="header-style"
-          value="left"
-          onChange={_onChange}
-          isChecked={selectedOptions.left} />
-        <HighlightIcon className="header-style--left" />
-      </label>
+      {options.map(option => {
+        return (<label key={option} className="bs-ui-checkbox bs-ui-checkbox--small">
+          <Checkbox className="header-style"
+            name="header-style"
+            value={option}
+            onChange={_onChange}
+            isChecked={selectedOptions[option]} />
+          <HighlightIcon className={`header-style--${option}`} />
+        </label>);
+      })}
     </FormItem>
   );
 }
