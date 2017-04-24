@@ -8,10 +8,9 @@ import React, {Component, PropTypes} from "react";
 
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 
-import {HeaderStyle} from "./HeaderStyle";
-import {Input} from "./FormComponents";
 import {TableConfig, validate} from "./TableConfig";
 import {TableManagerActions} from "./TableManagerActions";
+import {TableManagerMetadata} from "./TableManagerMetadata";
 
 
 export default class TableManagerModal extends Component {
@@ -78,21 +77,10 @@ export default class TableManagerModal extends Component {
           <div className="table-manager-modal__form">
 
             {/* Metadado */}
-            <Input title="Título"
-              name="title"
-              value={data.title}
-              errors={errors.title}
-              onChange={this.onFormItemChange} />
-
-            <Input title="Fonte"
-              name="source"
-              value={data.source}
+            <TableManagerMetadata
               onChange={this.onFormItemChange}
-              isRequired={false} />
-
-            <HeaderStyle name="headerStyle"
-              selectedOptions={data.headerStyle}
-              onChange={this.onFormItemChange}/>
+              data={data}
+              errors={errors} />
 
             {/* Metadado */}
 
