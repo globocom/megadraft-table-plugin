@@ -24,6 +24,8 @@ export default class Button extends Component {
 
   onClick(e) {
     this.setState({isEditing: true});
+
+    e.stopPropagation();
   }
 
   onModalClose() {
