@@ -62,7 +62,7 @@
     border-top: 1px solid #cccccc; }
   .table-manager-modal .table-cell {
     min-width: 173px;
-    min-height: 1.5em;
+    min-height: 32px;
     background-color: #fff;
     cursor: text;
     display: inline-block;
