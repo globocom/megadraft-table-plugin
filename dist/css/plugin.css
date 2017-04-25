@@ -6,6 +6,10 @@
 /*
  * YOUR STYLES HERE
  */
+.table-manager-modal {
+  z-index: 2700;
+}
+
 .table-manager-modal .bs-modal__body {
   padding: 0 !important;
   display: -webkit-box;
