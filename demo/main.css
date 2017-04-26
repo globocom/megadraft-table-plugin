@@ -11,72 +11,107 @@
 /*
  * YOUR STYLES HERE
  */
-.table-manager-modal .bs-modal__body {
-  padding: 0 !important;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
-.table-manager-modal .bs-modal__footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end; }
-
-.table-manager-modal__form {
-  background-color: #fbfbfb;
-  border-right: solid 1px #cccccc;
-  box-sizing: border-box;
-  padding: 1rem 1.5rem;
-  width: 286px; }
-
-.table-manager-modal__editable-table {
-  background-color: #ededed;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
-
-.table-manager-modal .bs-ui-input {
-  padding-bottom: 16px; }
-  .table-manager-modal .bs-ui-input .bs-ui-checkbox {
+.table-manager-modal {
+  z-index: 2700; }
+  .table-manager-modal .bs-modal__body {
+    padding: 0 !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .table-manager-modal .bs-modal__footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
+  .table-manager-modal__form {
+    background-color: #fbfbfb;
+    border-right: solid 1px #cccccc;
+    box-sizing: border-box;
+    padding: 1rem 1.5rem;
+    width: 286px; }
+  .table-manager-modal__editable-table {
+    background-color: #ededed;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    position: relative;
+    overflow: auto; }
+  .table-manager-modal__table-wrapper {
+    margin: 28px 0 0 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    white-space: nowrap; }
+    .table-manager-modal__table-wrapper:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.25em;
+      /* Adjusts for spacing */ }
+  .table-manager-modal table {
     display: inline-block;
-    margin-right: 18px; }
-    .table-manager-modal .bs-ui-input .bs-ui-checkbox:last-child {
-      margin-right: 0; }
-    .table-manager-modal .bs-ui-input .bs-ui-checkbox input:before {
-      top: 4px; }
-    .table-manager-modal .bs-ui-input .bs-ui-checkbox input:after {
-      top: 6px; }
-  .table-manager-modal .bs-ui-input .bs-ui-button {
-    padding: 0;
-    margin-bottom: 10px; }
-    .table-manager-modal .bs-ui-input .bs-ui-button.btn-remove {
-      margin-left: 50px; }
-
-.table-manager-modal .header-style--bottom {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg); }
-
-.table-manager-modal .header-style--right {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg); }
-
-.table-manager-modal .header-style--left {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg); }
-
-.table-manager-modal .add-remove-rows .btn-add svg, .table-manager-modal .add-remove-rows .btn-remove svg, .table-manager-modal .add-remove-columns .btn-add svg, .table-manager-modal .add-remove-columns .btn-remove svg {
-  height: 16px;
-  vertical-align: top;
-  width: 16px; }
-
-.table-manager-modal .add-remove-rows .btn-remove svg path, .table-manager-modal .add-remove-columns .btn-remove svg path {
-  fill: #e83f26; }
-
-.table-manager-modal .add-remove-rows .btn-add svg path, .table-manager-modal .add-remove-columns .btn-add svg path {
-  fill: #0769de; }
+    vertical-align: middle;
+    border-collapse: collapse; }
+  .table-manager-modal .table-row:first-child .table-cell {
+    border-top: 1px solid #cccccc; }
+  .table-manager-modal .table-cell {
+    min-width: 173px;
+    min-height: 32px;
+    background-color: #fff;
+    cursor: text;
+    display: inline-block;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.75rem;
+    letter-spacing: -0.01562rem;
+    font-size: 1rem;
+    text-align: start; }
+    .table-manager-modal .table-cell input {
+      border: 0px;
+      font: inherit;
+      line-height: inherit;
+      width: inherit;
+      padding-left: -1rem; }
+  .table-manager-modal .bs-ui-input {
+    padding-bottom: 16px; }
+    .table-manager-modal .bs-ui-input .bs-ui-checkbox {
+      display: inline-block;
+      margin-right: 18px; }
+      .table-manager-modal .bs-ui-input .bs-ui-checkbox:last-child {
+        margin-right: 0; }
+      .table-manager-modal .bs-ui-input .bs-ui-checkbox input:before {
+        top: 4px; }
+      .table-manager-modal .bs-ui-input .bs-ui-checkbox input:after {
+        top: 6px; }
+    .table-manager-modal .bs-ui-input .bs-ui-button {
+      padding: 0;
+      margin-bottom: 10px; }
+      .table-manager-modal .bs-ui-input .bs-ui-button.btn-remove {
+        margin-left: 50px; }
+  .table-manager-modal .header-style--bottom {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
+  .table-manager-modal .header-style--right {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg); }
+  .table-manager-modal .header-style--left {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg); }
+  .table-manager-modal .add-remove-rows .btn-add svg, .table-manager-modal .add-remove-rows .btn-remove svg, .table-manager-modal .add-remove-columns .btn-add svg, .table-manager-modal .add-remove-columns .btn-remove svg {
+    height: 16px;
+    vertical-align: top;
+    width: 16px; }
+  .table-manager-modal .add-remove-rows .btn-remove svg path, .table-manager-modal .add-remove-columns .btn-remove svg path {
+    fill: #e83f26; }
+  .table-manager-modal .add-remove-rows .btn-add svg path, .table-manager-modal .add-remove-columns .btn-add svg path {
+    fill: #0769de; }
 
 body {
   margin: 0; }

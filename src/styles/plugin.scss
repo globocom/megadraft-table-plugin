@@ -9,6 +9,7 @@
  */
 
 .table-manager-modal {
+  z-index: 2700;
 
   .bs-modal__body {
     padding: 0 !important;
@@ -31,6 +32,61 @@
   &__editable-table {
     background-color: rgb(237, 237, 237);
     flex-grow: 1;
+    position: relative;
+    overflow: auto;
+  }
+
+  &__table-wrapper {
+    margin: 28px 0 0 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    white-space: nowrap;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.25em; /* Adjusts for spacing */
+    }
+
+  }
+
+  table {
+    display: inline-block;
+    vertical-align: middle;
+    border-collapse: collapse;
+  }
+
+  .table-row:first-child .table-cell {
+    border-top: 1px solid rgb(204, 204,204);
+  }
+
+  .table-cell {
+    min-width: 173px;
+    min-height: 32px;
+    background-color: #fff;
+    cursor: text;
+    display: inline-block;
+    border-right: 1px solid rgb(204, 204,204);
+    border-bottom: 1px solid rgb(204, 204,204);
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.75rem;
+    letter-spacing: -0.01562rem;
+    font-size: 1rem;
+    text-align: start;
+
+    & input {
+      border: 0px;
+      font: inherit;
+      line-height: inherit;
+      width: inherit;
+      padding-left: -1rem;
+    }
   }
 
   .bs-ui-input {
@@ -43,7 +99,7 @@
       &:last-child {
         margin-right: 0;
       }
-      
+
       input:before {
         top: 4px;
       }
@@ -62,6 +118,7 @@
       }
     }
   }
+
 
   .header-style {
     &--bottom {

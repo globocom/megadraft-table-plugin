@@ -13,6 +13,7 @@ import chai from "chai";
 import sinon from "sinon";
 
 import TableManagerModal from "../src/TableManagerModal";
+import {TableConfig} from "../src/TableConfig";
 import {EmptyTableConfig, ValidTableConfig} from "./fixtures";
 
 const expect = chai.expect;
@@ -106,7 +107,7 @@ describe("TableManagerModal", function () {
         const newheaderStyle = Object.assign(getHeaderStyleObj(), {[position]: true});
 
         expect(headeStyleCheckbox.checked).to.be.false;
-        this.tableManagerModal.setState({data: {headerStyle: newheaderStyle}});
+        this.tableManagerModal.setState({data: new TableConfig({headerStyle: newheaderStyle})});
         expect(headeStyleCheckbox.checked).to.be.true;
       });
     };
@@ -287,5 +288,17 @@ describe("TableManagerModal", function () {
       TestUtils.Simulate.change(sourceInput);
       expect(this.tableManagerModal.state().data.source).to.be.equals("Blo");
     });
+  });
+
+  describe("TableView integration",function() {
+
+    it("should use update cell value when a onEditTableCell is called", function() {
+
+      const tableManager = this.tableManagerModal.instance();
+      const newValue = "B78";
+      tableManager.onEditTableCell(0,0, newValue);
+      expect(this.tableManagerModal.state().data.rows[0][0]).to.equal(newValue);
+    });
+
   });
 });

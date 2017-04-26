@@ -6,6 +6,10 @@
 /*
  * YOUR STYLES HERE
  */
+.table-manager-modal {
+  z-index: 2700;
+}
+
 .table-manager-modal .bs-modal__body {
   padding: 0 !important;
   display: -webkit-box;
@@ -35,6 +39,61 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  position: relative;
+  overflow: auto;
+}
+
+.table-manager-modal__table-wrapper {
+  margin: 28px 0 0 28px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.table-manager-modal__table-wrapper:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+  /* Adjusts for spacing */
+}
+
+.table-manager-modal table {
+  display: inline-block;
+  vertical-align: middle;
+  border-collapse: collapse;
+}
+
+.table-manager-modal .table-row:first-child .table-cell {
+  border-top: 1px solid #cccccc;
+}
+
+.table-manager-modal .table-cell {
+  min-width: 173px;
+  min-height: 32px;
+  background-color: #fff;
+  cursor: text;
+  display: inline-block;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.75rem;
+  letter-spacing: -0.01562rem;
+  font-size: 1rem;
+  text-align: start;
+}
+
+.table-manager-modal .table-cell input {
+  border: 0px;
+  font: inherit;
+  line-height: inherit;
+  width: inherit;
+  padding-left: -1rem;
 }
 
 .table-manager-modal .bs-ui-input {

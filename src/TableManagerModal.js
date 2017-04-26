@@ -8,6 +8,9 @@ import React, {Component, PropTypes} from "react";
 
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 
+
+import {HeaderStyle} from "./HeaderStyle";
+import TableView from "./TableView";
 import {TableConfig, validate} from "./TableConfig";
 import {TableManagerActions} from "./TableManagerActions";
 import {TableManagerMetadata} from "./TableManagerMetadata";
@@ -65,6 +68,12 @@ export default class TableManagerModal extends Component {
     this._changeDataValue("rows", rows);
   }
 
+
+  onEditTableCell(rowIndex, columnIndex, value ) {
+    this.state.data.rows[rowIndex][columnIndex] = value;
+    this._changeDataValue("rows", this.state.data.rows);
+  }
+
   render() {
     const {data, errors} = this.state;
     return (
@@ -95,7 +104,11 @@ export default class TableManagerModal extends Component {
 
           </div>
 
-          <div className="table-manager-modal__editable-table">"preview"</div>
+          <div className="table-manager-modal__editable-table">
+            <div className="table-manager-modal__table-wrapper">
+              <TableView rows={this.state.data.rows} onEditCell={::this.onEditTableCell} />
+            </div>
+          </div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
           <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue bs-ui-button--small"
