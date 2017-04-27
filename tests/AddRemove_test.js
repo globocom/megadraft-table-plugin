@@ -35,7 +35,7 @@ describe("AddRemove", function() {
 
   describe("Add Button", function() {
 
-    it("should has a button to add", function() {
+    it("should have a button to add", function() {
       expect(this.addRemove.find(".btn-add").exists()).to.be.true;
     });
 
@@ -49,7 +49,7 @@ describe("AddRemove", function() {
   });
 
   describe("Remove Button", function() {
-    it("should has a button to remove", function() {
+    it("should have a button to remove", function() {
       expect(this.addRemove.find(".btn-remove").exists()).to.be.true;
     });
 
