@@ -8,8 +8,6 @@ import React, {Component, PropTypes} from "react";
 
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 
-
-import {HeaderStyle} from "./HeaderStyle";
 import TableView from "./TableView";
 import {TableConfig, validate} from "./TableConfig";
 import {TableManagerActions} from "./TableManagerActions";

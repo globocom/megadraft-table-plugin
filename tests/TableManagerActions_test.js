@@ -5,12 +5,9 @@
  */
 
 import React from "react";
-import TestUtils from "react-addons-test-utils";
-import {unmountComponentAtNode} from "react-dom";
 
 import {mount} from "enzyme";
 import chai from "chai";
-import sinon from "sinon";
 
 import {TableManagerActions} from "../src/TableManagerActions";
 

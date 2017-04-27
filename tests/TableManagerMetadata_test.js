@@ -5,15 +5,12 @@
  */
 
 import React from "react";
-import TestUtils from "react-addons-test-utils";
-import {unmountComponentAtNode} from "react-dom";
 
 import {mount} from "enzyme";
 import chai from "chai";
 import sinon from "sinon";
 
 import {TableManagerMetadata} from "../src/TableManagerMetadata";
-import {Input} from "../src/FormComponents";
 
 const expect = chai.expect;
 

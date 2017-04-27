@@ -119,33 +119,33 @@ describe("TableManagerHelper", function() {
   });
 
   describe("highlightedClass", function() {
-      it("should return empty string if no header style is selected", function() {
-        expect(highlightedClass({})).to.be.equal("");
-      });
+    it("should return empty string if no header style is selected", function() {
+      expect(highlightedClass({})).to.be.equal("");
+    });
 
-      it("should return top-highlighted class if header style top is selected", function() {
-        const headerStyle = {top: true};
-        const expectedClass = "top-highlighted";
-        expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
-      });
+    it("should return top-highlighted class if header style top is selected", function() {
+      const headerStyle = {top: true};
+      const expectedClass = "top-highlighted";
+      expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
+    });
 
-      it("should return bottom-highlighted class if header style bottom is selected", function() {
-        const headerStyle = {bottom: true};
-        const expectedClass = "bottom-highlighted";
-        expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
-      });
+    it("should return bottom-highlighted class if header style bottom is selected", function() {
+      const headerStyle = {bottom: true};
+      const expectedClass = "bottom-highlighted";
+      expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
+    });
 
-      it("should return left-highlighted class if header style left is selected", function() {
-        const headerStyle = {left: true};
-        const expectedClass = "left-highlighted";
-        expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
-      });
+    it("should return left-highlighted class if header style left is selected", function() {
+      const headerStyle = {left: true};
+      const expectedClass = "left-highlighted";
+      expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
+    });
 
-      it("should return right-highlighted class if header style right is selected", function() {
-        const headerStyle = {right: true};
-        const expectedClass = "right-highlighted";
-        expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
-      });
+    it("should return right-highlighted class if header style right is selected", function() {
+      const headerStyle = {right: true};
+      const expectedClass = "right-highlighted";
+      expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
+    });
   });
 
 });
