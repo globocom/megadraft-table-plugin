@@ -154,3 +154,19 @@
 .table-manager-modal .add-remove-rows .btn-add svg path, .table-manager-modal .add-remove-columns .btn-add svg path {
   fill: #0769de;
 }
+
+.table-manager-modal .top-highlighted .table-row:first-child {
+  font-weight: bold;
+}
+
+.table-manager-modal .bottom-highlighted .table-row:last-child {
+  font-weight: bold;
+}
+
+.table-manager-modal .left-highlighted .table-row td:first-child {
+  font-weight: bold;
+}
+
+.table-manager-modal .right-highlighted .table-row td:last-child {
+  font-weight: bold;
+}
