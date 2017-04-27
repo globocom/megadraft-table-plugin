@@ -44,3 +44,20 @@ export function removeColumn(rows, position = null) {
   });
   return newRows;
 }
+
+export function highlightedClass(headerStyle) {
+  if(headerStyle.top) {
+    return "top-highlighted";
+  }
+  else if( headerStyle.bottom) {
+    return "bottom-highlighted";
+  }
+  else if(headerStyle.left) {
+    return "left-highlighted";
+  }
+  else if(headerStyle.right) {
+    return "right-highlighted";
+  }
+
+  return "";
+}

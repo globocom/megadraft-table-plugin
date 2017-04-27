@@ -4,6 +4,8 @@ import * as Table from "reactabular-table";
 import { cloneDeep, findIndex } from "lodash";
 import * as edit from "react-edit";
 
+import {highlightedClass} from "./TableManagerHelper";
+
 
 export default class TableView extends Component {
 
@@ -86,7 +88,7 @@ export default class TableView extends Component {
   render() {
     return (
         <Table.Provider columns={this.state.columns} >
-          <Table.Body rows={this.state.rows} rowKey="id" onRow={() => { return {className: "table-row"};}} />
+          <Table.Body className={highlightedClass(this.props.headerStyle)} rows={this.state.rows} rowKey="id" onRow={() => { return {className: "table-row"};}} />
         </Table.Provider>
           );
   }

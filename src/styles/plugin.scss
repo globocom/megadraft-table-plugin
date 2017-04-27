@@ -149,4 +149,20 @@
       fill: #0769de;
     }
   }
+
+  .top-highlighted {
+    .table-row:first-child { font-weight: bold;}
+  }
+
+  .bottom-highlighted {
+    .table-row:last-child { font-weight: bold;}
+  }
+
+  .left-highlighted {
+    .table-row td:first-child { font-weight: bold;}
+  }
+
+  .right-highlighted {
+    .table-row td:last-child { font-weight: bold;}
+  }
 }
