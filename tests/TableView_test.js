@@ -22,13 +22,19 @@ describe("TableView", function() {
   const rowsWithTwoCells = [["00"],["10"]];
   const twoRowsWithTwoColumns = [["00", "01"], ["10", "11"]];
   const firstColumnName = "c0";
+  const headerStyle = {
+    top: false,
+    bottom: false,
+    left: false,
+    right: false
+  };
 
   const createTable = function(rows, onEditCellSpy){
-    return mount(<TableView rows={rows} onEditCellSpy/>).instance();
+    return mount(<TableView rows={rows} onEditCellSpy headerStyle={headerStyle} />).instance();
   };
 
   const createTableWrapper = function(rows, onEditCellSpy){
-    return mount(<TableView rows={rows} onEditCell={onEditCellSpy} />);
+    return mount(<TableView rows={rows} onEditCell={onEditCellSpy} headerStyle={headerStyle} />);
   };
 
   const expectCellsValueOnRightPosition = function(tableView, rows) {
