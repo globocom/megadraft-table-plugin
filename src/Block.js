@@ -8,6 +8,7 @@ import React, {Component} from "react";
 
 import {MegadraftPlugin, MegadraftIcons} from "megadraft";
 import TableManagerModal from "./TableManagerModal";
+import TableView from "./TableView";
 
 const {BlockContent, CommonBlock} = MegadraftPlugin;
 
@@ -50,6 +51,11 @@ export default class TableBlock extends Component {
       <div>
         <CommonBlock {...this.props} actions={this.actions}>
           <BlockContent>
+          <div className="table-manager-block">
+            <p className="table-manager-block__title">{this.props.data.title}</p>
+            <TableView rows={this.props.data.rows} onEditCell={this.props.onEditTableCell} headerStyle={this.props.data.headerStyle} editable={false} />
+            <p className="table-manager-block__source">Fonte: {this.props.data.source}</p>
+          </div>
           </BlockContent>
         </CommonBlock>
         <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={this._onModalClose} onSaveRequest={this._onSave} data={this.props.data} />
