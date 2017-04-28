@@ -52,7 +52,8 @@ export default class TableBlock extends Component {
         <CommonBlock {...this.props} actions={this.actions}>
           <BlockContent>
           <div className="table-manager-block">
-            <p className="table-manager-block__title">{this.props.data.title}</p>
+
+            <h1 className="table-manager-block__title">{this.props.data.title}</h1>
             <TableView rows={this.props.data.rows} onEditCell={this.props.onEditTableCell} headerStyle={this.props.data.headerStyle} editable={false} />
             <p className="table-manager-block__source">Fonte: {this.props.data.source}</p>
           </div>
