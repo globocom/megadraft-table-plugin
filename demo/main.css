@@ -27,7 +27,7 @@
             justify-content: flex-end; }
   .table-manager-modal__form {
     background-color: #fbfbfb;
-    border-right: solid 1px #cccccc;
+    border-right: 1px solid rgba(204, 204, 204, 0.5);
     box-sizing: border-box;
     padding: 1rem 1.5rem;
     width: 286px; }
@@ -60,14 +60,14 @@
     border-collapse: collapse; }
   .table-manager-modal .table-row {
     background-color: #fff;
-    border-bottom: 1px solid #cccccc; }
+    border-bottom: 1px solid rgba(204, 204, 204, 0.5); }
   .table-manager-modal .table-cell {
-    min-width: 150px;
+    min-width: 128px;
     min-height: 32px;
     background-color: #fff;
     cursor: text;
     display: inline-block;
-    border-right: 1px solid #cccccc;
+    border-right: 1px solid rgba(204, 204, 204, 0.5);
     font-family: "Open Sans", sans-serif;
     line-height: 1.75rem;
     letter-spacing: -0.01562rem;
@@ -76,17 +76,18 @@
     padding-left: 10px;
     padding-right: 10px;
     white-space: pre-line;
-    max-width: 150px;
-    line-height: 20px; }
+    max-width: 128px;
+    line-height: 24px; }
     .table-manager-modal .table-cell:last-child {
       border-right: 0; }
     .table-manager-modal .table-cell input {
       border: 0px;
       font: inherit;
       line-height: inherit;
-      width: 150px;
+      width: 128px;
       padding-left: -1rem;
-      margin-left: -10px; }
+      margin-left: -10px;
+      min-height: 32px; }
   .table-manager-modal .bs-ui-input {
     padding-bottom: 16px; }
     .table-manager-modal .bs-ui-input .bs-ui-checkbox {
@@ -157,18 +158,19 @@
     border-spacing: 0; }
   .table-manager-block .table-cell {
     background-color: #fff;
-    min-width: 173px;
-    border-right: 0;
+    min-width: 128px;
+    border-right: 1px solid rgba(204, 204, 204, 0.5);
     border-spacing: 0px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.5);
     padding: 0 0.5rem;
     text-align: left;
     font-size: 14px;
-    max-width: 150px;
+    max-width: 128px;
     white-space: pre-line;
-    line-height: 20px; }
-    .table-manager-block .table-cell:first-child {
-      border-right: 1px solid #ccc; }
+    line-height: 24px;
+    min-height: 32px; }
+    .table-manager-block .table-cell:last-child {
+      border-right: 0; }
   .table-manager-block__source {
     text-align: left;
     font-size: 13px;

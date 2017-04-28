@@ -28,9 +28,15 @@ export default {
       data: {
         type: constants.PLUGIN_TYPE,
         ...new TableConfig({
-          title: "Tabela XPTO",
-          source: "Fonte da minha tabela",
-          rows: [["A1", "B1"], ["A2", "B2"]]
+          title: "Destino dos Recursos de Contas Inativas do FGTS por Faixa de Renda",
+          source: "Redação/G1",
+          rows: [
+            ["Renda", "Quitar dívidas em atraso", "Poupança", "Comprar bens", "Lazer", "Pagamento impostos", "Outras finalidades"],
+            ["Acre", "53,8", "53,8", "53,8", "53,8", "53,8", "53,8"],
+            ["Alagoas", "156,7", "156,7", "156,7", "156,7", "156,7", "156,7"],
+            ["Amazonas", "341,2", "341,2", "341,2", "341,2", "341,2", "341,2"],
+            ["Amapá", "40,9", "40,9", "40,9", "40,9", "40,9", "40,9"],
+            ["Total", "41,2%", "41,2%", "41,2%", "41,2%", "41,2%", "41,2%"]]
         })
       },
       entityRanges: []

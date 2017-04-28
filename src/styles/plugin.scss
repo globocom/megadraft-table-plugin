@@ -9,7 +9,7 @@
  */
 
 $table-border: 1px solid rgba(204, 204, 204, 0.5);
-$highlight-color: $highlight-color;
+$highlight-color: rgb(230, 230, 230);
 
 .table-manager-modal {
   z-index: 2700;
@@ -71,7 +71,7 @@ $highlight-color: $highlight-color;
   }
 
   .table-cell {
-    min-width: 150px;
+    min-width: 128px;
     min-height: 32px;
     background-color: #fff;
     cursor: text;
@@ -85,8 +85,8 @@ $highlight-color: $highlight-color;
     padding-left: 10px;
     padding-right: 10px;
     white-space: pre-line;
-    max-width: 150px;
-    line-height: 20px;
+    max-width: 128px;
+    line-height: 24px;
 
     &:last-child {
       border-right: 0;
@@ -96,9 +96,10 @@ $highlight-color: $highlight-color;
       border: 0px;
       font: inherit;
       line-height: inherit;
-      width: 150px;
+      width: 128px;
       padding-left: -1rem;
-      margin-left: -10px
+      margin-left: -10px;
+      min-height: 32px;
     }
   }
 
@@ -221,19 +222,20 @@ $highlight-color: $highlight-color;
 
   .table-cell {
     background-color: #fff;
-    min-width: 173px;
-    border-right: 0;
+    min-width: 128px;
+    border-right: $table-border;
     border-spacing: 0px;
     border-bottom: $table-border;
     padding: 0 0.5rem;
     text-align: left;
     font-size: 14px;
-    max-width: 150px;
+    max-width: 128px;
     white-space: pre-line;
-    line-height: 20px;
+    line-height: 24px;
+    min-height: 32px;
 
-    &:first-child {
-      border-right: $table-border;
+    &:last-child {
+      border-right: 0;
     }
   }
 
