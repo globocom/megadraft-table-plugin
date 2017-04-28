@@ -58,25 +58,33 @@
     display: inline-block;
     vertical-align: middle;
     border-collapse: collapse; }
+  .table-manager-modal .table-row {
+    background-color: #fff;
+    border-bottom: 1px solid #cccccc; }
   .table-manager-modal .table-cell {
-    min-width: 173px;
+    min-width: 150px;
     min-height: 32px;
     background-color: #fff;
     cursor: text;
     display: inline-block;
     border-right: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
     font-family: "Open Sans", sans-serif;
     line-height: 1.75rem;
     letter-spacing: -0.01562rem;
     font-size: 14px;
     text-align: start;
-    padding-left: 10px; }
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: pre-line;
+    max-width: 150px;
+    line-height: 20px; }
+    .table-manager-modal .table-cell:last-child {
+      border-right: 0; }
     .table-manager-modal .table-cell input {
       border: 0px;
       font: inherit;
       line-height: inherit;
-      width: 173px;
+      width: 150px;
       padding-left: -1rem;
       margin-left: -10px; }
   .table-manager-modal .bs-ui-input {
@@ -114,18 +122,20 @@
     fill: #0769de; }
 
 .highlight-top .table-row:first-child {
-  font-weight: bold; }
+  font-weight: bold;
+  background-color: #e6e6e6; }
   .highlight-top .table-row:first-child .table-cell {
     border-right: 1px solid #fff;
-    background-color: #e6e6e6; }
+    background-color: initial; }
     .highlight-top .table-row:first-child .table-cell:last-child {
       border-right: 0; }
 
 .highlight-bottom .table-row:last-child {
-  font-weight: bold; }
+  font-weight: bold;
+  background-color: #e6e6e6; }
   .highlight-bottom .table-row:last-child .table-cell {
     border-right: 1px solid #fff;
-    background-color: #e6e6e6; }
+    background-color: initial; }
     .highlight-bottom .table-row:last-child .table-cell:last-child {
       border-right: 0; }
 
@@ -140,7 +150,6 @@
   padding: 1rem 3rem; }
   .table-manager-block__title {
     text-align: left;
-    border-bottom: 2px solid #ccc;
     line-height: 32px;
     font-size: 24px; }
   .table-manager-block table {
@@ -154,7 +163,10 @@
     border-bottom: 1px solid #ccc;
     padding: 0 0.5rem;
     text-align: left;
-    font-size: 14px; }
+    font-size: 14px;
+    max-width: 150px;
+    white-space: pre-line;
+    line-height: 20px; }
     .table-manager-block .table-cell:first-child {
       border-right: 1px solid #ccc; }
   .table-manager-block__source {

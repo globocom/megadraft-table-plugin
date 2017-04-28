@@ -8,6 +8,9 @@
  * YOUR STYLES HERE
  */
 
+$table-border: 1px solid rgba(204, 204, 204, 0.5);
+$highlight-color: $highlight-color;
+
 .table-manager-modal {
   z-index: 2700;
 
@@ -23,7 +26,7 @@
 
   &__form {
     background-color: rgb(251, 251, 251);
-    border-right: solid 1px rgb(204, 204, 204);
+    border-right: $table-border;
     box-sizing: border-box;
     padding: 1rem 1.5rem;
     width: 286px;
@@ -62,26 +65,38 @@
     border-collapse: collapse;
   }
 
+  .table-row {
+    background-color: #fff;
+    border-bottom: $table-border;
+  }
+
   .table-cell {
-    min-width: 173px;
+    min-width: 150px;
     min-height: 32px;
     background-color: #fff;
     cursor: text;
     display: inline-block;
-    border-right: 1px solid rgb(204, 204,204);
-    border-bottom: 1px solid rgb(204, 204,204);
+    border-right: $table-border;
     font-family: "Open Sans", sans-serif;
     line-height: 1.75rem;
     letter-spacing: -0.01562rem;
     font-size: 14px;
     text-align: start;
     padding-left: 10px;
+    padding-right: 10px;
+    white-space: pre-line;
+    max-width: 150px;
+    line-height: 20px;
+
+    &:last-child {
+      border-right: 0;
+    }
 
     & input {
       border: 0px;
       font: inherit;
       line-height: inherit;
-      width: 173px;
+      width: 150px;
       padding-left: -1rem;
       margin-left: -10px
     }
@@ -152,10 +167,11 @@
 .highlight-top {
   .table-row:first-child {
     font-weight: bold;
+    background-color: $highlight-color;
 
     .table-cell {
       border-right: 1px solid #fff;
-      background-color: rgb(230, 230, 230);
+      background-color: initial;
 
       &:last-child {
         border-right: 0;
@@ -167,10 +183,11 @@
 .highlight-bottom {
   .table-row:last-child {
     font-weight: bold;
+    background-color: $highlight-color;
 
     .table-cell {
       border-right: 1px solid #fff;
-      background-color: rgb(230, 230, 230);
+      background-color: initial;
 
       &:last-child {
         border-right: 0;
@@ -193,7 +210,6 @@
 
   &__title {
     text-align: left;
-    border-bottom: 2px solid #ccc;
     line-height: 32px;
     font-size: 24px;
   }
@@ -208,13 +224,16 @@
     min-width: 173px;
     border-right: 0;
     border-spacing: 0px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: $table-border;
     padding: 0 0.5rem;
     text-align: left;
     font-size: 14px;
+    max-width: 150px;
+    white-space: pre-line;
+    line-height: 20px;
 
     &:first-child {
-      border-right: 1px solid #ccc;
+      border-right: $table-border;
     }
   }
 
