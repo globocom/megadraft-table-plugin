@@ -21,8 +21,39 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
     };
     value[e.target.value] = e.target.checked;
     onChange({ target: { name, value } });
+
   };
 
+  const _hasMaxSelectedInputs = function() {
+    const values = Object.keys(selectedOptions).map(key => {
+      return selectedOptions[key];
+    });
+    let count = 0;
+    values.map(value => {
+      if (value) { count++; }
+    });
+    console.log(count);
+    if(count >= 2)
+      return true;
+
+    return false;
+  }
+  const _checkAndDisable = function() {
+    console.log("_checkAndDisable");
+    options.map(option => {
+      const input = document.querySelector("input.header-style[value="+ option + "]");
+      if(input) {
+        if(_hasMaxSelectedInputs() && !selectedOptions[option]) {
+          input.disabled = true;
+        }
+        else {
+          input.disabled = false;
+        }
+      }
+    });
+
+  }
+  _checkAndDisable();
   return (
     <FormItem>
       <label className="bs-ui-input__label">Destaque</label>
