@@ -79,7 +79,7 @@
   border-right: 1px solid rgba(204, 204, 204, 0.5);
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  height: 22px;
+  height: 38px;
   line-height: 20px;
   max-width: 128px;
   min-height: 32px;
@@ -99,9 +99,9 @@
   border: 0px;
   font: inherit;
   line-height: inherit;
-  width: 144px;
+  width: 128px;
   padding-left: -1rem;
-  min-height: 32px;
+  min-height: 38px;
   margin: -8px 0 -8px -10px;
 }
 
@@ -187,7 +187,7 @@
   border-right: 1px solid rgba(204, 204, 204, 0.5);
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  height: 22px;
+  height: 38px;
   line-height: 20px;
   max-width: 128px;
   min-height: 32px;
