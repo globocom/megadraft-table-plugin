@@ -10,9 +10,11 @@
 
 $table-border: 1px solid rgba(204, 204, 204, 0.5);
 $highlight-color: rgb(230, 230, 230);
+$highlight-border: 1px solid #fff;
 
 @mixin cell {
   background-color: #fff;
+  border-bottom: $table-border;
   border-right: $table-border;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
@@ -80,7 +82,7 @@ $highlight-color: rgb(230, 230, 230);
 
   .table-row {
     background-color: #fff;
-    border-bottom: $table-border;
+
   }
 
   .table-cell {
@@ -172,7 +174,7 @@ $highlight-color: rgb(230, 230, 230);
     background-color: $highlight-color;
 
     .table-cell {
-      border-right: 1px solid #fff;
+      border-right: $highlight-border;
       background-color: initial;
 
       &:last-child {
@@ -188,7 +190,7 @@ $highlight-color: rgb(230, 230, 230);
     background-color: $highlight-color;
 
     .table-cell {
-      border-right: 1px solid #fff;
+      border-right: $highlight-border;
       background-color: initial;
 
       &:last-child {
@@ -199,11 +201,32 @@ $highlight-color: rgb(230, 230, 230);
 }
 
 .highlight-left {
-  .table-row td:first-child { font-weight: bold;}
+  .table-row {
+    &:last-child .table-cell:first-child {
+      border-bottom: 0;
+    }
+
+    .table-cell:first-child {
+      font-weight: bold;
+      background-color: $highlight-color;
+      border-right: 0;
+      border-bottom: $highlight-border;
+    }
+  }
 }
 
 .highlight-right {
-  .table-row td:last-child { font-weight: bold;}
+  .table-row {
+    &:last-child .table-cell:last-child {
+      border-bottom: 0;
+    }
+
+    .table-cell:last-child {
+      font-weight: bold;
+      background-color: $highlight-color;
+      border-bottom: $highlight-border;
+    }
+  }
 }
 
 .table-manager-block {
@@ -226,7 +249,6 @@ $highlight-color: rgb(230, 230, 230);
 
     min-width: 50px;
     border-spacing: 0px;
-    border-bottom: $table-border;
 
     &:last-child {
       border-right: 0;
