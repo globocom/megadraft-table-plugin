@@ -1,6 +1,27 @@
 /*
-  line height definitions above should to be
-  used in a long text context
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2016, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
  */
 /*
   line height definitions above should to be
@@ -11,385 +32,189 @@
   used in a long text context
  */
 /*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
   line height definitions above should to be
   used in a long text context
  */
 /*
-  this each will create all classes
-  .font-<size>, .font-<size>--bold,
-  .font-<size>--long-bold, .font-<size>--long,
-  based on _variables.scss@$font-sizes.
+  line height definitions above should to be
+  used in a long text context
+ */
+/*
+    this each will create all classes
+    .font-<size>, .font-<size>--bold,
+    .font-<size>--long-bold, .font-<size>--long,
+    based on _variables.scss@$font-sizes.
 
-  IE: .font-10, .font-10--bold, .font-10--long,
-      .font-10--long-bold, .font-12,
-      .font-12--bold, font-12--long,
-      .font-12--long-bold, .font-14,
-      .font-14--bold, font-14--long,
-      .font-14--long-bold, etc
+    IE: .font-10, .font-10--bold, .font-10--long,
+        .font-10--long-bold, .font-12,
+        .font-12--bold, font-12--long,
+        .font-12--long-bold, .font-14,
+        .font-14--bold, font-14--long,
+        .font-14--long-bold, etc
 
 */
-.font-68, .font-68--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 4.25rem;
-  letter-spacing: -0.25rem;
-  line-height: 4.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-68--long {
-    line-height: 5rem; }
-
-.font-56, .font-56--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 3.5rem;
-  letter-spacing: -0.1875rem;
-  line-height: 3.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-56--long {
-    line-height: 4rem; }
-
-.font-42, .font-42--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.625rem;
-  letter-spacing: -0.125rem;
-  line-height: 3rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-42--long {
-    line-height: 3.5rem; }
-
-.font-34, .font-34--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.125rem;
-  letter-spacing: -0.09375rem;
-  line-height: 2.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-34--long {
-    line-height: 3rem; }
-
-.font-26, .font-26--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.625rem;
-  letter-spacing: -0.0625rem;
-  line-height: 1.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-26--long {
-    line-height: 2rem; }
-
-.font-20, .font-20--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.25rem;
-  letter-spacing: -0.04688rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-20--long {
-    line-height: 1.75rem; }
-
-.font-18, .font-18--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.125rem;
-  letter-spacing: 0.037rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-18--long {
-    line-height: 1.75rem; }
-
-.font-16, .font-16--long {
+.bs-ui-dropdown {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   letter-spacing: -0.03125rem;
-  line-height: 1.25rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-16--long {
-    line-height: 1.5rem; }
+  line-height: 1.25rem; }
 
-.font-14, .font-14--long, .bs-ui-input__label {
+.bs-ui-button, .bs-ui-form-control__field, .bs-ui-form-control__label, .bs-ui-dropdown--small, .bs-ui-breadcrumbs {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   letter-spacing: -0.01562rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-14--long {
-    line-height: 1.25rem; }
+  line-height: 1rem; }
+  .bs-ui-button {
+    font-weight: bold; }
 
-.font-12, .font-12--long {
+.bs-ui-form-control--small .bs-ui-form-control__label {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
-  letter-spacing: 0rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-12--long {
-    line-height: 0; }
+  letter-spacing: 0;
+  line-height: 1rem; }
 
-.font-10, .font-10--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.625rem;
-  letter-spacing: 0.01562rem;
-  line-height: 0.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-10--long {
-    line-height: 0; }
-
-html {
-  box-sizing: border-box; }
-
-*,
-*::after,
-*::before {
-  box-sizing: inherit; }
-
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  line height definitions above should to be
-  used in a long text context
- */
-/*
-  this each will create all classes
-  .font-<size>, .font-<size>--bold,
-  .font-<size>--long-bold, .font-<size>--long,
-  based on _variables.scss@$font-sizes.
-
-  IE: .font-10, .font-10--bold, .font-10--long,
-      .font-10--long-bold, .font-12,
-      .font-12--bold, font-12--long,
-      .font-12--long-bold, .font-14,
-      .font-14--bold, font-14--long,
-      .font-14--long-bold, etc
-
-*/
-.font-68, .font-68--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 4.25rem;
-  letter-spacing: -0.25rem;
-  line-height: 4.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-68--long {
-    line-height: 5rem; }
-
-.font-56, .font-56--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 3.5rem;
-  letter-spacing: -0.1875rem;
-  line-height: 3.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-56--long {
-    line-height: 4rem; }
-
-.font-42, .font-42--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.625rem;
-  letter-spacing: -0.125rem;
-  line-height: 3rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-42--long {
-    line-height: 3.5rem; }
-
-.font-34, .font-34--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.125rem;
-  letter-spacing: -0.09375rem;
-  line-height: 2.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-34--long {
-    line-height: 3rem; }
-
-.font-26, .font-26--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.625rem;
-  letter-spacing: -0.0625rem;
-  line-height: 1.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-26--long {
-    line-height: 2rem; }
-
-.font-20, .font-20--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.25rem;
-  letter-spacing: -0.04688rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-20--long {
-    line-height: 1.75rem; }
-
-.font-18, .font-18--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.125rem;
-  letter-spacing: 0.037rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-18--long {
-    line-height: 1.75rem; }
-
-.font-16, .font-16--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
-  letter-spacing: -0.03125rem;
-  line-height: 1.25rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-16--long {
-    line-height: 1.5rem; }
-
-.font-14, .font-14--long, .bs-ui-input__label {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: -0.01562rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-14--long {
-    line-height: 1.25rem; }
-
-.font-12, .font-12--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-12--long {
-    line-height: 0; }
-
-.font-10, .font-10--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.625rem;
-  letter-spacing: 0.01562rem;
-  line-height: 0.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-10--long {
-    line-height: 0; }
-
-.bs-ui-input {
+.bs-ui-form-control {
+  margin: 32px 0;
   position: relative; }
-  .bs-ui-input__field {
+  .bs-ui-form-control__field {
     background-color: #fff;
     border: solid 2px #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     color: #333;
-    font-family: "Open Sans", sans-serif;
-    font-size: 14px;
     height: 40px;
-    padding: 7px 8px 8px 8px;
     outline: 0;
+    padding: 7px 8px 8px;
     transition: border-color 0.15s cubic-bezier(0, 0, 0.2, 1);
     width: 100%; }
-    .bs-ui-input__field:hover {
+    .bs-ui-form-control__field:hover {
       border-color: #999; }
-    .bs-ui-input__field:focus {
-      border-color: #0669De; }
-  .bs-ui-input--error .bs-ui-input__field {
+    .bs-ui-form-control__field:focus {
+      border-color: #0669de; }
+  .bs-ui-form-control textarea.bs-ui-form-control__field {
+    height: 200px; }
+  .bs-ui-form-control--error .bs-ui-form-control__field {
     border-color: #e83f26;
     color: #e83f26; }
-    .bs-ui-input--error .bs-ui-input__field:hover {
+    .bs-ui-form-control--error .bs-ui-form-control__field:hover {
       border-color: #bc2e1e; }
-    .bs-ui-input--error .bs-ui-input__field:focus {
+    .bs-ui-form-control--error .bs-ui-form-control__field:focus {
       border-color: #ee6a50; }
-  .bs-ui-input--required .bs-ui-input__label:before {
+  .bs-ui-form-control--required .bs-ui-form-control__label:before {
+    color: #e83f26;
     content: '*';
-    position: absolute;
-    top: 0;
     left: -12px;
-    color: #e83f26; }
-  .bs-ui-input__field-error {
+    position: absolute;
+    top: 0; }
+  .bs-ui-form-control--small .bs-ui-form-control__field {
+    height: 32px; }
+  .bs-ui-form-control__field-error {
+    color: #e83f26;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
     margin-top: 0.5rem;
-    padding: 0;
-    color: #e83f26; }
-  .bs-ui-input__label {
+    padding: 0; }
+  .bs-ui-form-control__label {
     color: #666;
     display: block;
     margin-bottom: 10px; }
 
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
 .bs-ui-button {
-  border-radius: 4px;
   background-color: transparent;
-  border: none;
+  border: 0;
+  border-radius: 4px;
   box-sizing: border-box;
   color: #333;
   cursor: pointer;
-  font-family: "Open Sans", sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 1.33;
   outline: 0;
-  padding: 8px 16px;
+  padding: 12px 16px;
   text-decoration: none;
   text-transform: uppercase;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: color 0.15s cubic-bezier(0, 0, 0.2, 1), background-color 0.15s cubic-bezier(0, 0, 0.2, 1);
-  font-size: 14px;
-  padding: 12px 16px; }
+  transition: color 0.15s cubic-bezier(0, 0, 0.2, 1), background-color 0.15s cubic-bezier(0, 0, 0.2, 1); }
   .bs-ui-button:hover {
     color: #181818; }
   .bs-ui-button:active {
-    color: #666666; }
+    color: #666; }
   .bs-ui-button.bs-ui-button--background-black {
-    background-color: #333333;
+    background-color: #333;
     box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3);
-    color: #FFF; }
+    color: #fff; }
     .bs-ui-button.bs-ui-button--background-black:hover {
       background-color: #181818; }
     .bs-ui-button.bs-ui-button--background-black:active {
-      background-color: #666666; }
+      background-color: #666; }
     .bs-ui-button.bs-ui-button--background-black.disabled, .bs-ui-button.bs-ui-button--background-black.disabled:hover {
-      background-color: #DDD;
+      background-color: #ddd;
       box-shadow: none; }
   .bs-ui-button.bs-ui-button--background-red {
     background-color: #e83f26;
     box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3);
-    color: #FFF; }
+    color: #fff; }
     .bs-ui-button.bs-ui-button--background-red:hover {
-      background-color: #bc2e1b; }
+      background-color: #bc2e1e; }
     .bs-ui-button.bs-ui-button--background-red:active {
       background-color: #ee6a50; }
     .bs-ui-button.bs-ui-button--background-red.disabled, .bs-ui-button.bs-ui-button--background-red.disabled:hover {
-      background-color: #DDD;
+      background-color: #ddd;
       box-shadow: none; }
   .bs-ui-button.bs-ui-button--background-blue {
-    background-color: #0769de;
+    background-color: #0669de;
     box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.3);
-    color: #FFF; }
+    color: #fff; }
     .bs-ui-button.bs-ui-button--background-blue:hover {
-      background-color: #2445b1; }
+      background-color: #044cb3; }
     .bs-ui-button.bs-ui-button--background-blue:active {
       background-color: #3192e7; }
     .bs-ui-button.bs-ui-button--background-blue.disabled, .bs-ui-button.bs-ui-button--background-blue.disabled:hover {
-      background-color: #DDD;
+      background-color: #ddd;
       box-shadow: none; }
   .bs-ui-button.bs-ui-button--black {
-    color: #333333; }
+    color: #333; }
     .bs-ui-button.bs-ui-button--black:hover {
       color: #181818; }
     .bs-ui-button.bs-ui-button--black:active {
-      color: #666666; }
+      color: #666; }
     .bs-ui-button.bs-ui-button--black.disabled, .bs-ui-button.bs-ui-button--black.disabled:hover {
-      background-color: #DDD;
+      background-color: #ddd;
       box-shadow: none; }
   .bs-ui-button.bs-ui-button--red {
     color: #e83f26; }
     .bs-ui-button.bs-ui-button--red:hover {
-      color: #bc2e1b; }
+      color: #bc2e1e; }
     .bs-ui-button.bs-ui-button--red:active {
       color: #ee6a50; }
     .bs-ui-button.bs-ui-button--red.disabled, .bs-ui-button.bs-ui-button--red.disabled:hover {
-      background-color: #DDD;
+      background-color: #ddd;
       box-shadow: none; }
   .bs-ui-button.bs-ui-button--blue {
-    color: #0769de; }
+    color: #0669de; }
     .bs-ui-button.bs-ui-button--blue:hover {
-      color: #2445b1; }
+      color: #044cb3; }
     .bs-ui-button.bs-ui-button--blue:active {
-      color: #4a8fe6; }
+      color: #3192e7; }
     .bs-ui-button.bs-ui-button--blue.disabled, .bs-ui-button.bs-ui-button--blue.disabled:hover {
-      background-color: #DDD;
+      background-color: #ddd;
       box-shadow: none; }
   .bs-ui-button.bs-ui-button--small {
     font-size: 12px;
@@ -399,8 +224,24 @@ html {
     padding: 14px 16px; }
 
 /*
-  line height definitions above should to be
-  used in a long text context
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
  */
 /*
   line height definitions above should to be
@@ -411,121 +252,62 @@ html {
   used in a long text context
  */
 /*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
   line height definitions above should to be
   used in a long text context
  */
 /*
-  this each will create all classes
-  .font-<size>, .font-<size>--bold,
-  .font-<size>--long-bold, .font-<size>--long,
-  based on _variables.scss@$font-sizes.
+  line height definitions above should to be
+  used in a long text context
+ */
+/*
+    this each will create all classes
+    .font-<size>, .font-<size>--bold,
+    .font-<size>--long-bold, .font-<size>--long,
+    based on _variables.scss@$font-sizes.
 
-  IE: .font-10, .font-10--bold, .font-10--long,
-      .font-10--long-bold, .font-12,
-      .font-12--bold, font-12--long,
-      .font-12--long-bold, .font-14,
-      .font-14--bold, font-14--long,
-      .font-14--long-bold, etc
+    IE: .font-10, .font-10--bold, .font-10--long,
+        .font-10--long-bold, .font-12,
+        .font-12--bold, font-12--long,
+        .font-12--long-bold, .font-14,
+        .font-14--bold, font-14--long,
+        .font-14--long-bold, etc
 
 */
-.font-68, .font-68--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 4.25rem;
-  letter-spacing: -0.25rem;
-  line-height: 4.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-68--long {
-    line-height: 5rem; }
-
-.font-56, .font-56--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 3.5rem;
-  letter-spacing: -0.1875rem;
-  line-height: 3.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-56--long {
-    line-height: 4rem; }
-
-.font-42, .font-42--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.625rem;
-  letter-spacing: -0.125rem;
-  line-height: 3rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-42--long {
-    line-height: 3.5rem; }
-
-.font-34, .font-34--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2.125rem;
-  letter-spacing: -0.09375rem;
-  line-height: 2.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-34--long {
-    line-height: 3rem; }
-
-.font-26, .font-26--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.625rem;
-  letter-spacing: -0.0625rem;
-  line-height: 1.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-26--long {
-    line-height: 2rem; }
-
-.font-20, .font-20--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.25rem;
-  letter-spacing: -0.04688rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-20--long {
-    line-height: 1.75rem; }
-
-.font-18, .font-18--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.125rem;
-  letter-spacing: 0.037rem;
-  line-height: 1.5rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-18--long {
-    line-height: 1.75rem; }
-
-.font-16, .font-16--long {
+.bs-ui-dropdown {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   letter-spacing: -0.03125rem;
-  line-height: 1.25rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-16--long {
-    line-height: 1.5rem; }
+  line-height: 1.25rem; }
 
-.font-14, .font-14--long, .bs-ui-input__label {
+.bs-ui-button, .bs-ui-form-control__field, .bs-ui-form-control__label, .bs-ui-dropdown--small, .bs-ui-breadcrumbs {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
   font-size: 0.875rem;
   letter-spacing: -0.01562rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-14--long {
-    line-height: 1.25rem; }
+  line-height: 1rem; }
+  .bs-ui-button {
+    font-weight: bold; }
 
-.font-12, .font-12--long {
+.bs-ui-form-control--small .bs-ui-form-control__label {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
-  letter-spacing: 0rem;
-  line-height: 1rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-12--long {
-    line-height: 0; }
-
-.font-10, .font-10--long {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.625rem;
-  letter-spacing: 0.01562rem;
-  line-height: 0.75rem;
-  -webkit-font-smoothing: antialiased; }
-  .font-10--long {
-    line-height: 0; }
+  letter-spacing: 0;
+  line-height: 1rem; }
 
 .bs-ui-switch {
   cursor: pointer; }
@@ -534,134 +316,318 @@ html {
     font-family: "Open Sans", sans-serif;
     font-size: 0.875rem;
     letter-spacing: -0.01562rem; }
-  .bs-ui-switch input[type=checkbox] {
+  .bs-ui-switch input[type='checkbox'] {
     display: none; }
+  .bs-ui-switch input:checked + .bs-ui-switch__lever {
+    background-color: #0669de; }
+  .bs-ui-switch input:checked + .bs-ui-switch__lever:after {
+    left: 22px; }
   .bs-ui-switch:hover .bs-ui-switch__lever {
     background-color: #666; }
-  .bs-ui-switch:hover input[type=checkbox]:checked + .bs-ui-switch__lever {
+  .bs-ui-switch:hover input[type='checkbox']:checked + .bs-ui-switch__lever {
     background-color: #044cb3; }
   .bs-ui-switch__lever {
-    content: "";
-    display: inline-block;
-    position: relative;
-    width: 44px;
-    height: 1.5rem;
     background-color: #999;
     border-radius: 24px;
-    transition: background 0.15s cubic-bezier(0, 0, 0.2, 1);
-    vertical-align: middle;
+    content: '';
+    display: inline-block;
+    height: 1.5rem;
     margin: 0 6px;
-    user-select: none; }
+    position: relative;
+    transition: background 0.15s cubic-bezier(0, 0, 0.2, 1);
+    user-select: none;
+    vertical-align: middle;
+    width: 44px; }
     .bs-ui-switch__lever:after {
-      content: "";
-      position: absolute;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
       background-color: #fff;
       border-radius: 20px;
+      content: '';
+      display: inline-block;
+      height: 20px;
       left: 2px;
+      position: absolute;
       top: 2px;
-      transition: left 0.15s cubic-bezier(0, 0, 0.2, 1); }
-  .bs-ui-switch input[type=checkbox]:checked + .bs-ui-switch__lever:after {
-    left: 22px; }
-  .bs-ui-switch input[type=checkbox]:checked + .bs-ui-switch__lever {
-    background-color: #0669De; }
+      transition: left 0.15s cubic-bezier(0, 0, 0.2, 1);
+      width: 20px; }
   .bs-ui-switch--small .bs-ui-switch__lever {
     height: 16px;
     width: 28px; }
     .bs-ui-switch--small .bs-ui-switch__lever:after {
-      width: 12px;
-      height: 12px; }
-  .bs-ui-switch--small input[type=checkbox]:checked + .bs-ui-switch__lever:after {
+      height: 12px;
+      width: 12px; }
+  .bs-ui-switch--small input[type='checkbox']:checked + .bs-ui-switch__lever:after {
     left: 14px; }
 
 .bs-ui-checkbox {
-  position: relative;
   cursor: pointer;
-  padding-left: 10px; }
+  padding-left: 18px;
+  position: relative; }
   .bs-ui-checkbox input {
     visibility: hidden; }
-  .bs-ui-checkbox input:before {
-    visibility: visible;
-    cursor: pointer;
-    position: absolute;
-    content: ' ';
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    background-color: #fff;
-    border: solid 2px #ccc;
-    top: -3px;
-    left: 0;
-    z-index: 5;
-    transition: border-color 0.15s cubic-bezier(0, 0, 0.2, 1), background-color 0.15s cubic-bezier(0, 0, 0.2, 1); }
+    .bs-ui-checkbox input:before {
+      background-color: #fff;
+      border: solid 2px #ccc;
+      border-radius: 4px;
+      content: ' ';
+      cursor: pointer;
+      height: 24px;
+      left: 0;
+      position: absolute;
+      top: -4px;
+      transition: border-color 0.15s cubic-bezier(0, 0, 0.2, 1), background-color 0.15s cubic-bezier(0, 0, 0.2, 1);
+      visibility: visible;
+      width: 24px;
+      z-index: 5; }
+    .bs-ui-checkbox input[type='checkbox']:checked:before {
+      background-color: #0669de;
+      border-color: #0669de; }
+    .bs-ui-checkbox input[type='checkbox']:checked:after {
+      border-bottom: 3px solid #fff;
+      border-radius: 2px;
+      border-right: 3px solid #fff;
+      content: ' ';
+      height: 15px;
+      left: 8px;
+      position: absolute;
+      top: -1px;
+      transform: rotateZ(37deg);
+      visibility: visible;
+      width: 8px;
+      z-index: 10; }
   .bs-ui-checkbox:hover input:before {
     border-color: #999; }
-  .bs-ui-checkbox:hover input[type=checkbox]:checked:before {
+  .bs-ui-checkbox:hover input[type='checkbox']:checked:before {
     background-color: #044cb3;
     border-color: #044cb3; }
-  .bs-ui-checkbox input[type=checkbox]:checked:before {
-    background-color: #0669De;
-    border-color: #0669De; }
-  .bs-ui-checkbox input[type=checkbox]:checked:after {
-    visibility: visible;
-    content: ' ';
-    position: absolute;
-    border-radius: 2px;
-    top: 0;
-    left: 7px;
-    width: 8px;
-    height: 15px;
-    border-right: 3px solid #fff;
-    border-bottom: 3px solid #fff;
-    transform: rotateZ(37deg);
-    z-index: 10; }
   .bs-ui-checkbox--small {
-    padding-left: 2px; }
+    padding-left: 8px; }
     .bs-ui-checkbox--small input:before {
       height: 16px;
-      width: 16px;
-      top: 2px; }
-    .bs-ui-checkbox--small input[type=checkbox]:checked:after {
-      top: 4px;
+      top: 0;
+      width: 16px; }
+    .bs-ui-checkbox--small input[type='checkbox']:checked:after {
+      height: 11px;
       left: 5px;
-      width: 6px;
-      height: 11px; }
+      top: 2px;
+      width: 6px; }
 
 .bs-ui-radio {
-  position: relative;
   cursor: pointer;
-  padding-left: 10px; }
+  padding-left: 10px;
+  position: relative; }
   .bs-ui-radio input {
     visibility: hidden; }
-  .bs-ui-radio input:before {
-    visibility: visible;
-    cursor: pointer;
-    position: absolute;
-    content: ' ';
-    width: 24px;
-    height: 24px;
-    border-radius: 24px;
-    background-color: #fff;
-    border: solid 2px #ccc;
-    top: -3px;
-    left: 0;
-    z-index: 5;
-    transition: border-color 0.15s cubic-bezier(0, 0, 0.2, 1), border-width 0.15s cubic-bezier(0, 0, 0.2, 1); }
+    .bs-ui-radio input[type='radio']:checked:before {
+      border-color: #0669de;
+      border-width: 7px; }
+    .bs-ui-radio input:before {
+      background-color: #fff;
+      border: solid 2px #ccc;
+      border-radius: 24px;
+      box-sizing: border-box;
+      content: ' ';
+      cursor: pointer;
+      height: 24px;
+      left: 0;
+      position: absolute;
+      top: -3px;
+      transition: border-color 0.15s cubic-bezier(0, 0, 0.2, 1), border-width 0.15s cubic-bezier(0, 0, 0.2, 1);
+      visibility: visible;
+      width: 24px;
+      z-index: 5; }
+  .bs-ui-radio:hover input[type='radio']:checked:before {
+    border-color: #044cb3; }
   .bs-ui-radio:hover input:before {
     border-color: #999; }
-  .bs-ui-radio:hover input[type=radio]:checked:before {
-    border-color: #044cb3; }
-  .bs-ui-radio input[type=radio]:checked:before {
-    border-color: #0669De;
-    border-width: 7px; }
   .bs-ui-radio--small {
     padding-left: 2px; }
     .bs-ui-radio--small input:before {
-      width: 16px;
       height: 16px;
-      top: 2px; }
-    .bs-ui-radio--small input[type=radio]:checked:before {
+      top: 2px;
+      width: 16px; }
+    .bs-ui-radio--small input[type='radio']:checked:before {
       border-width: 5px; }
 
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+  line height definitions above should to be
+  used in a long text context
+ */
+/*
+  line height definitions above should to be
+  used in a long text context
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+ * Copyright (c) 2013, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+/*
+  line height definitions above should to be
+  used in a long text context
+ */
+/*
+  line height definitions above should to be
+  used in a long text context
+ */
+/*
+    this each will create all classes
+    .font-<size>, .font-<size>--bold,
+    .font-<size>--long-bold, .font-<size>--long,
+    based on _variables.scss@$font-sizes.
+
+    IE: .font-10, .font-10--bold, .font-10--long,
+        .font-10--long-bold, .font-12,
+        .font-12--bold, font-12--long,
+        .font-12--long-bold, .font-14,
+        .font-14--bold, font-14--long,
+        .font-14--long-bold, etc
+
+*/
+.bs-ui-dropdown {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.03125rem;
+  line-height: 1.25rem; }
+
+.bs-ui-button, .bs-ui-form-control__field, .bs-ui-form-control__label, .bs-ui-dropdown--small, .bs-ui-breadcrumbs {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: -0.01562rem;
+  line-height: 1rem; }
+  .bs-ui-button {
+    font-weight: bold; }
+
+.bs-ui-form-control--small .bs-ui-form-control__label {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  line-height: 1rem; }
+
+.bs-ui-dropdown {
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  width: 100%; }
+  .bs-ui-dropdown__item {
+    background-color: #fff;
+    border: solid 2px #ccc;
+    border-radius: 4px;
+    line-height: 40px;
+    padding: 0 14px; }
+    .bs-ui-dropdown__item:hover {
+      border-color: #999; }
+      .bs-ui-dropdown__item:hover:after {
+        border-top: 4px solid #999; }
+    .bs-ui-dropdown__item:after {
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid #ccc;
+      content: ' ';
+      height: 0;
+      position: absolute;
+      right: 16px;
+      top: 46%;
+      width: 0;
+      z-index: 2; }
+  .bs-ui-dropdown__list {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+    color: #999;
+    list-style: none;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    transition: max-height 0.1s;
+    visibility: hidden;
+    width: 100%;
+    z-index: 3; }
+    .bs-ui-dropdown__list-item {
+      line-height: 40px;
+      padding-left: 16px; }
+      .bs-ui-dropdown__list-item--selected {
+        color: #333; }
+      .bs-ui-dropdown__list-item:hover {
+        background-color: #0669de;
+        color: #fff; }
+  .bs-ui-dropdown--open .bs-ui-dropdown__list {
+    max-height: 200px;
+    padding: 8px 0;
+    visibility: visible; }
+  .bs-ui-dropdown--disabled {
+    cursor: default; }
+    .bs-ui-dropdown--disabled .bs-ui-dropdown__item {
+      background-color: #ddd;
+      border-color: #ddd;
+      color: #fff; }
+      .bs-ui-dropdown--disabled .bs-ui-dropdown__item:hover {
+        border-color: #ddd; }
+        .bs-ui-dropdown--disabled .bs-ui-dropdown__item:hover:after {
+          border-top: 4px solid #fff; }
+      .bs-ui-dropdown--disabled .bs-ui-dropdown__item:after {
+        border-top: 4px solid #fff; }
+  .bs-ui-dropdown--small .bs-ui-dropdown__item, .bs-ui-dropdown--small .bs-ui-dropdown__list-item {
+    line-height: 32px; }
+  .bs-ui-dropdown--open-up .bs-ui-dropdown__list {
+    bottom: 0;
+    top: auto; }
+
+/*
+ * Copyright (c) 2017, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+.bs-ui-breadcrumbs {
+  color: #666;
+  display: flex;
+  list-style-type: none;
+  margin: 24px;
+  padding: 0; }
+  .bs-ui-breadcrumbs__item a {
+    color: #0669de;
+    text-decoration: none; }
+    .bs-ui-breadcrumbs__item a:hover {
+      color: #044cb3; }
+  .bs-ui-breadcrumbs__item:first-child:before {
+    display: none; }
+  .bs-ui-breadcrumbs__item:before {
+    content: 'keyboard_arrow_right';
+    float: left;
+    font-family: 'Material Icons';
+    font-size: 18px;
+    padding: 0 8px; }

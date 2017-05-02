@@ -55,7 +55,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
   _checkAndDisable();
   return (
     <FormItem>
-      <label className="bs-ui-input__label">Destaque</label>
+      <label className="bs-ui-form-control__label">Destaque</label>
       {options.map(option => {
         return (<label key={option} className="bs-ui-checkbox bs-ui-checkbox--small">
           <Checkbox className="header-style"
@@ -63,7 +63,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
             value={option}
             onChange={_onChange}
             isChecked={selectedOptions[option]} />
-          <HighlightIcon className={`header-style--${option}`} />
+          <HighlightIcon className={`header-style--${option} header-style-icon`} />
         </label>);
       })}
     </FormItem>

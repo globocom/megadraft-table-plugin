@@ -12,7 +12,7 @@ import {PlusIcon, CloseIcon} from "./Icons";
 export function AddRemove({title, className, onAdd, onRemove}) {
   return (
     <FormItem className={className}>
-      <label className="bs-ui-input__label">{title}</label>
+      <label className="bs-ui-form-control__label">{title}</label>
       <button className="bs-ui-button bs-ui-button--small bs-ui-button--blue btn-add" onClick={onAdd}>
         <PlusIcon /> Adicionar
       </button>
