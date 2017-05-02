@@ -46,18 +46,19 @@ export function removeColumn(rows, position = null) {
 }
 
 export function highlightedClass(headerStyle) {
+  let classNames = "";
   if(headerStyle.top) {
-    return "top-highlighted";
+    classNames += "highlight-top ";
   }
-  else if( headerStyle.bottom) {
-    return "bottom-highlighted";
+  if( headerStyle.bottom) {
+    classNames += "highlight-bottom ";
   }
-  else if(headerStyle.left) {
-    return "left-highlighted";
+  if(headerStyle.left) {
+    classNames += "highlight-left ";
   }
-  else if(headerStyle.right) {
-    return "right-highlighted";
+  if(headerStyle.right) {
+    classNames += "highlight-right ";
   }
 
-  return "";
+  return classNames;
 }

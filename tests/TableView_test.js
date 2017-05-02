@@ -30,11 +30,11 @@ describe("TableView", function() {
   };
 
   const createTable = function(rows, onEditCellSpy){
-    return mount(<TableView rows={rows} onEditCellSpy headerStyle={headerStyle} />).instance();
+    return mount(<TableView rows={rows} onEditCellSpy headerStyle={headerStyle} editable={true} />).instance();
   };
 
   const createTableWrapper = function(rows, onEditCellSpy){
-    return mount(<TableView rows={rows} onEditCell={onEditCellSpy} headerStyle={headerStyle} />);
+    return mount(<TableView rows={rows} onEditCell={onEditCellSpy} headerStyle={headerStyle} editable={true} />);
   };
 
   const expectCellsValueOnRightPosition = function(tableView, rows) {

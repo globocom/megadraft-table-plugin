@@ -123,27 +123,27 @@ describe("TableManagerHelper", function() {
       expect(highlightedClass({})).to.be.equal("");
     });
 
-    it("should return top-highlighted class if header style top is selected", function() {
+    it("should return highlight-top class if header style top is selected", function() {
       const headerStyle = {top: true};
-      const expectedClass = "top-highlighted";
+      const expectedClass = "highlight-top ";
       expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
     });
 
-    it("should return bottom-highlighted class if header style bottom is selected", function() {
+    it("should return highlight-bottom class if header style bottom is selected", function() {
       const headerStyle = {bottom: true};
-      const expectedClass = "bottom-highlighted";
+      const expectedClass = "highlight-bottom ";
       expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
     });
 
-    it("should return left-highlighted class if header style left is selected", function() {
+    it("should return highlight-left class if header style left is selected", function() {
       const headerStyle = {left: true};
-      const expectedClass = "left-highlighted";
+      const expectedClass = "highlight-left ";
       expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
     });
 
-    it("should return right-highlighted class if header style right is selected", function() {
+    it("should return highlight-right class if header style right is selected", function() {
       const headerStyle = {right: true};
-      const expectedClass = "right-highlighted";
+      const expectedClass = "highlight-right ";
       expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
     });
   });

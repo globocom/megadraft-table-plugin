@@ -55,7 +55,12 @@ export default class TableView extends Component {
 
     for(let rowIndex=0; rowIndex < rows[0].length; rowIndex++) {
       let propertyName = "c" + rowIndex;
-      columns.push({property: propertyName, style: { width: 50 }, cell: {transforms: [editable(edit.input())], props: {className: "table-cell"}}});
+      columns.push({
+        property: propertyName,
+        style: { width: 50 },
+        cell: {
+          transforms: this.props.editable ? [editable(edit.input())] : [],
+          props: {className: "table-cell"}}});
     }
     return columns;
   }
