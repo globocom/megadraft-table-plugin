@@ -32,11 +32,12 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
     values.map(value => {
       if (value) { count++; }
     });
-    if(count >= 2)
+    if(count >= 2) {
       return true;
+    }
 
     return false;
-  }
+  };
   const _checkAndDisable = function() {
     options.map(option => {
       const input = document.querySelector("input.header-style[value="+ option + "]");
@@ -50,7 +51,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
       }
     });
 
-  }
+  };
   _checkAndDisable();
   return (
     <FormItem>

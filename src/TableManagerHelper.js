@@ -46,7 +46,7 @@ export function removeColumn(rows, position = null) {
 }
 
 export function highlightedClass(headerStyle) {
-  let classNames = ""
+  let classNames = "";
   if(headerStyle.top) {
     classNames += "highlight-top ";
   }
