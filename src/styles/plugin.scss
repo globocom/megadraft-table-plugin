@@ -11,6 +11,19 @@
 $table-border: 1px solid rgba(204, 204, 204, 0.5);
 $highlight-color: rgb(230, 230, 230);
 
+@mixin cell {
+  background-color: #fff;
+  border-right: $table-border;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  max-width: 128px;
+  min-height: 32px;
+  padding: 8px 10px;
+  text-align: start;
+  white-space: pre-line;
+}
+
 .table-manager-modal {
   z-index: 2700;
 
@@ -71,22 +84,10 @@ $highlight-color: rgb(230, 230, 230);
   }
 
   .table-cell {
+    @include cell;
     min-width: 128px;
-    min-height: 32px;
-    background-color: #fff;
     cursor: text;
-    display: inline-block;
-    border-right: $table-border;
-    font-family: "Open Sans", sans-serif;
-    line-height: 1.75rem;
     letter-spacing: -0.01562rem;
-    font-size: 14px;
-    text-align: start;
-    padding-left: 10px;
-    padding-right: 10px;
-    white-space: pre-line;
-    max-width: 128px;
-    line-height: 24px;
 
     &:last-child {
       border-right: 0;
@@ -221,18 +222,11 @@ $highlight-color: rgb(230, 230, 230);
   }
 
   .table-cell {
-    background-color: #fff;
-    min-width: 128px;
-    border-right: $table-border;
+    @include cell;
+
+    min-width: 50px;
     border-spacing: 0px;
     border-bottom: $table-border;
-    padding: 0 0.5rem;
-    text-align: left;
-    font-size: 14px;
-    max-width: 128px;
-    white-space: pre-line;
-    line-height: 24px;
-    min-height: 32px;
 
     &:last-child {
       border-right: 0;
