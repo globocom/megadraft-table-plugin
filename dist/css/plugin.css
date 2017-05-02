@@ -79,7 +79,7 @@
   border-right: 1px solid rgba(204, 204, 204, 0.5);
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  height: 32px;
+  height: 22px;
   line-height: 20px;
   max-width: 128px;
   min-height: 32px;
@@ -99,39 +99,40 @@
   border: 0px;
   font: inherit;
   line-height: inherit;
-  width: 128px;
+  width: 144px;
   padding-left: -1rem;
-  margin-left: -10px;
   min-height: 32px;
+  margin: -8px 0 -8px -10px;
 }
 
-.table-manager-modal .bs-ui-input {
-  padding-bottom: 16px;
-}
-
-.table-manager-modal .bs-ui-input .bs-ui-checkbox {
+.table-manager-modal .bs-ui-form-control .bs-ui-checkbox {
   display: inline-block;
-  margin-right: 18px;
+  margin-right: 12px;
 }
 
-.table-manager-modal .bs-ui-input .bs-ui-checkbox:last-child {
+.table-manager-modal .bs-ui-form-control .bs-ui-checkbox:last-child {
   margin-right: 0;
 }
 
-.table-manager-modal .bs-ui-input .bs-ui-checkbox input:before {
+.table-manager-modal .bs-ui-form-control .bs-ui-checkbox input:before {
   top: 4px;
 }
 
-.table-manager-modal .bs-ui-input .bs-ui-checkbox input:after {
+.table-manager-modal .bs-ui-form-control .bs-ui-checkbox input:after {
   top: 6px;
 }
 
-.table-manager-modal .bs-ui-input .bs-ui-button {
+.table-manager-modal .bs-ui-form-control .bs-ui-checkbox .header-style-icon {
+  vertical-align: middle;
+  margin-top: 2px;
+}
+
+.table-manager-modal .bs-ui-form-control .bs-ui-button {
   padding: 0;
   margin-bottom: 10px;
 }
 
-.table-manager-modal .bs-ui-input .bs-ui-button.btn-remove {
+.table-manager-modal .bs-ui-form-control .bs-ui-button.btn-remove {
   margin-left: 50px;
 }
 
@@ -186,7 +187,7 @@
   border-right: 1px solid rgba(204, 204, 204, 0.5);
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  height: 32px;
+  height: 22px;
   line-height: 20px;
   max-width: 128px;
   min-height: 32px;
