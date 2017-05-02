@@ -32,14 +32,12 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
     values.map(value => {
       if (value) { count++; }
     });
-    console.log(count);
     if(count >= 2)
       return true;
 
     return false;
   }
   const _checkAndDisable = function() {
-    console.log("_checkAndDisable");
     options.map(option => {
       const input = document.querySelector("input.header-style[value="+ option + "]");
       if(input) {
