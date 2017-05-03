@@ -112,18 +112,27 @@ $highlight-border: 1px solid #fff;
 
     .bs-ui-checkbox {
       display: inline-block;
-      margin-right: 12px;
+      margin-right: 14px;
 
       &:last-child {
         margin-right: 0;
       }
 
+      input {
+        margin-left: -2px;
+      }
+
       input:before {
-        top: 4px;
+        top: 6px;
+        height: 12px;
+        width: 12px;
       }
 
       input:after {
-        top: 6px;
+        top: 7px;
+        height: 8px;
+        left: 5px;
+        width: 4px;
       }
 
       .header-style-icon {

@@ -55,7 +55,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
   window.setTimeout(_checkAndDisable, 500);
   return (
     <FormItem>
-      <label className="bs-ui-form-control__label">Destaque</label>
+      <label className="bs-ui-form-control__label" title="Linha e/ou coluna destacada de uma tabela">Destaque</label>
       {options.map(option => {
         return (<label key={option} className="bs-ui-checkbox bs-ui-checkbox--small">
           <Checkbox className="header-style"

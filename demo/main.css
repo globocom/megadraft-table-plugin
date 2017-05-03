@@ -89,13 +89,20 @@
       margin: -8px 0 -8px -10px; }
   .table-manager-modal .bs-ui-form-control .bs-ui-checkbox {
     display: inline-block;
-    margin-right: 12px; }
+    margin-right: 14px; }
     .table-manager-modal .bs-ui-form-control .bs-ui-checkbox:last-child {
       margin-right: 0; }
+    .table-manager-modal .bs-ui-form-control .bs-ui-checkbox input {
+      margin-left: -2px; }
     .table-manager-modal .bs-ui-form-control .bs-ui-checkbox input:before {
-      top: 4px; }
+      top: 6px;
+      height: 12px;
+      width: 12px; }
     .table-manager-modal .bs-ui-form-control .bs-ui-checkbox input:after {
-      top: 6px; }
+      top: 7px;
+      height: 8px;
+      left: 5px;
+      width: 4px; }
     .table-manager-modal .bs-ui-form-control .bs-ui-checkbox .header-style-icon {
       vertical-align: middle;
       margin-top: 2px; }
