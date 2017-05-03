@@ -79,6 +79,7 @@ $highlight-border: 1px solid #fff;
     vertical-align: middle;
     border-collapse: collapse;
     padding: 2rem;
+    width: auto;
   }
 
   .table-row {
@@ -186,6 +187,7 @@ $highlight-border: 1px solid #fff;
   table {
     line-height: 32px;
     border-spacing: 0;
+    width: auto;
   }
 
   .table-cell {
