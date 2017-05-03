@@ -221,8 +221,12 @@
   border-bottom: 1px solid #fff;
 }
 
+.highlight-left.highlight-top .table-row .table-cell:first-child, .highlight-left.highlight-bottom .table-row .table-cell:first-child {
+  border-right: 1px solid #fff;
+}
+
 .highlight-right .table-row:last-child .table-cell:last-child {
-  border-bottom: 0;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.5);
 }
 
 .highlight-right .table-row .table-cell:last-child {
@@ -254,6 +258,10 @@
 
 .highlight-top .table-row:first-child .table-cell:last-child {
   border-right: 0;
+}
+
+.highlight-top.highlight-right .table-row:first-child .table-cell, .highlight-top.highlight-left .table-row:first-child .table-cell {
+  border-bottom: 1px solid #fff;
 }
 
 .highlight-bottom .table-row:last-child {

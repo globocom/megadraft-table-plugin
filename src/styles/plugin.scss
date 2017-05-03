@@ -221,12 +221,18 @@ $highlight-border: 1px solid #fff;
       border-bottom: $highlight-border;
     }
   }
+
+  &.highlight-top, &.highlight-bottom {
+    .table-row .table-cell:first-child {
+      border-right: $highlight-border;
+    }
+  }
 }
 
 .highlight-right {
   .table-row {
     &:last-child .table-cell:last-child {
-      border-bottom: 0;
+      border-bottom: $table-border;
     }
 
     .table-cell:last-child {
@@ -261,6 +267,9 @@ $highlight-border: 1px solid #fff;
         border-right: 0;
       }
     }
+  }
+  &.highlight-right, &.highlight-left {
+    .table-row:first-child .table-cell { border-bottom: $highlight-border; }
   }
 }
 
