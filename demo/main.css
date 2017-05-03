@@ -184,6 +184,17 @@
   .highlight-right .table-cell:first-child {
     border-left: 0; }
 
+.highlight-right.highlight-top .table-row .table-cell:last-child, .highlight-right.highlight-bottom .table-row .table-cell:last-child {
+  border-left: 1px solid #fff; }
+
+.highlight-right.highlight-top .table-row:last-child .table-cell, .highlight-right.highlight-bottom .table-row:last-child .table-cell {
+  border-right: 0;
+  border-left: 1px solid #fff; }
+
+.highlight-right.highlight-top .table-row:first-child .table-cell, .highlight-right.highlight-bottom .table-row:first-child .table-cell {
+  border-right: 0;
+  border-left: 1px solid #fff; }
+
 .highlight-top .table-row:first-child {
   font-weight: bold;
   background-color: #e6e6e6; }

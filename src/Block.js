@@ -46,6 +46,16 @@ export default class TableBlock extends Component {
     this.props.container.updateData({...data});
   }
 
+  _sourceRender(source) {
+    let sourceText = "";
+    if(source) {
+      sourceText = "Fonte: " + source;
+    }
+    return (
+      <p className="table-manager-block__source">{sourceText}</p>
+    );
+  }
+
   render(){
     return (
       <div>
@@ -55,7 +65,7 @@ export default class TableBlock extends Component {
 
             <h1 className="table-manager-block__title">{this.props.data.title}</h1>
             <TableView rows={this.props.data.rows} onEditCell={this.props.onEditTableCell} headerStyle={this.props.data.headerStyle} editable={false} />
-            <p className="table-manager-block__source">Fonte: {this.props.data.source}</p>
+            {this._sourceRender(this.props.data.source)}
           </div>
           </BlockContent>
         </CommonBlock>
