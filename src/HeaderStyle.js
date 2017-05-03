@@ -52,7 +52,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
     });
 
   };
-  _checkAndDisable();
+  window.setTimeout(_checkAndDisable, 500);
   return (
     <FormItem>
       <label className="bs-ui-form-control__label">Destaque</label>
