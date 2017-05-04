@@ -70,6 +70,7 @@ export default class TableManagerModal extends Component {
   onEditTableCell(rowIndex, columnIndex, value ) {
     this.state.data.rows[rowIndex][columnIndex] = value;
     this._changeDataValue("rows", this.state.data.rows);
+    this.setState({"selectedCell": [columnIndex, rowIndex]});
   }
 
   render() {
