@@ -6,7 +6,7 @@
 
 import chai from "chai";
 
-import {addRow, removeRow, addColumn, removeColumn, highlightedClass} from "../src/TableManagerHelper";
+import {addRow, removeRow, addColumn, removeColumn, highlightedClass, isTableData, getTableFromClipBoard} from "../src/TableManagerHelper";
 
 const expect = chai.expect;
 
@@ -145,6 +145,32 @@ describe("TableManagerHelper", function() {
       const headerStyle = {right: true};
       const expectedClass = "highlight-right ";
       expect(highlightedClass(headerStyle)).to.be.equal(expectedClass);
+    });
+  });
+
+  describe("getTableFromClipBoard", function() {
+    it("should return one row with two cells if data has one line and tab separator", function() {
+      const data = "title\tvalue";
+      const expectedResult = [["title", "value"]];
+      expect(getTableFromClipBoard(data)).to.deep.equals(expectedResult);
+    });
+
+    it("should return two rows with two cells if data has two lines and a tab separator for each line", function() {
+      const data = "title\tvalue\ntest\t1";
+      const expectedResult = [["title", "value"], ["test", "1"]];
+      expect(getTableFromClipBoard(data)).to.deep.equals(expectedResult);
+    });
+  });
+
+  describe("isTableData", function() {
+    it("should return false if has only one row with one cell", function() {
+      const rows = [["test"]];
+      expect(isTableData(rows)).to.be.false;
+    });
+
+    it("should return true if has more than one row or more than one cell", function() {
+      const rows = [["A1", "B1"], ["A2", "B2"]];
+      expect(isTableData(rows)).to.be.true;
     });
   });
 

@@ -4,7 +4,7 @@ import * as Table from "reactabular-table";
 import { cloneDeep, findIndex } from "lodash";
 import * as edit from "react-edit";
 
-import {highlightedClass} from "./TableManagerHelper";
+import {highlightedClass, getTableFromClipBoard, isTableData} from "./TableManagerHelper";
 
 
 export default class TableView extends Component {
@@ -59,7 +59,7 @@ export default class TableView extends Component {
         property: propertyName,
         style: { width: 50 },
         cell: {
-          transforms: this.props.editable ? [editable(edit.input())] : [],
+          transforms: this.props.editable ? [editable(edit.input({props: {onPaste: (e) => {this.buildTableFromPasteData(e.clipboardData.getData("Text"));}}}))] : [],
           props: {className: "table-cell"}}});
     }
     return columns;
@@ -88,6 +88,13 @@ export default class TableView extends Component {
 
   buildPropertyName(columnIndex) {
     return "c" + columnIndex;
+  }
+
+  buildTableFromPasteData(data) {
+    const rows = getTableFromClipBoard(data);
+    if(isTableData(rows)) {
+      this.props.onChangeRows(rows);
+    }
   }
 
   render() {
