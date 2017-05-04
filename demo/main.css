@@ -191,16 +191,20 @@
   .highlight-right .table-cell:first-child {
     border-left: 0; }
 
-.highlight-right.highlight-top .table-row .table-cell:last-child, .highlight-right.highlight-bottom .table-row .table-cell:last-child {
+.highlight-right.highlight-top .table-row .table-cell:last-child {
   border-left: 1px solid #fff; }
 
-.highlight-right.highlight-top .table-row:last-child .table-cell, .highlight-right.highlight-bottom .table-row:last-child .table-cell {
+.highlight-right.highlight-top .table-row:first-child .table-cell {
   border-right: 0;
   border-left: 1px solid #fff; }
+  .highlight-right.highlight-top .table-row:first-child .table-cell:first-child {
+    border-left: 0; }
 
-.highlight-right.highlight-top .table-row:first-child .table-cell, .highlight-right.highlight-bottom .table-row:first-child .table-cell {
+.highlight-right.highlight-bottom .table-row:last-child .table-cell {
   border-right: 0;
   border-left: 1px solid #fff; }
+  .highlight-right.highlight-bottom .table-row:last-child .table-cell:first-child {
+    border-left: 0; }
 
 .highlight-top .table-row:first-child {
   font-weight: bold;
@@ -221,7 +225,7 @@
   .highlight-bottom .table-row:last-child .table-cell {
     border-right: 1px solid #fff;
     background-color: initial;
-    border-top: 0; }
+    border-top: 1px solid #fff; }
     .highlight-bottom .table-row:last-child .table-cell:last-child {
       border-right: 0; }
 
@@ -231,6 +235,12 @@
 .highlight-bottom .table-cell {
   border-bottom: 0;
   border-top: 1px solid rgba(204, 204, 204, 0.5); }
+
+.highlight-bottom.highlight-right .table-row:last-child .table-cell:last-child {
+  border-bottom: 0; }
+
+.highlight-bottom.highlight-right .table-row .table-cell:last-child {
+  border-left: 1px solid #fff; }
 
 body {
   margin: 0; }
