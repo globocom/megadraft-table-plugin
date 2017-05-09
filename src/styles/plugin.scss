@@ -8,9 +8,9 @@
  * YOUR STYLES HERE
  */
 
-$table-border: 1px solid rgba(204, 204, 204, 0.5);
+$table-border: 1px solid #eeeeee;
 $highlight-color: rgb(230, 230, 230);
-$highlight-border: 1px solid #fff;
+$highlight-border: 1px solid #eeeeee;
 
 @mixin cell {
   background-color: #fff;
@@ -185,14 +185,19 @@ $highlight-border: 1px solid #fff;
 
 .table-manager-block {
   background-color: #fff;
-  padding: 1rem 3rem;
+  padding: 1rem 0;
 
-  &__title {
-    text-align: left;
-    line-height: 32px;
-    font-size: 24px;
+  &__wrapper {
+    display: inline-block;
   }
 
+  &__title {
+    line-height: 32px;
+    font-size: 20px;
+  }
+  &__inner-wrapper {
+    display: inline-block;
+  }
   table {
     line-height: 32px;
     border-spacing: 0;
@@ -263,22 +268,30 @@ $highlight-border: 1px solid #fff;
     }
   }
 
-  &.highlight-top, &.highlight-bottom {
+  &.highlight-top {
     .table-row {
       .table-cell:last-child {
         border-left: $highlight-border;
       }
-
-      &:last-child .table-cell {
-        border-right: 0;
-        border-left: $highlight-border;
-      }
-
       &:first-child .table-cell {
         border-right: 0;
         border-left: $highlight-border;
+
+        &:first-child { border-left: 0; }
       }
     }
+  }
+
+  &.highlight-bottom {
+    .table-row {
+      &:last-child .table-cell {
+        border-right: 0;
+        border-left: $highlight-border;
+
+        &:first-child { border-left: 0; }
+      }
+    }
+
   }
 }
 
@@ -311,7 +324,7 @@ $highlight-border: 1px solid #fff;
       .table-cell {
         border-right: $highlight-border;
         background-color: initial;
-        border-top: 0;
+        border-top: $highlight-border;
 
         &:last-child {
           border-right: 0;
@@ -323,13 +336,19 @@ $highlight-border: 1px solid #fff;
       border-top: 0;
     }
   }
-  .table-row:last-child {
-
-  }
-
 
   .table-cell {
     border-bottom: 0;
     border-top: 1px solid rgba(204,204,204,0.5);
+  }
+
+  &.highlight-right .table-row {
+    &:last-child .table-cell:last-child {
+      border-bottom: 0;
+    }
+
+    .table-cell:last-child {
+      border-left: $highlight-border;
+    }
   }
 }

@@ -12,6 +12,7 @@ import TableView from "./TableView";
 import {TableConfig, validate} from "./TableConfig";
 import {TableManagerActions} from "./TableManagerActions";
 import {TableManagerMetadata} from "./TableManagerMetadata";
+import {HeaderStyle} from "./HeaderStyle";
 
 
 export default class TableManagerModal extends Component {
@@ -76,7 +77,7 @@ export default class TableManagerModal extends Component {
     const {data, errors} = this.state;
     return (
       <Modal className="table-manager-modal"
-             title="Criar"
+             title="Criar &rarr; Tabela"
              isOpen={this.props.isOpen}
              onCloseRequest={this.props.onCloseRequest}
              width="90%">
@@ -89,14 +90,17 @@ export default class TableManagerModal extends Component {
               data={data}
               errors={errors} />
 
-            {/* Metadado */}
-
             {/* <Acoes onChangeRows selectedCell rows /> */}
 
             <TableManagerActions
               onChangeRows={this.onChangeRows}
               selectedCell={this.state.selectedCell}
               rows={data.rows} />
+
+            <HeaderStyle name="headerStyle"
+              selectedOptions={data.headerStyle}
+              onChange={this.onFormItemChange}/>
+
 
             {/**/}
 
@@ -110,7 +114,7 @@ export default class TableManagerModal extends Component {
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
           <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue bs-ui-button--small"
-                  onClick={this._onSaveRequest}>Adicionar</button>
+                  onClick={this._onSaveRequest}>Criar</button>
         </ModalFooter>
       </Modal>
     );

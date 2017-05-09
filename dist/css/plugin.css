@@ -28,7 +28,7 @@
 
 .table-manager-modal__form {
   background-color: #fbfbfb;
-  border-right: 1px solid rgba(204, 204, 204, 0.5);
+  border-right: 1px solid #eeeeee;
   box-sizing: border-box;
   padding: 1rem 1.5rem;
   width: 286px;
@@ -76,8 +76,8 @@
 
 .table-manager-modal .table-cell {
   background-color: #fff;
-  border-bottom: 1px solid rgba(204, 204, 204, 0.5);
-  border-right: 1px solid rgba(204, 204, 204, 0.5);
+  border-bottom: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   height: 38px;
@@ -177,13 +177,20 @@
 
 .table-manager-block {
   background-color: #fff;
-  padding: 1rem 3rem;
+  padding: 1rem 0;
+}
+
+.table-manager-block__wrapper {
+  display: inline-block;
 }
 
 .table-manager-block__title {
-  text-align: left;
   line-height: 32px;
-  font-size: 24px;
+  font-size: 20px;
+}
+
+.table-manager-block__inner-wrapper {
+  display: inline-block;
 }
 
 .table-manager-block table {
@@ -194,8 +201,8 @@
 
 .table-manager-block .table-cell {
   background-color: #fff;
-  border-bottom: 1px solid rgba(204, 204, 204, 0.5);
-  border-right: 1px solid rgba(204, 204, 204, 0.5);
+  border-bottom: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   height: 38px;
@@ -229,21 +236,21 @@
   font-weight: bold;
   background-color: #e6e6e6;
   border-right: 0;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .highlight-left.highlight-top .table-row .table-cell:first-child, .highlight-left.highlight-bottom .table-row .table-cell:first-child {
-  border-right: 1px solid #fff;
+  border-right: 1px solid #eeeeee;
 }
 
 .highlight-right .table-row:last-child .table-cell:last-child {
-  border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+  border-bottom: 1px solid #eeeeee;
 }
 
 .highlight-right .table-row .table-cell:last-child {
   font-weight: bold;
   background-color: #e6e6e6;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #eeeeee;
   border-left: 0;
 }
 
@@ -256,18 +263,26 @@
   border-left: 0;
 }
 
-.highlight-right.highlight-top .table-row .table-cell:last-child, .highlight-right.highlight-bottom .table-row .table-cell:last-child {
-  border-left: 1px solid #fff;
+.highlight-right.highlight-top .table-row .table-cell:last-child {
+  border-left: 1px solid #eeeeee;
 }
 
-.highlight-right.highlight-top .table-row:last-child .table-cell, .highlight-right.highlight-bottom .table-row:last-child .table-cell {
+.highlight-right.highlight-top .table-row:first-child .table-cell {
   border-right: 0;
-  border-left: 1px solid #fff;
+  border-left: 1px solid #eeeeee;
 }
 
-.highlight-right.highlight-top .table-row:first-child .table-cell, .highlight-right.highlight-bottom .table-row:first-child .table-cell {
+.highlight-right.highlight-top .table-row:first-child .table-cell:first-child {
+  border-left: 0;
+}
+
+.highlight-right.highlight-bottom .table-row:last-child .table-cell {
   border-right: 0;
-  border-left: 1px solid #fff;
+  border-left: 1px solid #eeeeee;
+}
+
+.highlight-right.highlight-bottom .table-row:last-child .table-cell:first-child {
+  border-left: 0;
 }
 
 .highlight-top .table-row:first-child {
@@ -278,7 +293,7 @@
 .highlight-top .table-row:first-child .table-cell {
   background-color: initial;
   border-bottom: 0;
-  border-right: 1px solid #fff;
+  border-right: 1px solid #eeeeee;
 }
 
 .highlight-top .table-row:first-child .table-cell:last-child {
@@ -286,7 +301,7 @@
 }
 
 .highlight-top.highlight-right .table-row:first-child .table-cell, .highlight-top.highlight-left .table-row:first-child .table-cell {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .highlight-bottom .table-row:last-child {
@@ -295,9 +310,9 @@
 }
 
 .highlight-bottom .table-row:last-child .table-cell {
-  border-right: 1px solid #fff;
+  border-right: 1px solid #eeeeee;
   background-color: initial;
-  border-top: 0;
+  border-top: 1px solid #eeeeee;
 }
 
 .highlight-bottom .table-row:last-child .table-cell:last-child {
@@ -311,4 +326,12 @@
 .highlight-bottom .table-cell {
   border-bottom: 0;
   border-top: 1px solid rgba(204, 204, 204, 0.5);
+}
+
+.highlight-bottom.highlight-right .table-row:last-child .table-cell:last-child {
+  border-bottom: 0;
+}
+
+.highlight-bottom.highlight-right .table-row .table-cell:last-child {
+  border-left: 1px solid #eeeeee;
 }
