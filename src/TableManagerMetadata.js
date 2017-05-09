@@ -6,6 +6,7 @@
 
 import React from "react";
 
+import {HeaderStyle} from "./HeaderStyle";
 import {Input} from "./FormComponents";
 
 
@@ -23,5 +24,9 @@ export function TableManagerMetadata({data, errors, onChange}) {
         value={data.source}
         onChange={onChange}
         isRequired={false} />
+
+      <HeaderStyle name="headerStyle"
+        selectedOptions={data.headerStyle}
+        onChange={onChange}/>
     </div>);
 }
