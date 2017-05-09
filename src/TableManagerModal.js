@@ -12,6 +12,7 @@ import TableView from "./TableView";
 import {TableConfig, validate} from "./TableConfig";
 import {TableManagerActions} from "./TableManagerActions";
 import {TableManagerMetadata} from "./TableManagerMetadata";
+import {HeaderStyle} from "./HeaderStyle";
 
 
 export default class TableManagerModal extends Component {
@@ -89,14 +90,17 @@ export default class TableManagerModal extends Component {
               data={data}
               errors={errors} />
 
-            {/* Metadado */}
-
             {/* <Acoes onChangeRows selectedCell rows /> */}
 
             <TableManagerActions
               onChangeRows={this.onChangeRows}
               selectedCell={this.state.selectedCell}
               rows={data.rows} />
+
+            <HeaderStyle name="headerStyle"
+              selectedOptions={data.headerStyle}
+              onChange={this.onFormItemChange}/>
+
 
             {/**/}
 
