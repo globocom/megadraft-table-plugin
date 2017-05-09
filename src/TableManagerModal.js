@@ -76,7 +76,7 @@ export default class TableManagerModal extends Component {
     const {data, errors} = this.state;
     return (
       <Modal className="table-manager-modal"
-             title="Criar"
+             title="Criar &rarr; Tabela"
              isOpen={this.props.isOpen}
              onCloseRequest={this.props.onCloseRequest}
              width="90%">
