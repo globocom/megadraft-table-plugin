@@ -114,7 +114,7 @@ export default class TableManagerModal extends Component {
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
           <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue bs-ui-button--small"
-                  onClick={this._onSaveRequest}>Adicionar</button>
+                  onClick={this._onSaveRequest}>Criar</button>
         </ModalFooter>
       </Modal>
     );
