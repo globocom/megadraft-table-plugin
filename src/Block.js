@@ -52,7 +52,9 @@ export default class TableBlock extends Component {
       sourceText = "Fonte: " + source;
     }
     return (
-      <p className="table-manager-block__source">{sourceText}</p>
+      <div className="table-manager-block__source-wrapper">
+        <p className="table-manager-block__source">{sourceText}</p>
+      </div>
     );
   }
 
@@ -63,9 +65,15 @@ export default class TableBlock extends Component {
           <BlockContent>
           <div className="table-manager-block">
 
-            <h1 className="table-manager-block__title">{this.props.data.title}</h1>
-            <TableView rows={this.props.data.rows} onEditCell={this.props.onEditTableCell} headerStyle={this.props.data.headerStyle} editable={false} />
-            {this._sourceRender(this.props.data.source)}
+
+            <div className="table-manager-block__wrapper">
+              <h1 className="table-manager-block__title">{this.props.data.title}</h1>
+              <div className="table-manager-block__inner-wrapper">
+                <TableView rows={this.props.data.rows} onEditCell={this.props.onEditTableCell} headerStyle={this.props.data.headerStyle} editable={false} />
+                {this._sourceRender(this.props.data.source)}
+              </div>
+
+            </div>
           </div>
           </BlockContent>
         </CommonBlock>

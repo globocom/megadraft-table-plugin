@@ -8,9 +8,9 @@
  * YOUR STYLES HERE
  */
 
-$table-border: 1px solid rgba(204, 204, 204, 0.5);
+$table-border: 1px solid #eeeeee;
 $highlight-color: rgb(230, 230, 230);
-$highlight-border: 1px solid #fff;
+$highlight-border: 1px solid #eeeeee;
 
 @mixin cell {
   background-color: #fff;
@@ -185,14 +185,19 @@ $highlight-border: 1px solid #fff;
 
 .table-manager-block {
   background-color: #fff;
-  padding: 1rem 3rem;
+  padding: 1rem 0;
+
+  &__wrapper {
+    display: inline-block;
+  }
 
   &__title {
-    text-align: left;
     line-height: 32px;
     font-size: 20px;
   }
-
+  &__inner-wrapper {
+    display: inline-block;
+  }
   table {
     line-height: 32px;
     border-spacing: 0;
