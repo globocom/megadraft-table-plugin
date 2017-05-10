@@ -165,7 +165,7 @@ describe("TableView", function() {
       const onChangeRowsSpy = sinon.spy();
       const data = "title\tvalue\ntest\t1";
       const tableView = createTable(rowsWithTwoCells, onEditCellSpy, onChangeRowsSpy);
-      tableView.buildTableFromPasteData(data)
+      tableView.buildTableFromPasteData(data);
       expect(onChangeRowsSpy.called).to.be.true;
     });
   });
