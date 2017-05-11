@@ -77,7 +77,7 @@ export default class TableManagerModal extends Component {
     const {data, errors} = this.state;
     return (
       <Modal className="table-manager-modal"
-             title="Criar"
+             title="Criar &rarr; Tabela"
              isOpen={this.props.isOpen}
              onCloseRequest={this.props.onCloseRequest}
              width="90%">
@@ -105,13 +105,13 @@ export default class TableManagerModal extends Component {
 
           <div className="table-manager-modal__editable-table">
             <div className="table-manager-modal__table-wrapper">
-              <TableView rows={this.state.data.rows} onEditCell={::this.onEditTableCell} headerStyle={data.headerStyle} editable={true} />
+              <TableView rows={this.state.data.rows} onEditCell={::this.onEditTableCell} onChangeRows={this.onChangeRows} headerStyle={data.headerStyle} editable={true} />
             </div>
           </div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
           <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue bs-ui-button--small"
-                  onClick={this._onSaveRequest}>Adicionar</button>
+                  onClick={this._onSaveRequest}>Criar</button>
         </ModalFooter>
       </Modal>
     );

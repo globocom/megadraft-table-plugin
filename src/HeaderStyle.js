@@ -56,6 +56,7 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
   return (
     <FormItem>
       <label className="bs-ui-form-control__label" title="Linha e/ou coluna destacada de uma tabela">Destaque</label>
+      <span className="jsonform-description" data-toggle="tooltip" title="Linha e/ou coluna destacada de uma tabela"></span>
       {options.map(option => {
         return (<label key={option} className="bs-ui-checkbox bs-ui-checkbox--small">
           <Checkbox className="header-style"

@@ -62,3 +62,22 @@ export function highlightedClass(headerStyle) {
 
   return classNames;
 }
+
+export function getTableFromClipBoard(data) {
+  const rows = data.split("\n");
+  let newRows = [];
+
+  for(let i = 0; i< rows.length; i++) {
+    const cells = rows[i].split("\t");
+    newRows.push(cells);
+  }
+
+  return newRows;
+}
+
+export function isTableData(rows) {
+  if(rows.length === 1 && rows[0].length === 1) {
+    return false;
+  }
+  return true;
+}

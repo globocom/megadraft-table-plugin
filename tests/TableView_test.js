@@ -29,12 +29,12 @@ describe("TableView", function() {
     right: false
   };
 
-  const createTable = function(rows, onEditCellSpy){
-    return mount(<TableView rows={rows} onEditCellSpy headerStyle={headerStyle} editable={true} />).instance();
+  const createTable = function(rows, onEditCellSpy, onChangeRowsSpy){
+    return mount(<TableView rows={rows} onEditCell={onEditCellSpy} onChangeRows={onChangeRowsSpy} headerStyle={headerStyle} editable={true} />).instance();
   };
 
-  const createTableWrapper = function(rows, onEditCellSpy){
-    return mount(<TableView rows={rows} onEditCell={onEditCellSpy} headerStyle={headerStyle} editable={true} />);
+  const createTableWrapper = function(rows, onEditCellSpy, onChangeRowsSpy){
+    return mount(<TableView rows={rows} onEditCell={onEditCellSpy} onChangeRows={onChangeRowsSpy} headerStyle={headerStyle} editable={true} />);
   };
 
   const expectCellsValueOnRightPosition = function(tableView, rows) {
@@ -160,6 +160,14 @@ describe("TableView", function() {
       expect(onEditCellSpy.called).to.be.true;
     });
 
+    it("should call onChangeRows when a table data is pasted", function() {
+      const onEditCellSpy = sinon.spy();
+      const onChangeRowsSpy = sinon.spy();
+      const data = "title\tvalue\ntest\t1";
+      const tableView = createTable(rowsWithTwoCells, onEditCellSpy, onChangeRowsSpy);
+      tableView.buildTableFromPasteData(data);
+      expect(onChangeRowsSpy.called).to.be.true;
+    });
   });
 
 });

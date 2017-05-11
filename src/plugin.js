@@ -10,7 +10,7 @@ import constants from "./constants";
 
 
 export default {
-  title: "Table",
+  title: "Tabela",
   type: constants.PLUGIN_TYPE,
   buttonComponent: Button,
   blockComponent: TableBlock,
