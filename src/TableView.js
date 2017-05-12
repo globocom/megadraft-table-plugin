@@ -4,7 +4,7 @@ import * as Table from "reactabular-table";
 import { cloneDeep, findIndex } from "lodash";
 import * as edit from "react-edit";
 
-import {highlightedClass, getTableFromClipBoard, isTableData} from "./TableManagerHelper";
+import {highlightedClass, getTableFromClipBoard, isTableData, addSelectedCellClass} from "./TableManagerHelper";
 
 
 export default class TableView extends Component {
@@ -34,7 +34,7 @@ export default class TableView extends Component {
         const rows = cloneDeep(this.state.rows);
 
         rows[index].editing = columnIndex;
-
+        addSelectedCellClass(index, columnIndex);
         this.setState({ rows });
       },
       onValue: ({ value, rowData, property }) => {
@@ -48,7 +48,6 @@ export default class TableView extends Component {
         if (this.props.onEditCell) {
           this.props.onEditCell(index, columnIndex, value);
         }
-
         this.setState({ rows });
       }
     });
@@ -60,7 +59,10 @@ export default class TableView extends Component {
         style: { width: 50 },
         cell: {
           transforms: this.props.editable ? [editable(edit.input({props: {onPaste: (e) => {this.buildTableFromPasteData(e.clipboardData.getData("Text"));}}}))] : [],
-          props: {className: "table-cell"}}});
+          formatters: this.props.editable ? [(value, info) => { return this.buildTableCellFormatter(value, info);}] : [],
+          props: {
+            className: "table-cell"
+          }}});
     }
     return columns;
   }
@@ -95,6 +97,17 @@ export default class TableView extends Component {
     if(isTableData(rows)) {
       this.props.onChangeRows(rows);
     }
+  }
+
+  buildTableCellFormatter(value, info) {
+    return (
+      <div className="table-cell-content" onKeyUp={(e) => {this.changeSelectedCell(e);}} tabIndex="0">{value}</div>
+    );
+  }
+
+  changeSelectedCell(e) {
+    e.target.click();
+    e.preventDefault();
   }
 
   render() {

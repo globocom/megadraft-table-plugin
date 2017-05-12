@@ -81,3 +81,17 @@ export function isTableData(rows) {
   }
   return true;
 }
+
+export function addSelectedCellClass(rowIndex, columnIndex) {
+  const previousSelectedCell = document.querySelector(".table-manager-modal .selected-cell");
+  if(previousSelectedCell) {
+    previousSelectedCell.classList.remove("selected-cell");
+  }
+
+  const selectedRow = document.querySelectorAll(".table-manager-modal .table-row")[rowIndex];
+  if(selectedRow) {
+    const selectedCell = selectedRow.querySelectorAll(".table-cell")[columnIndex];
+    selectedCell.classList.add("selected-cell");
+  }
+
+}

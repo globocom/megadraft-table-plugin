@@ -26,6 +26,7 @@ export default class TableManagerModal extends Component {
     this._onSaveRequest = ::this._onSaveRequest;
     this.onFormItemChange = ::this.onFormItemChange;
     this.onChangeRows = ::this.onChangeRows;
+    this.onChangeSelection = ::this.onChangeSelection;
     this.state = {
       data: new TableConfig(this.props.data),
       selectedCell: [],
@@ -66,11 +67,14 @@ export default class TableManagerModal extends Component {
     this._changeDataValue("rows", rows);
   }
 
+  onChangeSelection(selectedCell) {
+    this.setState({"selectedCell": selectedCell});
+  }
 
   onEditTableCell(rowIndex, columnIndex, value ) {
     this.state.data.rows[rowIndex][columnIndex] = value;
     this._changeDataValue("rows", this.state.data.rows);
-    this.setState({"selectedCell": [columnIndex, rowIndex]});
+    this.onChangeSelection([columnIndex, rowIndex]);
   }
 
   render() {
@@ -105,13 +109,18 @@ export default class TableManagerModal extends Component {
 
           <div className="table-manager-modal__editable-table">
             <div className="table-manager-modal__table-wrapper">
-              <TableView rows={this.state.data.rows} onEditCell={::this.onEditTableCell} onChangeRows={this.onChangeRows} headerStyle={data.headerStyle} editable={true} />
+              <TableView rows={this.state.data.rows}
+                         onEditCell={::this.onEditTableCell}
+                         onChangeRows={this.onChangeRows}
+                         headerStyle={data.headerStyle} editable={true}
+                         selectedCell={this.state.selectedCell}
+              />
             </div>
           </div>
         </ModalBody>
         <ModalFooter className="table-manager-modal__footer">
           <button className="table-manager-modal__add-button bs-ui-button bs-ui-button--background-blue bs-ui-button--small"
-                  onClick={this._onSaveRequest}>Criar</button>
+                  onClick={this._onSaveRequest} >Criar</button>
         </ModalFooter>
       </Modal>
     );

@@ -87,6 +87,12 @@
       padding-left: -1rem;
       min-height: 38px;
       margin: -8px 0 -8px -10px; }
+      .table-manager-modal .table-cell input:focus {
+        outline: none; }
+    .table-manager-modal .table-cell.selected-cell {
+      border: 2px solid #4990e2;
+      border-radius: 3px;
+      box-sizing: border-box; }
   .table-manager-modal .bs-ui-form-control .bs-ui-checkbox {
     display: inline-block;
     margin-right: 14px; }
