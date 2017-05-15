@@ -120,6 +120,10 @@
   .table-manager-modal .header-style--left {
     -webkit-transform: rotate(270deg);
             transform: rotate(270deg); }
+  .table-manager-modal .header-style__label {
+    display: inline-block; }
+  .table-manager-modal .header-style__tooltip {
+    display: block; }
   .table-manager-modal .add-remove-rows .btn-add svg, .table-manager-modal .add-remove-rows .btn-remove svg, .table-manager-modal .add-remove-columns .btn-add svg, .table-manager-modal .add-remove-columns .btn-remove svg {
     height: 16px;
     vertical-align: top;
