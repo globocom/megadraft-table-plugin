@@ -1,6 +1,8 @@
 
 const MIN_ROWS = 1;
 const MIN_COLUMNS = 1;
+const COLUMN_INDEX = 0;
+const ROW_INDEX = 1;
 
 function createNewRow(quantityOfColumns) {
   return Array.apply(null, new Array(quantityOfColumns)).map(x => "");
@@ -19,7 +21,7 @@ export function addRow(rows, position = null) {
 export function removeRow(rows, position = null) {
   const newRows = [...rows];
   if (rows.length > MIN_ROWS) {
-    position = position !== null ? position : rows.length - 1;
+    position = (position !== null && position < rows.length) ? position : rows.length - 1;
     newRows.splice(position, 1);
   }
   return newRows;
@@ -37,7 +39,7 @@ export function removeColumn(rows, position = null) {
   const newRows = rows.map(row => {
     const newRow = [...row];
     if(row.length > MIN_COLUMNS) {
-      const newPosition = position !== null ? position : row.length - 1;
+      const newPosition = (position !== null && position < row.length) ? position : row.length - 1;
       newRow.splice(newPosition, 1);
     }
     return newRow;
@@ -94,4 +96,14 @@ export function addSelectedCellClass(rowIndex, columnIndex) {
     selectedCell.classList.add("selected-cell");
   }
 
+}
+
+export function correctSelectedCellIndex(selectedCell, rows) {
+  if(selectedCell[COLUMN_INDEX] >= rows[0].length) {
+    selectedCell[COLUMN_INDEX] = rows[0].length - 1;
+  }
+  if(selectedCell[ROW_INDEX] >= rows.length) {
+    selectedCell[ROW_INDEX] = rows.length - 1;
+  }
+  return selectedCell;
 }

@@ -88,6 +88,7 @@
   padding: 8px 10px;
   text-align: start;
   white-space: pre-line;
+  box-sizing: border-box;
   min-width: 128px;
   cursor: text;
   letter-spacing: -0.01562rem;
@@ -101,7 +102,7 @@
   border: 0px;
   font: inherit;
   line-height: inherit;
-  width: 122px;
+  width: 120px;
   padding-left: -1rem;
   min-height: 38px;
   margin: -8px 0 -8px -10px;
@@ -227,6 +228,7 @@
   padding: 8px 10px;
   text-align: start;
   white-space: pre-line;
+  box-sizing: border-box;
   min-width: 50px;
   border-spacing: 0px;
 }

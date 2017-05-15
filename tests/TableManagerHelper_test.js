@@ -6,7 +6,7 @@
 
 import chai from "chai";
 
-import {addRow, removeRow, addColumn, removeColumn, highlightedClass, isTableData, getTableFromClipBoard} from "../src/TableManagerHelper";
+import {addRow, removeRow, addColumn, removeColumn, highlightedClass, isTableData, getTableFromClipBoard, correctSelectedCellIndex} from "../src/TableManagerHelper";
 
 const expect = chai.expect;
 
@@ -174,4 +174,19 @@ describe("TableManagerHelper", function() {
     });
   });
 
+  describe("correctSelectedCellIndex", function() {
+    it("should return the selected column index with the value of the number of columns minus one", function() {
+      const rows = [["A1", "B1"], ["A2", "B2"]];
+      const selectedCell = [2,1];
+      const expectedResult = [1,1];
+      expect(correctSelectedCellIndex(selectedCell, rows)).to.deep.equals(expectedResult);
+    });
+
+    it("should return the selected row index with the value of the number of rows minus one", function() {
+      const rows = [["A1", "B1"], ["A2", "B2"]];
+      const selectedCell = [1,2];
+      const expectedResult = [1,1];
+      expect(correctSelectedCellIndex(selectedCell, rows)).to.deep.equals(expectedResult);
+    });
+  });
 });

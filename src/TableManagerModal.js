@@ -12,6 +12,7 @@ import TableView from "./TableView";
 import {TableConfig, validate} from "./TableConfig";
 import {TableManagerActions} from "./TableManagerActions";
 import {TableManagerMetadata} from "./TableManagerMetadata";
+import {correctSelectedCellIndex} from "./TableManagerHelper";
 
 
 export default class TableManagerModal extends Component {
@@ -32,6 +33,7 @@ export default class TableManagerModal extends Component {
       selectedCell: [0,0],
       errors: {}
     };
+    this.selectedCell = [0,0];
   }
 
   componentWillReceiveProps(nextProps) {
@@ -68,6 +70,7 @@ export default class TableManagerModal extends Component {
   }
 
   onChangeSelection(selectedCell) {
+    selectedCell = correctSelectedCellIndex(selectedCell, this.state.data.rows);
     this.setState({"selectedCell": selectedCell});
   }
 
@@ -113,7 +116,8 @@ export default class TableManagerModal extends Component {
                          onEditCell={::this.onEditTableCell}
                          onChangeRows={this.onChangeRows}
                          headerStyle={data.headerStyle} editable={true}
-                         selectedCell={this.state.selectedCell}
+                         selectedCell={this.selectedCell}
+                         onChangeSelection={this.onChangeSelection}
               />
             </div>
           </div>

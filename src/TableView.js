@@ -4,8 +4,11 @@ import * as Table from "reactabular-table";
 import { cloneDeep, findIndex } from "lodash";
 import * as edit from "react-edit";
 
-import {highlightedClass, getTableFromClipBoard, isTableData, addSelectedCellClass} from "./TableManagerHelper";
+import {highlightedClass, getTableFromClipBoard, isTableData, addSelectedCellClass, correctSelectedCellIndex} from "./TableManagerHelper";
 
+
+const COLUMN_INDEX = 0;
+const ROW_INDEX = 1;
 
 export default class TableView extends Component {
 
@@ -13,7 +16,7 @@ export default class TableView extends Component {
     super(props);
     let columns = this.buildColumns(props.rows);
     let rows = this.buildRows(props.rows, columns);
-    this.selectedCell = {rowIndex: 0, columnIndex: 0};
+    this.selectedCell = [0, 0];
     this.state = {
       columns: columns,
       rows: rows
@@ -36,8 +39,7 @@ export default class TableView extends Component {
 
         rows[index].editing = columnIndex;
         addSelectedCellClass(index, columnIndex);
-        this.selectedCell["rowIndex"] = index;
-        this.selectedCell["columnIndex"] = columnIndex;
+        this.selectedCell = [columnIndex, index];
 
         this.setState({ rows });
       },
@@ -115,7 +117,8 @@ export default class TableView extends Component {
   }
 
   componentDidUpdate() {
-    addSelectedCellClass(this.selectedCell["rowIndex"], this.selectedCell["columnIndex"]);
+    this.selectedCell = correctSelectedCellIndex(this.selectedCell, this.props.rows);
+    addSelectedCellClass(this.selectedCell[ROW_INDEX], this.selectedCell[COLUMN_INDEX]);
   }
 
   render() {
