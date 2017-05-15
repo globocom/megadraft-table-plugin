@@ -13,7 +13,7 @@ export default class TableManagerModal extends Component {
   }
 
   componentDidMount() {
-    /* istanbul ignore next: tired of writing tests */
+    /* istanbul ignore next: hope this will be removed soon */
     if (window.$ && window.$.fn && window.$.fn.tooltip) {
       window.$(".header-style__tooltip").tooltip();
     }
