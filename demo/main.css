@@ -56,9 +56,10 @@
   .table-manager-modal table {
     display: inline-block;
     vertical-align: middle;
-    border-collapse: collapse;
+    border-collapse: separate;
     padding: 2rem;
-    width: auto; }
+    width: auto;
+    border-spacing: 0; }
   .table-manager-modal .table-row {
     background-color: #fff; }
   .table-manager-modal .table-cell {
@@ -87,6 +88,12 @@
       padding-left: -1rem;
       min-height: 38px;
       margin: -8px 0 -8px -10px; }
+      .table-manager-modal .table-cell input:focus {
+        outline: none; }
+    .table-manager-modal .table-cell.selected-cell {
+      border: 3px solid #4990e2 !important;
+      border-radius: 4px;
+      box-sizing: border-box; }
   .table-manager-modal .bs-ui-form-control .bs-ui-checkbox {
     display: inline-block;
     margin-right: 14px; }
@@ -179,6 +186,8 @@
   background-color: #e6e6e6;
   border-right: 0;
   border-bottom: 1px solid #eeeeee; }
+  .highlight-left .table-row .table-cell:first-child input {
+    background-color: #e6e6e6; }
 
 .highlight-left.highlight-top .table-row .table-cell:first-child, .highlight-left.highlight-bottom .table-row .table-cell:first-child {
   border-right: 1px solid #eeeeee; }
@@ -191,6 +200,8 @@
   background-color: #e6e6e6;
   border-bottom: 1px solid #eeeeee;
   border-left: 0; }
+  .highlight-right .table-row .table-cell:last-child input {
+    background-color: #e6e6e6; }
 
 .highlight-right .table-cell {
   border-right: 0;
@@ -220,6 +231,8 @@
     background-color: initial;
     border-bottom: 0;
     border-right: 1px solid #eeeeee; }
+    .highlight-top .table-row:first-child .table-cell input {
+      background-color: #e6e6e6; }
     .highlight-top .table-row:first-child .table-cell:last-child {
       border-right: 0; }
 
@@ -229,6 +242,8 @@
 .highlight-bottom .table-row:last-child {
   font-weight: bold;
   background-color: #e6e6e6; }
+  .highlight-bottom .table-row:last-child input {
+    background-color: #e6e6e6; }
   .highlight-bottom .table-row:last-child .table-cell {
     border-right: 1px solid #eeeeee;
     background-color: initial;

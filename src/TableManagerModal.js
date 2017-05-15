@@ -26,9 +26,10 @@ export default class TableManagerModal extends Component {
     this._onSaveRequest = ::this._onSaveRequest;
     this.onFormItemChange = ::this.onFormItemChange;
     this.onChangeRows = ::this.onChangeRows;
+    this.onChangeSelection = ::this.onChangeSelection;
     this.state = {
       data: new TableConfig(this.props.data),
-      selectedCell: [],
+      selectedCell: [0,0],
       errors: {}
     };
   }
@@ -66,10 +67,14 @@ export default class TableManagerModal extends Component {
     this._changeDataValue("rows", rows);
   }
 
+  onChangeSelection(selectedCell) {
+    this.setState({"selectedCell": selectedCell});
+  }
 
   onEditTableCell(rowIndex, columnIndex, value ) {
     this.state.data.rows[rowIndex][columnIndex] = value;
     this._changeDataValue("rows", this.state.data.rows);
+    this.onChangeSelection([columnIndex, rowIndex]);
   }
 
   render() {
@@ -104,7 +109,12 @@ export default class TableManagerModal extends Component {
 
           <div className="table-manager-modal__editable-table">
             <div className="table-manager-modal__table-wrapper">
-              <TableView rows={this.state.data.rows} onEditCell={::this.onEditTableCell} headerStyle={data.headerStyle} editable={true} />
+              <TableView rows={this.state.data.rows}
+                         onEditCell={::this.onEditTableCell}
+                         onChangeRows={this.onChangeRows}
+                         headerStyle={data.headerStyle} editable={true}
+                         selectedCell={this.state.selectedCell}
+              />
             </div>
           </div>
         </ModalBody>

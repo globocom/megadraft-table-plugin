@@ -4,7 +4,7 @@ import * as Table from "reactabular-table";
 import { cloneDeep, findIndex } from "lodash";
 import * as edit from "react-edit";
 
-import {highlightedClass} from "./TableManagerHelper";
+import {highlightedClass, getTableFromClipBoard, isTableData, addSelectedCellClass} from "./TableManagerHelper";
 
 
 export default class TableView extends Component {
@@ -13,6 +13,7 @@ export default class TableView extends Component {
     super(props);
     let columns = this.buildColumns(props.rows);
     let rows = this.buildRows(props.rows, columns);
+    this.selectedCell = {rowIndex: 0, columnIndex: 0};
     this.state = {
       columns: columns,
       rows: rows
@@ -34,6 +35,9 @@ export default class TableView extends Component {
         const rows = cloneDeep(this.state.rows);
 
         rows[index].editing = columnIndex;
+        addSelectedCellClass(index, columnIndex);
+        this.selectedCell["rowIndex"] = index;
+        this.selectedCell["columnIndex"] = columnIndex;
 
         this.setState({ rows });
       },
@@ -48,7 +52,6 @@ export default class TableView extends Component {
         if (this.props.onEditCell) {
           this.props.onEditCell(index, columnIndex, value);
         }
-
         this.setState({ rows });
       }
     });
@@ -59,8 +62,11 @@ export default class TableView extends Component {
         property: propertyName,
         style: { width: 50 },
         cell: {
-          transforms: this.props.editable ? [editable(edit.input())] : [],
-          props: {className: "table-cell"}}});
+          transforms: this.props.editable ? [editable(edit.input({props: {onPaste: (e) => {this.buildTableFromPasteData(e.clipboardData.getData("Text"));}}}))] : [],
+          formatters: this.props.editable ? [(value, info) => { return this.buildTableCellFormatter(value, info);}] : [],
+          props: {
+            className: "table-cell"
+          }}});
     }
     return columns;
   }
@@ -90,11 +96,33 @@ export default class TableView extends Component {
     return "c" + columnIndex;
   }
 
+  buildTableFromPasteData(data) {
+    const rows = getTableFromClipBoard(data);
+    if(isTableData(rows)) {
+      this.props.onChangeRows(rows);
+    }
+  }
+
+  buildTableCellFormatter(value, info) {
+    return (
+      <div className="table-cell-content" onKeyUp={(e) => {this.changeSelectedCell(e);}} tabIndex="0">{value}</div>
+    );
+  }
+
+  changeSelectedCell(e) {
+    e.target.click();
+    e.preventDefault();
+  }
+
+  componentDidUpdate() {
+    addSelectedCellClass(this.selectedCell["rowIndex"], this.selectedCell["columnIndex"]);
+  }
+
   render() {
     return (
         <Table.Provider columns={this.state.columns} >
           <Table.Body className={highlightedClass(this.props.headerStyle)} rows={this.state.rows} rowKey="id" onRow={() => { return {className: "table-row"};}} />
         </Table.Provider>
-          );
+    );
   }
 }
