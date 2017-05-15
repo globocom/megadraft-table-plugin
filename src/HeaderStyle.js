@@ -24,35 +24,6 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
 
   };
 
-  const _hasMaxSelectedInputs = function() {
-    const values = Object.keys(selectedOptions).map(key => {
-      return selectedOptions[key];
-    });
-    let count = 0;
-    values.map(value => {
-      if (value) { count++; }
-    });
-    if(count >= 2) {
-      return true;
-    }
-
-    return false;
-  };
-  const _checkAndDisable = function() {
-    options.map(option => {
-      const input = document.querySelector("input.header-style[value="+ option + "]");
-      if(input) {
-        if(_hasMaxSelectedInputs() && !selectedOptions[option]) {
-          input.disabled = true;
-        }
-        else {
-          input.disabled = false;
-        }
-      }
-    });
-
-  };
-  window.setTimeout(_checkAndDisable, 500);
   return (
     <FormItem>
       <label className="bs-ui-form-control__label" title="Linha e/ou coluna destacada de uma tabela">Destaque</label>
