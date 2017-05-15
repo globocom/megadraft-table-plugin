@@ -7,6 +7,7 @@
 import React from "react";
 import {Checkbox, FormItem} from "./FormComponents";
 import {HighlightIcon} from "./Icons";
+import Tooltip from "./Tooltip";
 
 export function HeaderStyle({name, onChange, selectedOptions}) {
 
@@ -27,20 +28,19 @@ export function HeaderStyle({name, onChange, selectedOptions}) {
   return (
     <FormItem>
       <label className="bs-ui-form-control__label header-style__label" title="Linha e/ou coluna destacada de uma tabela">Destaque</label>
-      <span className="jsonform-description header-style__tooltip" data-toggle="tooltip" title="Linha e/ou coluna destacada de uma tabela"></span>
-      <script>{`
-        if ($ && $.fn && $.fn.tooltip) { $(".header-style__tooltip").tooltip(); }
-        `}</script>
-      {options.map(option => {
-        return (<label key={option} className="bs-ui-checkbox bs-ui-checkbox--small">
-          <Checkbox className="header-style"
-            name="header-style"
-            value={option}
-            onChange={_onChange}
-            isChecked={selectedOptions[option]} />
-          <HighlightIcon className={`header-style--${option} header-style-icon`} />
-        </label>);
-      })}
+      <Tooltip/>
+      <div>
+        {options.map(option => {
+          return (<label key={option} className="bs-ui-checkbox bs-ui-checkbox--small">
+            <Checkbox className="header-style"
+              name="header-style"
+              value={option}
+              onChange={_onChange}
+              isChecked={selectedOptions[option]} />
+            <HighlightIcon className={`header-style--${option} header-style-icon`} />
+          </label>);
+        })}
+      </div>
     </FormItem>
   );
 }
