@@ -13,6 +13,7 @@ export default class TableView extends Component {
     super(props);
     let columns = this.buildColumns(props.rows);
     let rows = this.buildRows(props.rows, columns);
+    this.selectedCell = {rowIndex: 0, columnIndex: 0};
     this.state = {
       columns: columns,
       rows: rows
@@ -35,6 +36,8 @@ export default class TableView extends Component {
 
         rows[index].editing = columnIndex;
         addSelectedCellClass(index, columnIndex);
+        this.selectedCell["rowIndex"] = index;
+        this.selectedCell["columnIndex"] = columnIndex;
         this.setState({ rows });
       },
       onValue: ({ value, rowData, property }) => {
@@ -108,6 +111,11 @@ export default class TableView extends Component {
   changeSelectedCell(e) {
     e.target.click();
     e.preventDefault();
+  }
+
+  componentDidUpdate() {
+    addSelectedCellClass(this.selectedCell["rowIndex"], this.selectedCell["columnIndex"]);
+    // addSelectedCellClass(this.props.selectedCell[1], this.props.selectedCell[0]);
   }
 
   render() {

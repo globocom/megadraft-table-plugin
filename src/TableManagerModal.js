@@ -29,7 +29,7 @@ export default class TableManagerModal extends Component {
     this.onChangeSelection = ::this.onChangeSelection;
     this.state = {
       data: new TableConfig(this.props.data),
-      selectedCell: [],
+      selectedCell: [0,0],
       errors: {}
     };
   }
