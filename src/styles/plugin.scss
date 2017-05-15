@@ -77,9 +77,10 @@ $highlight-border: 1px solid #eeeeee;
   table {
     display: inline-block;
     vertical-align: middle;
-    border-collapse: collapse;
+    border-collapse: separate;
     padding: 2rem;
     width: auto;
+    border-spacing: 0;
   }
 
   .table-row {
@@ -110,8 +111,8 @@ $highlight-border: 1px solid #eeeeee;
     }
 
     &.selected-cell {
-      border: 2px solid #4990e2;
-      border-radius: 3px;
+      border: 3px solid #4990e2 !important;
+      border-radius: 4px;
       box-sizing: border-box;
     }
   }
@@ -243,6 +244,10 @@ $highlight-border: 1px solid #eeeeee;
       background-color: $highlight-color;
       border-right: 0;
       border-bottom: $highlight-border;
+
+      input {
+        background-color: $highlight-color;
+      }
     }
   }
 
@@ -264,6 +269,10 @@ $highlight-border: 1px solid #eeeeee;
       background-color: $highlight-color;
       border-bottom: $highlight-border;
       border-left: 0;
+
+      input {
+        background-color: $highlight-color;
+      }
     }
   }
 
@@ -313,6 +322,10 @@ $highlight-border: 1px solid #eeeeee;
       border-bottom: 0;
       border-right: $highlight-border;
 
+      input {
+        background-color: $highlight-color;
+      }
+
       &:last-child {
         border-right: 0;
       }
@@ -328,6 +341,10 @@ $highlight-border: 1px solid #eeeeee;
     &:last-child {
       font-weight: bold;
       background-color: $highlight-color;
+
+      input {
+        background-color: $highlight-color;
+      }
 
       .table-cell {
         border-right: $highlight-border;

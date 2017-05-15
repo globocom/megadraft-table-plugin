@@ -38,6 +38,7 @@ export default class TableView extends Component {
         addSelectedCellClass(index, columnIndex);
         this.selectedCell["rowIndex"] = index;
         this.selectedCell["columnIndex"] = columnIndex;
+
         this.setState({ rows });
       },
       onValue: ({ value, rowData, property }) => {
@@ -115,7 +116,6 @@ export default class TableView extends Component {
 
   componentDidUpdate() {
     addSelectedCellClass(this.selectedCell["rowIndex"], this.selectedCell["columnIndex"]);
-    // addSelectedCellClass(this.props.selectedCell[1], this.props.selectedCell[0]);
   }
 
   render() {
@@ -123,6 +123,6 @@ export default class TableView extends Component {
         <Table.Provider columns={this.state.columns} >
           <Table.Body className={highlightedClass(this.props.headerStyle)} rows={this.state.rows} rowKey="id" onRow={() => { return {className: "table-row"};}} />
         </Table.Provider>
-          );
+    );
   }
 }
