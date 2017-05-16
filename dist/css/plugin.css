@@ -83,7 +83,6 @@
   font-size: 14px;
   height: 38px;
   line-height: 20px;
-  max-width: 128px;
   min-height: 32px;
   padding: 8px 10px;
   text-align: start;
@@ -194,6 +193,7 @@
 .table-manager-block {
   background-color: #fff;
   padding: 1rem 0;
+  overflow: hidden;
 }
 
 .table-manager-block__wrapper {
@@ -223,7 +223,6 @@
   font-size: 14px;
   height: 38px;
   line-height: 20px;
-  max-width: 128px;
   min-height: 32px;
   padding: 8px 10px;
   text-align: start;

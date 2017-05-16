@@ -20,7 +20,6 @@ $highlight-border: 1px solid #eeeeee;
   font-size: 14px;
   height: 38px;
   line-height: 20px;
-  max-width: 128px;
   min-height: 32px;
   padding: 8px 10px;
   text-align: start;
@@ -201,6 +200,7 @@ $highlight-border: 1px solid #eeeeee;
 .table-manager-block {
   background-color: #fff;
   padding: 1rem 0;
+  overflow: hidden;
 
   &__wrapper {
     display: inline-block;
