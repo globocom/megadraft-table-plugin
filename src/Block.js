@@ -9,6 +9,7 @@ import React, {Component} from "react";
 import {MegadraftPlugin, MegadraftIcons} from "megadraft";
 import TableManagerModal from "./TableManagerModal";
 import TableView from "./TableView";
+import {cloneDeep} from "lodash";
 
 const {BlockContent, CommonBlock} = MegadraftPlugin;
 
@@ -59,6 +60,7 @@ export default class TableBlock extends Component {
   }
 
   render(){
+    const data = cloneDeep(this.props.data);
     return (
       <div>
         <CommonBlock {...this.props} actions={this.actions}>
@@ -77,7 +79,7 @@ export default class TableBlock extends Component {
           </div>
           </BlockContent>
         </CommonBlock>
-        <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={this._onModalClose} onSaveRequest={this._onSave} data={this.props.data} />
+        <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={this._onModalClose} onSaveRequest={this._onSave} data={data} />
       </div>
     );
   }
