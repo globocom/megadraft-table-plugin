@@ -21,7 +21,6 @@ $highlight-border: 1px solid #eeeeee;
   height: 38px;
   line-height: 20px;
   min-height: 32px;
-  padding: 8px 10px;
   text-align: start;
   white-space: pre-line;
   box-sizing: border-box;
@@ -102,10 +101,11 @@ $highlight-border: 1px solid #eeeeee;
       border: 0px;
       font: inherit;
       line-height: inherit;
-      width: 120px;
-      padding-left: -1rem;
+      width: 100%;
+      height: 100%;
       min-height: 38px;
-      margin: -8px 0 -8px -10px;
+      // margin: -8px 0 -8px -10px;
+      padding: 0;
 
       &:focus { outline: none;}
     }
@@ -114,6 +114,10 @@ $highlight-border: 1px solid #eeeeee;
       border: 3px solid #4990e2 !important;
       border-radius: 4px;
       box-sizing: border-box;
+    }
+
+    &-content {
+      padding: 8px 10px;
     }
   }
 
@@ -224,6 +228,7 @@ $highlight-border: 1px solid #eeeeee;
 
     min-width: 50px;
     border-spacing: 0px;
+    padding: 8px 10px;
 
     &:last-child {
       border-right: 0;

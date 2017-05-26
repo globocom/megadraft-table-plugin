@@ -84,7 +84,6 @@
   height: 38px;
   line-height: 20px;
   min-height: 32px;
-  padding: 8px 10px;
   text-align: start;
   white-space: pre-line;
   box-sizing: border-box;
@@ -101,10 +100,10 @@
   border: 0px;
   font: inherit;
   line-height: inherit;
-  width: 120px;
-  padding-left: -1rem;
+  width: 100%;
+  height: 100%;
   min-height: 38px;
-  margin: -8px 0 -8px -10px;
+  padding: 0;
 }
 
 .table-manager-modal .table-cell input:focus {
@@ -115,6 +114,10 @@
   border: 3px solid #4990e2 !important;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.table-manager-modal .table-cell-content {
+  padding: 8px 10px;
 }
 
 .table-manager-modal .bs-ui-form-control .bs-ui-checkbox {
@@ -224,12 +227,12 @@
   height: 38px;
   line-height: 20px;
   min-height: 32px;
-  padding: 8px 10px;
   text-align: start;
   white-space: pre-line;
   box-sizing: border-box;
   min-width: 50px;
   border-spacing: 0px;
+  padding: 8px 10px;
 }
 
 .table-manager-block .table-cell:last-child {
