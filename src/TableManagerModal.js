@@ -88,7 +88,8 @@ export default class TableManagerModal extends Component {
              title="Tabela"
              isOpen={this.props.isOpen}
              onCloseRequest={this.props.onCloseRequest}
-             width="90%">
+             width="99%"
+             height="99%">
         <ModalBody>
           <div className="table-manager-modal__form">
 

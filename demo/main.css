@@ -17,7 +17,8 @@
     padding: 0 !important;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    height: 100%; }
   .table-manager-modal .bs-modal__footer {
     display: -webkit-box;
     display: -ms-flexbox;
