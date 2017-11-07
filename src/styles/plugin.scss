@@ -389,3 +389,44 @@ $highlight-border: 1px solid #eeeeee;
     }
   }
 }
+
+
+
+.head-tooltip-toggle {
+  // based on https://codepen.io/cristina-silva/pen/XXOpga
+  cursor: pointer;
+  position: relative;
+  margin: 4px;
+  vertical-align: middle;
+
+  .info-icon {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  //Tooltip text container
+  &::before {
+    background: #616161;
+    border-radius: 2px;
+    color: rgba(255, 255, 255, 1);
+    content: attr(aria-label); //This pulls in the text from the element with the tooltip
+    font-family: "Roboto", "Open Sans", "Helvetica", "Arial", sans-serif;
+    font-size: 12px;
+    left: -80px;
+    line-height: 16px;
+    min-height: 32px;
+    opacity: 0;
+    padding: 8px;
+    position: absolute;
+    top: -50px;
+    transform: scale(0);
+    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    width: 160px;
+  }
+
+  //Triggering the transition
+  &:hover::before {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
