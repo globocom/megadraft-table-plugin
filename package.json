@@ -1,6 +1,6 @@
 {
   "name": "megadraft-table-plugin",
-  "version": "0.0.1",
+  "version": "1.0.2",
   "description": "Megadraft Table Plugin",
   "main": "dist/megadraft-table-plugin.js",
   "style": "dist/css/plugin.css",
