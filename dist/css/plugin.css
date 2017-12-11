@@ -371,3 +371,43 @@
 .highlight-bottom.highlight-right .table-row .table-cell:last-child {
   border-left: 1px solid #eeeeee;
 }
+
+.head-tooltip-toggle {
+  cursor: pointer;
+  position: relative;
+  margin: 4px;
+  vertical-align: middle;
+}
+
+.head-tooltip-toggle .info-icon {
+  color: #666;
+  font-size: 14px;
+}
+
+.head-tooltip-toggle::before {
+  background: #616161;
+  border-radius: 2px;
+  color: white;
+  content: attr(aria-label);
+  font-family: "Roboto", "Open Sans", "Helvetica", "Arial", sans-serif;
+  font-size: 12px;
+  left: -80px;
+  line-height: 16px;
+  min-height: 32px;
+  opacity: 0;
+  padding: 8px;
+  position: absolute;
+  top: -50px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  width: 160px;
+}
+
+.head-tooltip-toggle:hover::before {
+  opacity: 0.9;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
