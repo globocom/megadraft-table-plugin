@@ -26,14 +26,14 @@ describe("TableManagerMetadata", function() {
   describe("Title Input", function() {
     it("should open with correct title value if has already one", function() {
       const titleInput = this.tableManagerMetadata.find("input[name=\"title\"]");
-      expect(titleInput.node.value).to.be.equal("test");
+      expect(titleInput.prop("value")).to.be.equal("test");
     });
   });
 
   describe("Source Input", function() {
     it("should open with correct source value if has already one", function() {
       const titleInput = this.tableManagerMetadata.find("input[name=\"source\"]");
-      expect(titleInput.node.value).to.be.equal("source");
+      expect(titleInput.prop("value")).to.be.equal("source");
     });
   });
 });

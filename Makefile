@@ -1,23 +1,27 @@
+NPM ?= $(shell which npm)
+YARN ?= $(shell which yarn)
+PKG_MANAGER ?= $(if $(YARN),$(YARN),$(NPM))
+
 setup:
-	@npm install
+	@$(PKG_MANAGER) install
 
 run:
-	@npm run start
+	@$(PKG_MANAGER) run start
 
 unit:
 	@rm -rf coverage
-	@npm run -s test
+	@$(PKG_MANAGER) run -s test
 
 lint:
-	@npm run --silent lint
+	@$(PKG_MANAGER) run --silent lint
 
 test: lint unit
 
 watch_unit:
-	@npm run --silent test:watch
+	@$(PKG_MANAGER) run --silent test:watch
 
 build:
-	@npm run --silent build
+	@$(PKG_MANAGER) run --silent build
 
 build_dist:
-	@npm run --silent build:dist
+	@$(PKG_MANAGER) run --silent build:dist
