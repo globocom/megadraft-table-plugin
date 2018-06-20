@@ -6,7 +6,6 @@
   "style": "dist/css/plugin.css",
   "dependencies": {
     "backstage-modal": "^0.3.2",
-    "enzyme-adapter-react-16": "^1.1.1",
     "prop-types": "^15.6.1",
     "react-edit": "^6.2.0",
     "reactabular-table": "8.12.0"
@@ -27,6 +26,7 @@
     "chai": "^3.5.0",
     "codeclimate-test-reporter": "^0.4.1",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "es6-shim": "^0.35.0",
     "eslint": "^2.4.0",
     "eslint-plugin-mocha": "^4.1.0",
