@@ -5,7 +5,6 @@
  */
 
 import React from "react";
-import TestUtils from "react-addons-test-utils";
 import * as Table from "reactabular-table";
 
 import {mount} from "enzyme";
@@ -101,36 +100,36 @@ describe("TableView", function() {
     });
 
     it("should render a Provider Component with columns", function() {
-      let tableView = createTable(rowsWithTwoCells);
-      let provider = TestUtils.findRenderedComponentWithType(tableView, Table.Provider);
-      expect(provider.props.columns).to.be.equal(tableView.state.columns);
+      let tableView = createTableWrapper(rowsWithTwoCells);
+      let provider = tableView.find(Table.Provider);
+      expect(provider.prop("columns")).to.be.equal(tableView.state().columns);
     });
 
     it("should render a TableBody Component with rows", function() {
-      let tableView = createTable(rowsWithTwoCells);
-      let provider = TestUtils.findRenderedComponentWithType(tableView, Table.Body);
-      expect(provider.props.rows).to.be.equal(tableView.state.rows);
+      let tableView = createTableWrapper(rowsWithTwoCells);
+      let provider = tableView.find(Table.Body);
+      expect(provider.prop("rows")).to.be.equal(tableView.state().rows);
     });
   });
 
   describe("render", function() {
+    beforeEach(function() {
+      this.tableView = createTableWrapper(twoRowsWithTwoColumns);
+    });
 
     it("should render a table strucuture", function() {
-      const tableView = createTableWrapper(twoRowsWithTwoColumns);
-      expect(tableView.find(".table-row")).to.be.lengthOf(2);
-      expect(tableView.find(".table-cell")).to.be.lengthOf(4);
+      expect(this.tableView.find(".table-row")).to.be.lengthOf(2);
+      expect(this.tableView.find(".table-cell")).to.be.lengthOf(4);
     });
 
     it("should re-render a table structure when props is updated", function() {
-      const tableView = createTableWrapper(twoRowsWithTwoColumns);
-      tableView.setProps({rows: rowsWithOneCell});
-      expect(tableView.find(".table-row")).to.be.lengthOf(1);
-      expect(tableView.find(".table-cell")).to.be.lengthOf(1);
+      this.tableView.setProps({rows: rowsWithOneCell});
+      expect(this.tableView.find(".table-row")).to.be.lengthOf(1);
+      expect(this.tableView.find(".table-cell")).to.be.lengthOf(1);
     });
 
     it("should render a content cell in right position", function() {
-      const tableView = createTableWrapper(twoRowsWithTwoColumns);
-      const firstRow = tableView.find(".table-row").first();
+      const firstRow = this.tableView.find(".table-row").first();
       expect(firstRow.find(".table-cell").first().text()).to.be.equals("00");
       expect(firstRow.find(".table-cell").last().text()).to.be.equals("01");
     });
@@ -151,10 +150,8 @@ describe("TableView", function() {
       const cellEl = tdEls.filterWhere((item) => { return item.text() === firstLineSecondColumn;}).first();
 
       cellEl.simulate("click");
-
-      const input = cellEl.find("input");
-      input.value = newValue;
-
+      const input = tableViewWrapper.find("input");
+      input.props().value = newValue;
       input.simulate("blur");
 
       expect(onEditCellSpy.called).to.be.true;

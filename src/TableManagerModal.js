@@ -4,7 +4,8 @@
  * License: MIT
  */
 
-import React, {Component, PropTypes} from "react";
+import React, {Component} from "react";
+import PropTypes from "prop-types";
 
 import Modal, {ModalBody, ModalFooter} from "backstage-modal";
 

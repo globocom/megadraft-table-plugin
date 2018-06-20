@@ -12,19 +12,16 @@
 
 .table-manager-modal .bs-modal__body {
   padding: 0 !important;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 100%;
 }
 
 .table-manager-modal .bs-modal__footer {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
 }
 
 .table-manager-modal__form {
@@ -37,9 +34,8 @@
 
 .table-manager-modal__editable-table {
   background-color: #ededed;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
   position: relative;
   overflow: auto;
 }
@@ -162,18 +158,15 @@
 }
 
 .table-manager-modal .header-style--bottom {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .table-manager-modal .header-style--right {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .table-manager-modal .header-style--left {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 
 .table-manager-modal .header-style__label {
@@ -398,16 +391,12 @@
   padding: 8px;
   position: absolute;
   top: -50px;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transform: scale(0);
   transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   width: 160px;
 }
 
 .head-tooltip-toggle:hover::before {
   opacity: 0.9;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
 }

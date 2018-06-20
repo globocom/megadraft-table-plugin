@@ -5,10 +5,9 @@
  */
 
 import React from "react";
-import TestUtils from "react-addons-test-utils";
 import {unmountComponentAtNode} from "react-dom";
 
-import {mount} from "enzyme";
+import {mount, ReactWrapper} from "enzyme";
 import chai from "chai";
 import sinon from "sinon";
 
@@ -31,6 +30,11 @@ describe("TableManagerModal", function () {
     document.body.innerHTML = "";
   });
 
+  const findReactWrapper = function(find, tableManagerModal) {
+    const dialog = tableManagerModal.find("Portal");
+    return new ReactWrapper(dialog.getElement().props.children).find(find);
+  };
+
   describe("isValid", function() {
 
     it("should be true when title is present", function(done) {
@@ -51,7 +55,7 @@ describe("TableManagerModal", function () {
     it("save callback should be called when TableConfig is valid", function(done) {
       this.tableManagerModal.setState({data: ValidTableConfig}, () => {
         const addButton = document.querySelector(".table-manager-modal__add-button");
-        TestUtils.Simulate.click(addButton);
+        addButton.click();
         expect(this.onSaveRequest.calledOnce).to.be.true;
         expect(this.onSaveRequest.getCall(0).args[0]).to.be.deep.equals(ValidTableConfig);
         done();
@@ -60,7 +64,7 @@ describe("TableManagerModal", function () {
 
     it("save callback should not be called when TableConfig is invalid", function() {
       const addButton = document.querySelector(".table-manager-modal__add-button");
-      TestUtils.Simulate.click(addButton);
+      addButton.click();
       expect(this.onSaveRequest.notCalled).to.be.true;
     });
 
@@ -70,9 +74,13 @@ describe("TableManagerModal", function () {
 
     it("should update state when input changes", function() {
       expect(this.tableManagerModal.state().data.title).to.be.equals("");
-      const titleInput = document.querySelector(".bs-modal input[name=\"title\"]");
-      titleInput.value = "Blo";
-      TestUtils.Simulate.change(titleInput);
+      const titleInput = findReactWrapper("input[name=\"title\"]", this.tableManagerModal);
+      titleInput.props().onChange({
+        target: {
+          name: "title",
+          value: "Blo"
+        }
+      });
       expect(this.tableManagerModal.state().data.title).to.be.equals("Blo");
     });
 
@@ -89,26 +97,25 @@ describe("TableManagerModal", function () {
       };
     };
 
-    const getHeaderCheckboxDOM = function(position) {
-      return document.querySelector(`.bs-modal input[name="header-style"][value="${position}"]`);
-    };
-
     const testChangeHeaderStyle = function(position) {
       it(`should update state when header-style-${position} is clicked`, function() {
         expect(this.tableManagerModal.state().data.headerStyle[position]).to.be.false;
-        const headeStyleCheckbox = getHeaderCheckboxDOM(position);
-        headeStyleCheckbox.checked = true;
-        TestUtils.Simulate.change(headeStyleCheckbox);
+        const headeStyleCheckbox = findReactWrapper(`.bs-modal input[name="header-style"][value="${position}"]`, this.tableManagerModal);
+        headeStyleCheckbox.props().onChange({
+          target: {
+            value: position,
+            checked: true
+          }
+        });
         expect(this.tableManagerModal.state().data.headerStyle[position]).to.be.true;
       });
 
       it(`should check the checkbox-${position}`, function() {
-        const headeStyleCheckbox = getHeaderCheckboxDOM(position);
         const newheaderStyle = Object.assign(getHeaderStyleObj(), {[position]: true});
 
-        expect(headeStyleCheckbox.checked).to.be.false;
+        expect(findReactWrapper(`.bs-modal input[name="header-style"][value="${position}"]`, this.tableManagerModal).prop("checked")).to.be.false;
         this.tableManagerModal.setState({data: new TableConfig({headerStyle: newheaderStyle})});
-        expect(headeStyleCheckbox.checked).to.be.true;
+        expect(findReactWrapper(`.bs-modal input[name="header-style"][value="${position}"]`, this.tableManagerModal).prop("checked")).to.be.true;
       });
     };
 
@@ -119,9 +126,13 @@ describe("TableManagerModal", function () {
 
     it("should maintain the state of others options", function() {
       this.tableManagerModal.setState({data: ValidTableConfig});
-      const headeStyleCheckbox = getHeaderCheckboxDOM("bottom");
-      headeStyleCheckbox.checked = true;
-      TestUtils.Simulate.change(headeStyleCheckbox);
+      const headeStyleCheckbox = findReactWrapper(".bs-modal input[name=\"header-style\"][value=\"bottom\"]", this.tableManagerModal);
+      headeStyleCheckbox.props().onChange({
+        target: {
+          value: "bottom",
+          checked: true
+        }
+      });
       expect(this.tableManagerModal.state().data.headerStyle.top).to.be.true;
       expect(this.tableManagerModal.state().data.headerStyle.bottom).to.be.true;
       expect(this.tableManagerModal.state().data.headerStyle.right).to.be.false;
@@ -140,7 +151,7 @@ describe("TableManagerModal", function () {
 
       it("should add a new row", function() {
         expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
-        TestUtils.Simulate.click(this.btnAddRow);
+        this.btnAddRow.click();
         expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(2);
       });
 
@@ -149,7 +160,7 @@ describe("TableManagerModal", function () {
         const selectedCell = [1, 0];
         const data = Object.assign({}, ValidTableConfig, {rows});
         this.tableManagerModal.setState({data, selectedCell});
-        TestUtils.Simulate.click(this.btnAddRow);
+        this.btnAddRow.click();
         expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(3);
         expect(this.tableManagerModal.state().data.rows[1]).to.not.deep.equals(rows[0]);
         expect(this.tableManagerModal.state().data.rows[1]).to.not.deep.equals(rows[1]);
@@ -159,18 +170,9 @@ describe("TableManagerModal", function () {
         const rows = [["A1", "B1"]];
         const data = Object.assign({}, ValidTableConfig, {rows});
         this.tableManagerModal.setState({data});
-        TestUtils.Simulate.click(this.btnAddRow);
+        this.btnAddRow.click();
         expect(this.tableManagerModal.state().data.rows[1]).to.deep.equals(["", ""]);
       });
-
-      it("should create a new row with any column when does not have rows created previously", function() {
-        const rows = [["A1", "B1"]];
-        const data = Object.assign({}, ValidTableConfig, {rows});
-        this.tableManagerModal.setState({data});
-        TestUtils.Simulate.click(this.btnAddRow);
-        expect(this.tableManagerModal.state().data.rows[1]).to.deep.equals(["", ""]);
-      });
-
     });
 
     describe("Remove", function() {
@@ -184,7 +186,7 @@ describe("TableManagerModal", function () {
         const data = Object.assign({}, ValidTableConfig, {rows});
 
         this.tableManagerModal.setState({data});
-        TestUtils.Simulate.click(this.btnRemoveRow);
+        this.btnRemoveRow.click();
 
         expect(this.tableManagerModal.state().data.rows).to.deep.equals(rows);
       });
@@ -194,7 +196,7 @@ describe("TableManagerModal", function () {
         const data = Object.assign({}, ValidTableConfig, {rows});
         this.tableManagerModal.setState({data, selectedCell: []});
 
-        TestUtils.Simulate.click(this.btnRemoveRow);
+        this.btnRemoveRow.click();
 
         expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
         expect(this.tableManagerModal.state().data.rows[0]).to.deep.equals(["A1", "B1"]);
@@ -205,7 +207,7 @@ describe("TableManagerModal", function () {
         const data = Object.assign({}, ValidTableConfig, {rows});
         this.tableManagerModal.setState({data, selectedCell: [0, 0]});
 
-        TestUtils.Simulate.click(this.btnRemoveRow);
+        this.btnRemoveRow.click();
 
         expect(this.tableManagerModal.state().data.rows).to.be.lengthOf(1);
         expect(this.tableManagerModal.state().data.rows[0]).to.deep.equals(["A2", "B2"]);
@@ -229,7 +231,7 @@ describe("TableManagerModal", function () {
       it("should add a new column", function() {
         const expected = [["A1", "B1", ""], ["A2", "B2", ""]];
 
-        TestUtils.Simulate.click(this.btnAddColumn);
+        this.btnAddColumn.click();
         expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
       });
 
@@ -237,7 +239,7 @@ describe("TableManagerModal", function () {
         const expected = [["A1", "", "B1"], ["A2", "", "B2"]];
         this.tableManagerModal.setState({selectedCell: [0, 1]});
 
-        TestUtils.Simulate.click(this.btnAddColumn);
+        this.btnAddColumn.click();
         expect(this.tableManagerModal.state().data.rows).to.deep.equals(expected);
       });
 
@@ -252,7 +254,7 @@ describe("TableManagerModal", function () {
       it("should keep the column when does have only one row and one column", function() {
         expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([[""]]);
 
-        TestUtils.Simulate.click(this.btnRemoveColumn);
+        this.btnRemoveColumn.click();
 
         expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([[""]]);
       });
@@ -262,7 +264,7 @@ describe("TableManagerModal", function () {
         const data = Object.assign({}, ValidTableConfig, {rows});
         this.tableManagerModal.setState({data, selectedCell: []});
 
-        TestUtils.Simulate.click(this.btnRemoveColumn);
+        this.btnRemoveColumn.click();
 
         expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([["A1"], ["A2"]]);
       });
@@ -272,7 +274,7 @@ describe("TableManagerModal", function () {
         const data = Object.assign({}, ValidTableConfig, {rows});
         this.tableManagerModal.setState({data, selectedCell: [0, 1]});
 
-        TestUtils.Simulate.click(this.btnRemoveColumn);
+        this.btnRemoveColumn.click();
 
         expect(this.tableManagerModal.state().data.rows).to.be.deep.equals([["B1"], ["B2"]]);
       });
@@ -283,9 +285,13 @@ describe("TableManagerModal", function () {
   describe("Source", function() {
     it("should update state when input changes", function() {
       expect(this.tableManagerModal.state().data.title).to.be.equals("");
-      const sourceInput = document.querySelector(".bs-modal input[name=\"source\"]");
-      sourceInput.value = "Blo";
-      TestUtils.Simulate.change(sourceInput);
+      const sourceInput = findReactWrapper(".bs-modal input[name=\"source\"]", this.tableManagerModal);
+      sourceInput.props().onChange({
+        target: {
+          name: "source",
+          value: "Blo"
+        }
+      });
       expect(this.tableManagerModal.state().data.source).to.be.equals("Blo");
     });
   });

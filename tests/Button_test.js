@@ -40,6 +40,8 @@ describe("Button", function () {
 
     beforeEach(function() {
       this.button.find("button").simulate("click");
+      this.button.update();
+      this.popin = this.button.find(TableManagerModal);
     });
 
     it("popin should be opened", function() {

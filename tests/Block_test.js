@@ -5,7 +5,6 @@
  */
 
 import React from "react";
-import TestUtils from "react-addons-test-utils";
 import {unmountComponentAtNode} from "react-dom";
 
 import {mount} from "enzyme";
@@ -61,7 +60,7 @@ describe("Table Block", function () {
       this.block.setState({isEditing:true});
       expect(this.block.find(TableManagerModal).prop("isOpen")).to.be.true;
       const addButton = document.querySelector(".table-manager-modal__add-button");
-      TestUtils.Simulate.click(addButton);
+      addButton.click();
     });
 
     it("should call updateData", function() {
@@ -69,6 +68,7 @@ describe("Table Block", function () {
     });
 
     it("should close popin", function() {
+      this.block.update();
       expect(this.block.find(TableManagerModal).prop("isOpen")).to.be.false;
     });
 
