@@ -160,6 +160,37 @@ describe("TableManagerHelper", function() {
       const expectedResult = [["title", "value"], ["test", "1"]];
       expect(getTableFromClipBoard(data)).to.deep.equals(expectedResult);
     });
+
+    it("should return three rows with two cells each if data has three lines and the last row is longest rows with two cells", function() {
+      const data = "title\nvalue\ntest\t1";
+      const expectedResult = [["title", ""], ["value", ""], ["test", "1"]];
+      expect(getTableFromClipBoard(data)).to.deep.equals(expectedResult);
+
+    });
+
+    it("should return three rows with two cells each if data has three lines and the longest rows has two cells", function() {
+      const data = "title\tvalue\ntest\n1";
+      const expectedResult = [["title", "value"], ["test", ""], ["1", ""]];
+      expect(getTableFromClipBoard(data)).to.deep.equals(expectedResult);
+    });
+
+    it("should return three rows with three cells each if data has three lines and the longest rows has three cells", function() {
+      const data = "title\tvalue\tdata\ntest\n1";
+      const expectedResult = [["title", "value", "data"], ["test", "", ""], ["1", "", ""]];
+      expect(getTableFromClipBoard(data)).to.deep.equals(expectedResult);
+    });
+
+    it("should return three rows with three cells each if data has three lines and the longest rows has two cells", function() {
+      const data = "title\tvalue\tdata\ntest\n1";
+      const expectedResult = [["title", "value", "data"], ["test", "", ""], ["1", "", ""]];
+      expect(getTableFromClipBoard(data)).to.deep.equals(expectedResult);
+    });
+
+    it("should return two rows with two cells if data has two lines and a tab separator for each line", function() {
+      const data = "title\tvalue\ntest\t1";
+      const expectedResult = [["title", "value"], ["test", "1"]];
+      expect(getTableFromClipBoard(data)).to.deep.equals(expectedResult);
+    });
   });
 
   describe("isTableData", function() {

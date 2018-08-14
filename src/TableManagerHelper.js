@@ -69,9 +69,22 @@ export function getTableFromClipBoard(data) {
   const rows = data.split("\n");
   let newRows = [];
 
+  const rowsSizes = [];
+
   for(let i = 0; i< rows.length; i++) {
     const cells = rows[i].split("\t");
+    rowsSizes.push(cells.length);
     newRows.push(cells);
+  }
+
+  let maxSize = Math.max.apply(null, rowsSizes);
+
+  let numberOfItems, itemsToBeAdded;
+
+  for (let i = 0; i < rowsSizes.length; i++) {
+    numberOfItems = maxSize - rowsSizes[i];
+    itemsToBeAdded = Array(numberOfItems).fill("");
+    Array.prototype.push.apply(newRows[i], itemsToBeAdded);
   }
 
   return newRows;
