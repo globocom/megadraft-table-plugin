@@ -65,18 +65,18 @@ export default class TableBlock extends Component {
       <div>
         <CommonBlock {...this.props} actions={this.actions}>
           <BlockContent>
-          <div className="table-manager-block">
+            <div className="table-manager-block">
 
 
-            <div className="table-manager-block__wrapper">
-              <h1 className="table-manager-block__title">{this.props.data.title}</h1>
-              <div className="table-manager-block__inner-wrapper">
-                <TableView rows={this.props.data.rows} onEditCell={this.props.onEditTableCell} headerStyle={this.props.data.headerStyle} editable={false} />
-                {this._sourceRender(this.props.data.source)}
+              <div className="table-manager-block__wrapper">
+                <h1 className="table-manager-block__title">{this.props.data.title}</h1>
+                <div className="table-manager-block__inner-wrapper">
+                  <TableView rows={this.props.data.rows} onEditCell={this.props.onEditTableCell} headerStyle={this.props.data.headerStyle} editable={false} />
+                  {this._sourceRender(this.props.data.source)}
+                </div>
+
               </div>
-
             </div>
-          </div>
           </BlockContent>
         </CommonBlock>
         <TableManagerModal isOpen={this.state.isEditing} onCloseRequest={this._onModalClose} onSaveRequest={this._onSave} data={data} />

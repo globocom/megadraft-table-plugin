@@ -13,20 +13,20 @@ import {Input} from "./FormComponents";
 export function TableManagerMetadata({data, errors, onChange}) {
 
   return (<div>
-      <Input title="Título"
-        name="title"
-        value={data.title}
-        errors={errors.title}
-        onChange={onChange} />
+    <Input title="Título"
+      name="title"
+      value={data.title}
+      errors={errors.title}
+      onChange={onChange} />
 
-      <Input title="Fonte"
-        name="source"
-        value={data.source}
-        onChange={onChange}
-        isRequired={false} />
+    <Input title="Fonte"
+      name="source"
+      value={data.source}
+      onChange={onChange}
+      isRequired={false} />
 
-      <HeaderStyle name="headerStyle"
-        selectedOptions={data.headerStyle}
-        onChange={onChange}/>
-    </div>);
+    <HeaderStyle name="headerStyle"
+      selectedOptions={data.headerStyle}
+      onChange={onChange}/>
+  </div>);
 }

@@ -123,9 +123,9 @@ export default class TableView extends Component {
 
   render() {
     return (
-        <Table.Provider columns={this.state.columns} >
-          <Table.Body className={highlightedClass(this.props.headerStyle)} rows={this.state.rows} rowKey="id" onRow={() => { return {className: "table-row"};}} />
-        </Table.Provider>
+      <Table.Provider columns={this.state.columns} >
+        <Table.Body className={highlightedClass(this.props.headerStyle)} rows={this.state.rows} rowKey="id" onRow={() => { return {className: "table-row"};}} />
+      </Table.Provider>
     );
   }
 }
