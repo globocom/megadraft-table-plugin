@@ -3,13 +3,15 @@
  *
  * License: MIT
  */
+const path = require("path")
+
 
 module.exports = {
   entry: [
     "./src/plugin.js"
   ],
   output: {
-    path: "./dist",
+    path: path.join(__dirname, "dist"),
     publicPath: "/dist/",
     filename: "megadraft-table-plugin.js",
     library: "megadraft-table-plugin",
@@ -29,7 +31,7 @@ module.exports = {
     loaders: [
       {
         exclude: /node_modules/,
-        loader: "babel"
+        loader: "babel-loader"
       },
       {
         test: /\.json$/,

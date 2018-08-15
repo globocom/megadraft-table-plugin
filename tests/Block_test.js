@@ -34,7 +34,7 @@ describe("Table Block", function () {
   });
 
   afterEach(function() {
-    container.updateData.reset();
+    container.updateData.resetHistory();
 
     unmountComponentAtNode(document);
     document.body.innerHTML = "";
