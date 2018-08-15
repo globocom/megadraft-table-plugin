@@ -12,30 +12,35 @@
 
 .table-manager-modal .bs-modal__body {
   padding: 0 !important;
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 100%;
 }
 
 .table-manager-modal .bs-modal__footer {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: end;
-      justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .table-manager-modal__form {
   background-color: #fbfbfb;
   border-right: 1px solid #eeeeee;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 1rem 1.5rem;
   width: 286px;
 }
 
 .table-manager-modal__editable-table {
   background-color: #ededed;
-  -ms-flex-positive: 1;
-      flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   position: relative;
   overflow: auto;
 }
@@ -83,7 +88,8 @@
   min-height: 32px;
   text-align: start;
   white-space: pre-line;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   min-width: 128px;
   cursor: text;
   letter-spacing: -0.01562rem;
@@ -110,7 +116,8 @@
 .table-manager-modal .table-cell.selected-cell {
   border: 3px solid #4990e2 !important;
   border-radius: 4px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .table-manager-modal .table-cell-content {
@@ -158,15 +165,18 @@
 }
 
 .table-manager-modal .header-style--bottom {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .table-manager-modal .header-style--right {
-  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 .table-manager-modal .header-style--left {
-  transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
 }
 
 .table-manager-modal .header-style__label {
@@ -223,7 +233,8 @@
   min-height: 32px;
   text-align: start;
   white-space: pre-line;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   min-width: 50px;
   border-spacing: 0px;
   padding: 8px 10px;
@@ -391,12 +402,17 @@
   padding: 8px;
   position: absolute;
   top: -50px;
-  transform: scale(0);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   width: 160px;
 }
 
 .head-tooltip-toggle:hover::before {
   opacity: 0.9;
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
